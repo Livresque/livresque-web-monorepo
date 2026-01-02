@@ -21,10 +21,10 @@
     <div class="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
          [ngClass]="{'!opacity-100': product.isFavorite}">
       <button (click)="toggleFavorite()" 
-              class="rounded-full bg-black/60 p-2 text-white hover:bg-primary hover:text-background-dark transition backdrop-blur-sm shadow-md"
-              [ngClass]="{'bg-primary text-background-dark': product.isFavorite}"
-              title="Ajouter aux favoris">
-        <span class="material-symbols-outlined text-[18px]">{{product.isFavorite ? 'favorite' : 'favorite'}}</span>
+          class="rounded-full bg-black/60 p-2 text-white hover:bg-primary hover:text-background-dark transition backdrop-blur-sm shadow-md"
+          [ngClass]="{'bg-primary text-background-dark': product.isFavorite}"
+          title="Ajouter aux favoris">
+        <span class="material-symbols-outlined text-[18px]" [class.empty]="!product.isFavorite">favorite</span>
       </button>
       <button *ngIf="showQuickView" 
               (click)="quickView()"
@@ -73,12 +73,12 @@
       <!-- Current Price -->
       <span class="text-lg font-bold" 
         [ngClass]="product.discountPercent ? 'text-primary' : 'text-white'">
-        {{product.price.toFixed(2)}} {{currency}}
+        {{product.price.toFixed(2)}} {{currency === 'XOF' ? 'FCFA' : currency}}
       </span>
       
       <!-- Original Price (if discounted) -->
       <span *ngIf="product.originalPrice" class="text-xs text-gray-500 line-through">
-        {{product.originalPrice.toFixed(2)}} {{currency}}
+        {{product.originalPrice.toFixed(2)}} {{currency === 'XOF' ? 'FCFA' : currency}}
       </span>
 
       <!-- Format Badge -->

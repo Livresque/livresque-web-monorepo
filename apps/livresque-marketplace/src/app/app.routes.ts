@@ -56,6 +56,10 @@ export const appRoutes: Route[] = [
   {
     path: 'author/:id',
     loadComponent: () => import('./features/author-profile/author-profile.component').then(m => m.AuthorProfileComponent)
+  },
+  {
+    path: 'subscription-plans',
+    loadComponent: () => import('./features/subscription-plans/subscription-plans.component').then(m => m.SubscriptionPlansComponent)
   }
 ];
 

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 export interface ProductCard {
   id: number;
@@ -31,6 +32,8 @@ export class ProductCardComponent {
   @Input() showQuickView: boolean = true;
   @Input() currency: string = 'XOF';
 
+  constructor(private cartService: CartService, private router: Router) {}
+
   getStarArray(): number[] {
     const fullStars = Math.floor(this.product.rating);
     const hasHalfStar = this.product.rating % 1 >= 0.5;
@@ -59,12 +62,10 @@ export class ProductCardComponent {
   }
 
   addToCart(): void {
-    // TODO: Implement add to cart logic
-    console.log('Add to cart:', this.product);
+    this.cartService.addItem(this.product);
   }
 
   quickView(): void {
-    // TODO: Implement quick view logic
-    console.log('Quick view:', this.product);
+    this.router.navigate(['book', this.product.id, 'preview']);
   }
 }

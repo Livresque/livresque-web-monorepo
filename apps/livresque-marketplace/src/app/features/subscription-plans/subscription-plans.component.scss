@@ -1,0 +1,54 @@
+// /* Styles spécifiques au composant subscription-plans */
+// .toggle-switch {
+//   @apply relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-surface-highlight transition-colors duration-200 ease-in-out;
+// }
+
+// .toggle-switch.active {
+//   @apply bg-surface-highlight;
+// }
+
+// .toggle-slider {
+//   @apply pointer-events-none inline-block h-7 w-7 transform rounded-full bg-primary shadow ring-0 transition duration-200 ease-in-out;
+// }
+
+// .toggle-slider.active {
+//   @apply translate-x-6;
+// }
+
+// .plan-card {
+//   @apply relative flex flex-col rounded-2xl bg-surface-highlight/50 border border-[#2E2419] p-8 hover:border-gray-600 transition-colors duration-300;
+// }
+
+// .plan-card.recommended {
+//   @apply bg-surface-highlight border-2 border-primary shadow-[0_0_40px_-10px_rgba(255,159,28,0.3)] transform md:-translate-y-4;
+// }
+
+// .plan-badge {
+//   @apply absolute top-0 right-0 -mt-3 mr-4 bg-primary text-background-dark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider;
+// }
+
+// .feature-icon {
+//   @apply h-14 w-14 rounded-full bg-surface-highlight flex items-center justify-center text-primary mb-4 shadow-lg border border-[#2E2419];
+// }
+
+// .faq-item {
+//   @apply rounded-lg border border-[#2E2419] bg-surface-highlight p-6;
+// }
+
+// .faq-question {
+//   @apply flex items-center justify-between font-bold text-white cursor-pointer group;
+// }
+
+// .faq-answer {
+//   @apply mt-4 text-sm text-gray-400 leading-relaxed;
+// }
+
+// /* Animation pour la rotation de la flèche */
+// .rotate-180 {
+//   transform: rotate(180deg);
+//   transition: transform 0.3s ease;
+// }
+
+// .material-symbols-outlined {
+//   transition: transform 0.3s ease;
+// }

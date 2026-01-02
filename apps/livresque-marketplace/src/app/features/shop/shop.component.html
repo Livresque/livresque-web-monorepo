@@ -30,13 +30,20 @@
 </nav>
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
 <div>
-<h1 class="text-3xl font-black text-white sm:text-4xl">La Boutique</h1>
-<p class="mt-2 text-lg text-gray-400 max-w-2xl">Découvrez nos dernières parutions, best-sellers et collections exclusives.</p>
+<h1 class="text-3xl font-black text-white sm:text-4xl">{{ pageTitle }}</h1>
+<p class="mt-2 text-lg text-gray-400 max-w-2xl">DÃ©couvrez nos derniÃ©res parutions, best-sellers et collections exclusives.</p>
 </div>
 <div class="flex gap-2">
 <button class="flex items-center gap-2 rounded-lg bg-surface-highlight border border-[#2E2419] px-4 py-2 text-sm font-medium text-white hover:border-primary transition">
 <span class="material-symbols-outlined text-[20px]">tune</span>
                             Filtres
+                        </button>
+<button 
+*ngIf="hasActiveFilters()"
+(click)="clearAllFilters()"
+class="flex items-center gap-2 rounded-lg bg-red-600/20 border border-red-600/30 px-4 py-2 text-sm font-medium text-red-400 hover:bg-red-600/30 transition">
+<span class="material-symbols-outlined text-[20px]">clear</span>
+                            Effacer
                         </button>
 </div>
 </div>
@@ -47,48 +54,33 @@
 <aside class="hidden lg:block w-64 flex-shrink-0 space-y-8">
 <div class="space-y-6">
 <div>
-<h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Catégories</h3>
+<h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">CatÃ©gories</h3>
 <div class="space-y-2">
-<label class="flex items-center gap-3 cursor-pointer group">
-<input checked="" class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-white group-hover:text-primary transition">Tous les livres</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-gray-400 group-hover:text-primary transition">Roman &amp; Fiction</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-gray-400 group-hover:text-primary transition">Science-Fiction</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-gray-400 group-hover:text-primary transition">Thriller &amp; Policier</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-gray-400 group-hover:text-primary transition">Dév. Personnel</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-gray-400 group-hover:text-primary transition">Business</span>
+<label *ngFor="let category of categories" class="flex items-center gap-3 cursor-pointer group">
+<input 
+type="checkbox" 
+[checked]="isCategorySelected(category.id)"
+(change)="toggleCategory(category.id)"
+class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" 
+/>
+<span class="material-symbols-outlined text-[14px] text-gray-400 group-hover:text-orange-500 transition">{{ category.icon }}</span>
+<span class="text-sm text-gray-400 group-hover:text-orange-500 transition" 
+[class.text-orange-500]="isCategorySelected(category.id)">{{ category.name }}</span>
 </label>
 </div>
 </div>
 <div class="border-t border-[#2E2419] pt-6">
 <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Format</h3>
 <div class="space-y-2">
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-gray-400 group-hover:text-primary transition">Ebook (EPUB/PDF)</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-gray-400 group-hover:text-primary transition">Livre Audio</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark custom-checkbox transition" type="checkbox"/>
-<span class="text-sm text-gray-400 group-hover:text-primary transition">Papier (Broché)</span>
+<label *ngFor="let format of formats" class="flex items-center gap-3 cursor-pointer group">
+<input 
+type="checkbox" 
+[checked]="isFormatSelected(format.id)"
+(change)="toggleFormat(format.id)"
+class="h-4 w-4 rounded border-[#2E2419] bg-surface-highlight text-orange-500 focus:ring-offset-background-dark custom-checkbox transition" 
+/>
+<span class="text-sm text-gray-400 group-hover:text-orange-500 transition"
+[class.text-orange-500]="isFormatSelected(format.id)">{{ format.name }}</span>
 </label>
 </div>
 </div>
@@ -96,8 +88,15 @@
 <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Note des lecteurs</h3>
 <div class="space-y-2">
 <label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark transition" name="rating" type="radio"/>
-<div class="flex text-primary">
+<input 
+type="radio" 
+name="rating"
+value="4"
+[checked]="selectedRating === 4"
+(change)="setRatingFilter(4)"
+class="h-4 w-4 border-[#2E2419] bg-surface-highlight text-orange-500 focus:ring-offset-background-dark transition" 
+/>
+<div class="flex text-orange-500">
 <span class="material-symbols-outlined text-[16px] fill-current">star</span>
 <span class="material-symbols-outlined text-[16px] fill-current">star</span>
 <span class="material-symbols-outlined text-[16px] fill-current">star</span>
@@ -107,8 +106,15 @@
 <span class="text-xs text-gray-400">&amp; plus</span>
 </label>
 <label class="flex items-center gap-3 cursor-pointer group">
-<input class="h-4 w-4 border-[#2E2419] bg-surface-highlight text-primary focus:ring-offset-background-dark transition" name="rating" type="radio"/>
-<div class="flex text-primary">
+<input 
+type="radio" 
+name="rating"
+value="3"
+[checked]="selectedRating === 3"
+(change)="setRatingFilter(3)"
+class="h-4 w-4 border-[#2E2419] bg-surface-highlight text-orange-500 focus:ring-offset-background-dark transition" 
+/>
+<div class="flex text-orange-500">
 <span class="material-symbols-outlined text-[16px] fill-current">star</span>
 <span class="material-symbols-outlined text-[16px] fill-current">star</span>
 <span class="material-symbols-outlined text-[16px] fill-current">star</span>
@@ -117,41 +123,69 @@
 </div>
 <span class="text-xs text-gray-400">&amp; plus</span>
 </label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input 
+type="radio" 
+name="rating"
+value="0"
+[checked]="selectedRating === 0"
+(change)="setRatingFilter(0)"
+class="h-4 w-4 border-[#2E2419] bg-surface-highlight text-orange-500 focus:ring-offset-background-dark transition" 
+/>
+<span class="text-sm text-gray-400 group-hover:text-primary transition">Toutes les notes</span>
+</label>
 </div>
 </div>
 <div class="border-t border-[#2E2419] pt-6">
 <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Prix</h3>
 <div class="flex items-center gap-2">
 <div class="relative flex-1">
-<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">€</span>
-<input class="w-full rounded bg-surface-highlight border border-[#2E2419] pl-6 pr-2 py-1.5 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0" placeholder="Min" type="number" value="0"/>
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">â‚¬</span>
+<input 
+type="number" 
+[(ngModel)]="priceRange.min"
+placeholder="Min" 
+min="0"
+class="w-full rounded bg-surface-highlight border border-[#2E2419] pl-6 pr-2 py-1.5 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0"
+/>
 </div>
 <span class="text-gray-500">-</span>
 <div class="relative flex-1">
-<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">€</span>
-<input class="w-full rounded bg-surface-highlight border border-[#2E2419] pl-6 pr-2 py-1.5 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0" placeholder="Max" type="number" value="100"/>
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">â‚¬</span>
+<input 
+type="number" 
+[(ngModel)]="priceRange.max"
+placeholder="Max" 
+min="0"
+class="w-full rounded bg-surface-highlight border border-[#2E2419] pl-6 pr-2 py-1.5 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0"
+/>
 </div>
 </div>
-<button class="mt-4 w-full rounded bg-surface-highlight border border-[#2E2419] py-2 text-xs font-bold uppercase text-white hover:bg-primary hover:text-background-dark hover:border-primary transition">
+<button 
+(click)="applyFilters()"
+class="mt-4 w-full rounded bg-surface-highlight border border-[#2E2419] py-2 text-xs font-bold uppercase text-white hover:bg-orange-500 hover:text-background-dark hover:border-orange-500 transition">
                             Appliquer
-                        </button>
+</button>
 </div>
 </div>
 </aside>
 <div class="flex-1">
 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-[#2E2419]">
 <p class="text-sm text-gray-400">
-                        Affichage de <span class="text-white font-medium">1-12</span> sur <span class="text-white font-medium">124</span> résultats
+                        Affichage de <span class="text-white font-medium">1-{{ products.length }}</span> sur <span class="text-white font-medium">{{ products.length }}</span> rÃ©sultats
                     </p>
 <div class="flex items-center gap-3">
 <span class="text-sm text-gray-400 hidden sm:inline">Trier par:</span>
 <div class="relative">
-<select class="appearance-none rounded-lg bg-surface-highlight border border-[#2E2419] py-2 pl-4 pr-10 text-sm text-white focus:border-primary focus:ring-0 cursor-pointer hover:border-primary/50 transition">
-<option>Popularité</option>
-<option>Nouveautés</option>
-<option>Prix croissant</option>
-<option>Prix décroissant</option>
-<option>Meilleures notes</option>
+<select 
+[(ngModel)]="sortBy"
+(change)="onSortChange()"
+class="appearance-none rounded-lg bg-surface-highlight border border-[#2E2419] py-2 pl-4 pr-10 text-sm text-white focus:border-primary focus:ring-0 cursor-pointer hover:border-primary/50 transition">
+<option value="popularite">PopularitÃ©</option>
+<option value="nouveautes">NouveautÃ©s</option>
+<option value="prix-croissant">Prix croissant</option>
+<option value="prix-decroissant">Prix dÃ©croissant</option>
+<option value="note">Meilleures notes</option>
 </select>
 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
 <span class="material-symbols-outlined text-[20px]">expand_more</span>

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+import { CurrencyService } from '../../services/currency.service';
 
 interface MenuItem {
   label: string;
@@ -17,13 +19,19 @@ interface MenuItem {
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  selectedCurrency = 'XOF';
+  private cartService = inject(CartService);
+  private currencyService = inject(CurrencyService);
+  
+  selectedCurrency$ = this.currencyService.selectedCurrency$;
   currencies = ['XOF', 'EUR', 'USD'];
   showCurrencyDropdown = false;
   isSticky = false;
 
+  cartItemCount$ = this.cartService.totalItems$;
+
   menu: MenuItem[] = [
     { label: 'Boutique', icon: 'storefront', routerLink: '/shop' },
+    { label: 'Plans', icon: 'diamond', routerLink: '/subscription-plans' },
     {
       label: 'Sur Nous', icon: 'info', children: [
         { label: 'À propos', icon: 'business', routerLink: '/about' },
@@ -39,7 +47,7 @@ export class HeaderComponent {
   }
 
   selectCurrency(currency: string) {
-    this.selectedCurrency = currency;
+    this.currencyService.selectCurrency(currency);
     this.showCurrencyDropdown = false;
   }
 

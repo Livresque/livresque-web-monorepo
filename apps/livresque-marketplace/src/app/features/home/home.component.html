@@ -33,8 +33,8 @@
                         </p>
 </div>
 <div class="flex flex-wrap gap-3">
-<a routerLink="/register" class="flex h-12 min-w-[140px] cursor-pointer items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-background-dark transition hover:scale-105 active:scale-95">
-                            Commencer à lire
+                <a routerLink="/subscription-plans" class="flex h-12 min-w-[140px] cursor-pointer items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-background-dark transition hover:scale-105 active:scale-95">
+                            Essayer gratuitement 14 jours
                         </a>
 <a routerLink="/shop" class="flex h-12 min-w-[140px] cursor-pointer items-center justify-center rounded-lg bg-surface-highlight px-6 text-base font-bold text-white transition hover:bg-[#453625] hover:scale-105 active:scale-95">
                             Parcourir
@@ -74,30 +74,30 @@
 </div>
 <div class="mx-auto max-w-[1280px] px-4 py-4 sm:px-6 lg:px-8 relative z-10">
 <div class="no-scrollbar flex gap-3 overflow-x-auto pb-2 sm:pb-0">
-<a routerLink="/shop" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
+<button (click)="navigateToShopByCategory('Romans')" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
 <span class="material-symbols-outlined text-[18px] text-gray-400 group-hover:text-primary empty">menu_book</span>
 <span class="text-sm font-medium text-white">Romans</span>
-</a>
-<a routerLink="/shop" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
+</button>
+<button (click)="navigateToShopByCategory('Education')" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
 <span class="material-symbols-outlined text-[18px] text-gray-400 group-hover:text-primary empty">school</span>
 <span class="text-sm font-medium text-white">Éducation</span>
-</a>
-<a routerLink="/shop" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
+</button>
+<button (click)="navigateToShopByCategory('Business')" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
 <span class="material-symbols-outlined text-[18px] text-gray-400 group-hover:text-primary empty">trending_up</span>
 <span class="text-sm font-medium text-white">Business</span>
-</a>
-<a routerLink="/shop" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
+</button>
+<button (click)="navigateToShopByCategory('Développement personnel')" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
 <span class="material-symbols-outlined text-[18px] text-gray-400 group-hover:text-primary empty">psychology</span>
 <span class="text-sm font-medium text-white">Dév. personnel</span>
-</a>
-<a routerLink="/shop" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
+</button>
+<button (click)="navigateToShopByCategory('Jeunesse')" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
 <span class="material-symbols-outlined text-[18px] text-gray-400 group-hover:text-primary empty">child_care</span>
 <span class="text-sm font-medium text-white">Jeunesse</span>
-</a>
-<a routerLink="/shop" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
+</button>
+<button (click)="navigateToShopByCategory('Science-Fiction')" class="group flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-[#2E2419] bg-transparent px-5 transition hover:border-primary hover:bg-surface-highlight">
 <span class="material-symbols-outlined text-[18px] text-gray-400 group-hover:text-primary empty">science</span>
 <span class="text-sm font-medium text-white">Science-Fiction</span>
-</a>
+</button>
 </div>
 </div>
 </section>
@@ -113,9 +113,9 @@
 <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
 <div class="flex items-center justify-between mb-8">
 <h2 class="text-2xl font-bold leading-tight tracking-tight text-white">Tendances du moment</h2>
-<a class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" routerLink="/shop">
+<button (click)="navigateToShopBySection('tendances')" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
                         Voir tout <span class="material-symbols-outlined text-[18px] empty">arrow_forward</span>
-</a>
+</button>
 </div>
 <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
 <app-product-card
@@ -189,9 +189,9 @@ variant="default"
 <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
 <div class="flex items-center justify-between mb-8">
 <h2 class="text-2xl font-bold leading-tight tracking-tight text-white">Nouveautés</h2>
-<a class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" routerLink="/shop">
+<button (click)="navigateToShopBySection('nouveautes')" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
                         Voir tout <span class="material-symbols-outlined text-[18px] empty">arrow_forward</span>
-</a>
+</button>
 </div>
 <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 <app-product-card
@@ -311,6 +311,11 @@ variant="default"
 <span class="material-symbols-outlined text-primary empty">percent</span>
                         Livres en Promotion
                     </h2>
+<div class="flex items-center gap-2">
+<button (click)="navigateToShopBySection('promotions')" class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                            Voir tout <span class="material-symbols-outlined text-[18px] empty">arrow_forward</span>
+</button>
+<div class="w-px h-4 bg-gray-600 mx-1"></div>
 <div class="flex gap-2">
 <button class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-600 hover:border-primary hover:text-primary text-gray-400 transition">
 <span class="material-symbols-outlined text-sm empty">arrow_back</span>
@@ -318,6 +323,7 @@ variant="default"
 <button class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-600 hover:border-primary hover:text-primary text-gray-400 transition">
 <span class="material-symbols-outlined text-sm empty">arrow_forward</span>
 </button>
+</div>
 </div>
 </div>
 <div class="flex overflow-x-auto gap-6 pb-6 no-scrollbar snap-x">

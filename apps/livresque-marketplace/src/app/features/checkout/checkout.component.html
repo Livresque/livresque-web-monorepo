@@ -27,25 +27,44 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 <div>
 <label class="block text-sm font-medium text-gray-300 mb-1.5" for="firstname">Prénom</label>
-<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="firstname" name="firstname" placeholder="Jean" type="text"/>
+<input 
+[(ngModel)]="firstName"
+class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" 
+id="firstname" 
+name="firstname" 
+placeholder="Jean" 
+type="text"/>
 </div>
 <div>
 <label class="block text-sm font-medium text-gray-300 mb-1.5" for="lastname">Nom</label>
-<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="lastname" name="lastname" placeholder="Dupont" type="text"/>
+<input 
+[(ngModel)]="lastName"
+class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" 
+id="lastname" 
+name="lastname" 
+placeholder="Dupont" 
+type="text"/>
 </div>
 </div>
 <div>
 <label class="block text-sm font-medium text-gray-300 mb-1.5" for="email">Adresse e-mail</label>
-<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="email" name="email" placeholder="jean.dupont@email.com" type="email"/>
+<input 
+[(ngModel)]="email"
+class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" 
+id="email" 
+name="email" 
+placeholder="jean.dupont@email.com" 
+type="email"/>
 <p class="text-xs text-gray-500 mt-1.5">Vos livres numériques seront envoyés à cette adresse.</p>
 </div>
 <div>
 <label class="block text-sm font-medium text-gray-300 mb-1.5" for="country">Pays</label>
-<select class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white focus:border-primary focus:ring-0 focus:outline-none" id="country" name="country">
-<option>France</option>
-<option>Canada</option>
-<option>Belgique</option>
-<option>Suisse</option>
+<select 
+[(ngModel)]="country"
+class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white focus:border-primary focus:ring-0 focus:outline-none" 
+id="country" 
+name="country">
+<option *ngFor="let countryOption of countries" [value]="countryOption.name">{{ countryOption.name }}</option>
 </select>
 </div>
 </div>
@@ -59,7 +78,12 @@
 <div class="space-y-4">
 <div class="border border-[#2E2419] rounded-lg p-4 has-[:checked]:border-primary has-[:checked]:bg-surface-highlight transition-all">
 <label class="flex items-center cursor-pointer">
-<input checked="" class="h-4 w-4 text-primary bg-surface-dark border-[#2E2419] focus:ring-primary focus:ring-offset-surface-dark" name="payment-method" type="radio"/>
+<input 
+[(ngModel)]="paymentMethod" 
+value="card"
+class="h-4 w-4 text-primary bg-surface-dark border-[#2E2419] focus:ring-primary focus:ring-offset-surface-dark" 
+name="payment-method" 
+type="radio"/>
 <span class="ml-3 font-medium text-white">Carte Bancaire</span>
 <div class="ml-auto flex items-center gap-1">
 <img alt="Visa" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcq6Usk3GbH7gMNQNstk-21E2BvGnd6S6qimo6f1Kq929Hl1UBFvEiacNjpJSkjlPM4VQEdDIqGFI8qh49jjFW6I-hLcPPQVjA_0_Lv6jhP9OqBQWsEHmDsTvdqAZEGdrKLcWAZbhOKIFN7Ab3UwsF1Q8G0VdrBzBv_Qvz2q-Te9HBzkeFosR9aTe2QpoAzYd0jvos1YieQpPzNjEMNzndM--k-ngZ3pDC8n4Ofv4u1o2Ltl3ulQLclF_5bBx4kgqpjQnIN4FjeYs"/>
@@ -69,7 +93,12 @@
 </div>
 <div class="border border-[#2E2419] rounded-lg p-4 has-[:checked]:border-primary has-[:checked]:bg-surface-highlight transition-all">
 <label class="flex items-center cursor-pointer">
-<input class="h-4 w-4 text-primary bg-surface-dark border-[#2E2419] focus:ring-primary focus:ring-offset-surface-dark" name="payment-method" type="radio"/>
+<input 
+[(ngModel)]="paymentMethod" 
+value="mobile"
+class="h-4 w-4 text-primary bg-surface-dark border-[#2E2419] focus:ring-primary focus:ring-offset-surface-dark" 
+name="payment-method" 
+type="radio"/>
 <span class="ml-3 font-medium text-white">Mobile Money</span>
 <div class="ml-auto flex items-center gap-2">
 <img alt="Mobile Money" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR9jbDw3hmmN_0KTkAEtBfLUrZQTpdsXjrknJIkQfdRxJeGRYUzdokC-CGBJU6mel_d6N70Ib60yqmPecBQrqAnYYlxTqoh4goxRi14R2bR_YRxvrip8dgtee6QIPb-YQbF4jU5O5m89bteT-4y1qm5p6LBM-qDw1w2H03lqpthNHozdz_crAWRqkLe6AVxgUODo_obwUMUD8uFwf3UK_ZXRhu_5Pw4sGhq6NDbzhqv8gBIAl60Yjv1kXK7MFRIls3Hlz9Vt5mdeg"/>
@@ -77,23 +106,57 @@
 </label>
 </div>
 </div>
-<div class="mt-6 space-y-5">
+<div class="mt-6 space-y-5" *ngIf="paymentMethod === 'card'">
 <div>
 <label class="block text-sm font-medium text-gray-300 mb-1.5" for="card-number">Numéro de carte</label>
 <div class="relative">
-<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] pl-10 pr-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="card-number" name="card-number" placeholder="0000 0000 0000 0000" type="text"/>
+<input 
+[(ngModel)]="cardNumber"
+class="w-full rounded-md bg-surface-highlight border border-[#2E2419] pl-10 pr-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" 
+id="card-number" 
+name="card-number" 
+placeholder="0000 0000 0000 0000" 
+type="text"/>
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-base">credit_card</span>
 </div>
 </div>
 <div class="grid grid-cols-2 gap-5">
 <div>
 <label class="block text-sm font-medium text-gray-300 mb-1.5" for="expiry-date">Date d'expiration</label>
-<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="expiry-date" name="expiry-date" placeholder="MM/AA" type="text"/>
+<input 
+[(ngModel)]="expiryDate"
+class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" 
+id="expiry-date" 
+name="expiry-date" 
+placeholder="MM/AA" 
+type="text"/>
 </div>
 <div>
 <label class="block text-sm font-medium text-gray-300 mb-1.5" for="cvc">CVC</label>
-<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="cvc" name="cvc" placeholder="123" type="text"/>
+<input 
+[(ngModel)]="cvc"
+class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" 
+id="cvc" 
+name="cvc" 
+placeholder="123" 
+type="text"/>
 </div>
+</div>
+</div>
+<div class="mt-6 space-y-5" *ngIf="paymentMethod === 'mobile'">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1.5" for="mobile-number">Numéro Mobile Money</label>
+<div class="relative">
+<input 
+[(ngModel)]="mobileMoneyNumber"
+class="w-full rounded-md bg-surface-highlight border border-[#2E2419] pl-10 pr-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" 
+id="mobile-number" 
+name="mobile-number" 
+placeholder="+221 70 123 45 67" 
+type="tel"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-base">phone</span>
+</div>
+<p class="text-xs text-gray-500 mt-1.5">Votre numéro de téléphone associé au service Mobile Money.</p>
 </div>
 </div>
 </div>
@@ -107,37 +170,36 @@
 <h2 class="text-xl font-bold text-white">Récapitulatif de la commande</h2>
 </div>
 <div class="py-6 space-y-4">
-<div class="flex gap-4">
+<div *ngFor="let item of items$ | async" class="flex gap-4">
 <div class="w-20 h-28 flex-shrink-0 rounded-md overflow-hidden">
-<img alt="Atomic Habits" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8wE18Evj2UwxZkW8TWQueqGUaz4znQ0osxB68WOm3GRkzK-1uZeKNA6OaKrlb1GrGroHOH8afF8vy0yFUpjxvpiKxySWl4NKi1W5G772uBBLYDSABqMwVYAag8d2O1C45_agSE7XptG7sbE-AooxYrKsvm5aIStAqDAk0pOkIc1dhLBerabOozIgVk6N8w5YJs0OqO_dW8nnNhp1GK844Y3UU-YhV78425Q_EtC4-qDxAMWD4MgtLVyA-jeK-Y3L9ZFruAghmGLk"/>
+<img [alt]="item.title" class="w-full h-full object-cover" [src]="item.imageUrl"/>
 </div>
 <div class="flex-1">
-<h3 class="font-bold text-white leading-tight">Atomic Habits</h3>
-<p class="text-sm text-gray-400">James Clear</p>
+<h3 class="font-bold text-white leading-tight">{{ item.title }}</h3>
+<p class="text-sm text-gray-400">{{ item.author }}</p>
+<p *ngIf="item.quantity > 1" class="text-sm text-gray-400">Quantité: {{ item.quantity }}</p>
 </div>
-<p class="font-bold text-white">14,99 €</p>
+<p class="font-bold text-white">{{ formatPrice(item.price * item.quantity, (selectedCurrency$ | async) || 'XOF') }}</p>
 </div>
-<div class="flex gap-4">
-<div class="w-20 h-28 flex-shrink-0 rounded-md overflow-hidden">
-<img alt="La Forêt Sombre" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTGG4qb_3KpOrGAdSxl7IBZjlp8e3jIwFrH4TFqP16ECt6_cXWdhsu3FspRxLDoul0PagphMx0vKlu82wNvH3Xsj36j2xnPZ4t3TUNfB7G1mKXDSruG8nL3Jzdw6hT1VPpuVOHcT1kKS3S9471nvavvXdOTJyr0KCwIWoKgA4jJh4WFVzlrpGKeQIJdVwrtT-FK6ms2vQGAtSJUf6KpWisOsD40DTxRZWQ5auFKhWK1uDxnCZmYu3cYHMWvvTZX4PhNS44yAAYVI8"/>
-</div>
-<div class="flex-1">
-<h3 class="font-bold text-white leading-tight">La Forêt Sombre</h3>
-<p class="text-sm text-gray-400">Liu Cixin</p>
-</div>
-<p class="font-bold text-white">18,50 €</p>
+<div *ngIf="!(items$ | async) || (items$ | async)!.length === 0" class="text-center py-8">
+<p class="text-gray-400">Aucun article dans votre panier</p>
+<a href="/cart" class="text-primary hover:underline mt-2 inline-block">Retourner au panier</a>
 </div>
 </div>
 <div class="py-4 border-t border-[#2E2419]">
 <form class="flex gap-3">
-<input class="flex-1 rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" placeholder="Code promo" type="text"/>
-<button class="px-4 py-2 rounded-md bg-surface-highlight text-white text-sm font-bold hover:bg-[#453625] transition-colors">Appliquer</button>
+<input 
+[(ngModel)]="promoCode"
+class="flex-1 rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" 
+placeholder="Code promo" 
+type="text"/>
+<button type="button" class="px-4 py-2 rounded-md bg-surface-highlight text-white text-sm font-bold hover:bg-[#453625] transition-colors">Appliquer</button>
 </form>
 </div>
 <div class="py-4 border-t border-[#2E2419] space-y-2">
 <div class="flex justify-between text-gray-300 text-sm">
 <span>Sous-total</span>
-<span>33,49 €</span>
+<span>{{ formatPrice((totalPrice$ | async) || 0, (selectedCurrency$ | async) || 'XOF') }}</span>
 </div>
 <div class="flex justify-between text-gray-300 text-sm">
 <span>Taxes</span>
@@ -146,7 +208,7 @@
 </div>
 <div class="py-4 border-t border-[#2E2419] flex justify-between items-center">
 <span class="text-lg font-bold text-white">Total</span>
-<span class="text-2xl font-black text-primary">33,49 €</span>
+<span class="text-2xl font-black text-primary">{{ formatPrice((totalPrice$ | async) || 0, (selectedCurrency$ | async) || 'XOF') }}</span>
 </div>
 <div class="mt-6">
 <button class="w-full flex h-14 min-w-[140px] cursor-pointer items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-background-dark transition hover:scale-105 active:scale-95 shadow-[0_0_20px_-5px_rgba(255,159,28,0.5)]">

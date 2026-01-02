@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { ProductCard, ProductCardComponent } from '../../shared/components/product-card/product-card.component';
@@ -18,6 +18,18 @@ export class HomeComponent {
     'Romans', 'Science-fiction', 'Fantasy', 'Thriller', 'Romance', 
     'Biographies', 'Histoire', 'Développement personnel', 'Sciences', 'Jeunesse'
   ];
+
+  constructor(private router: Router) {}
+
+  // Navigation vers la boutique avec filtre de catégorie
+  navigateToShopByCategory(category: string) {
+    this.router.navigate(['/shop'], { queryParams: { category } });
+  }
+
+  // Navigation vers la boutique avec filtre de section spéciale
+  navigateToShopBySection(section: string) {
+    this.router.navigate(['/shop'], { queryParams: { section } });
+  }
 
   // Produits en promotion
   promoProducts: ProductCard[] = [

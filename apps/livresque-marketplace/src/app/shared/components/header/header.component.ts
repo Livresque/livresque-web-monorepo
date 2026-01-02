@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,9 +10,10 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  selectedCurrency = 'XOF (FCFA)';
-  currencies = ['XOF (FCFA)', 'EUR  (€)', 'USD ($)'];
+  selectedCurrency = 'XOF';
+  currencies = ['XOF', 'EUR', 'USD'];
   showCurrencyDropdown = false;
+  isSticky = false;
 
   toggleCurrencyDropdown() {
     this.showCurrencyDropdown = !this.showCurrencyDropdown;
@@ -21,5 +22,10 @@ export class HeaderComponent {
   selectCurrency(currency: string) {
     this.selectedCurrency = currency;
     this.showCurrencyDropdown = false;
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.isSticky = window.scrollY > 0;
   }
 }

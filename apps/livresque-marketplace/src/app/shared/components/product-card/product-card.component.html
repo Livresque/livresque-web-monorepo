@@ -72,13 +72,13 @@
     <div class="flex items-center gap-2 mt-1">
       <!-- Current Price -->
       <span class="text-lg font-bold" 
-            [ngClass]="product.discountPercent ? 'text-primary' : 'text-white'">
-        {{product.price.toFixed(2)}} €
+        [ngClass]="product.discountPercent ? 'text-primary' : 'text-white'">
+        {{product.price.toFixed(2)}} {{currency}}
       </span>
       
       <!-- Original Price (if discounted) -->
       <span *ngIf="product.originalPrice" class="text-xs text-gray-500 line-through">
-        {{product.originalPrice.toFixed(2)}} €
+        {{product.originalPrice.toFixed(2)}} {{currency}}
       </span>
 
       <!-- Format Badge -->

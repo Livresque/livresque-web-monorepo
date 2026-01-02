@@ -29,6 +29,7 @@ export class ProductCardComponent {
   @Input() variant: 'default' | 'compact' = 'default';
   @Input() showAddToCart: boolean = true;
   @Input() showQuickView: boolean = true;
+  @Input() currency: string = 'XOF';
 
   getStarArray(): number[] {
     const fullStars = Math.floor(this.product.rating);

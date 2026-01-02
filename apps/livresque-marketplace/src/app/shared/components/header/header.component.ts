@@ -2,6 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+interface MenuItem {
+  label: string;
+  icon?: string;
+  routerLink?: string;
+  children?: MenuItem[];
+}
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -14,6 +21,18 @@ export class HeaderComponent {
   currencies = ['XOF', 'EUR', 'USD'];
   showCurrencyDropdown = false;
   isSticky = false;
+
+  menu: MenuItem[] = [
+    { label: 'Boutique', icon: 'storefront', routerLink: '/shop' },
+    {
+      label: 'Sur Nous', icon: 'info', children: [
+        { label: 'À propos', icon: 'business', routerLink: '/about' },
+        { label: 'FAQ', icon: 'help', routerLink: '/faq' },
+        { label: 'Contact', icon: 'contact_mail', routerLink: '/contact' }
+      ]
+    },
+    { label: 'Panier', icon: 'shopping_bag', routerLink: '/cart' }
+  ];
 
   toggleCurrencyDropdown() {
     this.showCurrencyDropdown = !this.showCurrencyDropdown;

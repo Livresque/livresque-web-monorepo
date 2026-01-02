@@ -32,47 +32,31 @@
 </div>
 <div class="flex items-center gap-4 sm:gap-6">
 <nav class="hidden md:flex items-center gap-6">
-<a class="flex items-center gap-2 text-sm font-medium text-white transition hover:text-primary" routerLink="/shop">
-<span class="material-symbols-outlined text-[20px] empty">storefront</span>
-                        Boutique
+    <ng-container *ngFor="let item of menu">
+        <div *ngIf="item.children?.length; else simpleLink" class="relative group">
+            <button class="flex items-center gap-1 text-sm font-medium text-white transition hover:text-primary">
+                <span class="material-symbols-outlined text-[20px] empty">{{item.icon}}</span>
+                {{ item.label }}
+                <span class="material-symbols-outlined text-[16px] empty">expand_more</span>
+            </button>
+            <div class="absolute left-0 top-full mt-2 w-48 rounded-md border border-[#2E2419] bg-surface-dark shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100]">
+                <div class="py-1">
+                    <a *ngFor="let child of item.children" [routerLink]="child.routerLink" class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-surface-highlight">
+                        <span class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px] empty">{{child.icon}}</span>
+                            {{ child.label }}
+                        </span>
                     </a>
-<div class="relative group">
-<button class="flex items-center gap-1 text-sm font-medium text-white transition hover:text-primary">
-<span class="material-symbols-outlined text-[20px] empty">info</span>
-                            Sur Nous
-                            <span class="material-symbols-outlined text-[16px] empty">expand_more</span>
-</button>
-<div class="absolute left-0 top-full mt-2 w-48 rounded-md border border-[#2E2419] bg-surface-dark shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100]">
-<div class="py-1">
-<a class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-surface-highlight" href="#">
-<span class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px] empty">business</span>
-                                        À propos
-                                    </span>
-</a>
-<a class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-surface-highlight" href="#">
-<span class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px] empty">help</span>
-                                        FAQ
-                                    </span>
-</a>
-<a class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-surface-highlight" href="#">
-<span class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px] empty">contact_mail</span>
-                                        Contact
-                                    </span>
-</a>
-</div>
-</div>
-</div>
-<!-- <a class="flex items-center gap-2 text-sm font-medium text-white transition hover:text-primary" href="#">
-<span class="material-symbols-outlined text-[20px] empty">library_books</span>
-                        Bibliothèque
-                    </a> -->
-<a class="flex items-center gap-2 text-sm font-medium text-white transition hover:text-primary" href="#">
-<span class="material-symbols-outlined text-[20px] empty">shopping_bag</span>
-                        Panier
-                    </a>
+                </div>
+            </div>
+        </div>
+        <ng-template #simpleLink>
+            <a class="flex items-center gap-2 text-sm font-medium text-white transition hover:text-primary" [routerLink]="item.routerLink">
+                <span class="material-symbols-outlined text-[20px] empty">{{item.icon}}</span>
+                {{ item.label }}
+            </a>
+        </ng-template>
+    </ng-container>
 </nav>
 <div class="relative group">
 <button class="flex items-center gap-1.5 text-sm font-medium text-white transition hover:text-primary bg-surface-highlight px-3 py-1.5 rounded-md border border-[#2E2419] hover:border-primary/50">

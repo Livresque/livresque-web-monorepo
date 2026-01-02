@@ -1,0 +1,318 @@
+﻿<div class="relative flex min-h-screen w-full flex-col">
+  <app-header></app-header>
+  <main class="flex-1">
+<section class="relative bg-background-dark pt-8 pb-12 lg:pt-16 lg:pb-24 overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.05]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0 C 20 20 50 100 100 0 Z" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M0 100 C 40 40 80 80 100 0" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+<circle cx="20" cy="20" fill="currentColor" r="1"></circle>
+<circle cx="80" cy="80" fill="currentColor" r="2"></circle>
+</svg>
+<svg class="absolute top-0 right-0 text-primary w-[500px] h-[500px] translate-x-1/2 -translate-y-1/2 opacity-20 blur-3xl" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="currentColor" r="50"></circle>
+</svg>
+</div>
+<div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
+<nav class="flex items-center gap-2 text-sm text-gray-400 mb-8 overflow-x-auto whitespace-nowrap no-scrollbar">
+<a class="hover:text-primary transition-colors" href="#">Accueil</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Livres</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Romans</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-white font-medium">L'Ombre du Vent</span>
+</nav>
+<div class="lg:grid lg:grid-cols-12 lg:gap-16">
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="relative w-full max-w-sm mx-auto lg:max-w-none aspect-[2/3] rounded-lg shadow-[0_20px_50px_-12px_rgba(255,159,28,0.15)] overflow-hidden group border border-[#2E2419]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtNbvRcRGQnHEH6A0xazN0k9Yq1JMIcbEBpl_b7whkd9NPGrn57P4fzXnTITCzSU2ktHCcHetuElJLoalPA4UG4vQsmgg-IhfiQv094XHZE0-u3JRrafhC5LoJkYc9kQLMjXMXvJ9cD9_aK9APiz5-wpGOCalXgmJwmsY2XR9JWsOV95xdeR_cka5MikySlI_h-PLv5of4hQJJ4XmJ1a9vSckYrrCjrONP4G2uSdTcyBGMIFdinfWxsyrMkR6YSP47Y7B7PMlW5Ww');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+<div class="absolute top-4 right-4 z-20">
+<button class="rounded-full bg-background-dark/80 p-3 text-white backdrop-blur-md hover:text-primary hover:scale-110 transition-all border border-white/10 shadow-lg" title="Ajouter aux favoris">
+<span class="material-symbols-outlined text-[20px] fill-current">favorite_border</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 rounded-lg border border-[#2E2419] bg-surface-highlight py-3 text-sm font-medium text-white transition hover:bg-[#3E3224] hover:border-primary/50">
+<span class="material-symbols-outlined text-[20px] text-primary">visibility</span>
+                                Lire un extrait
+                            </button>
+<button class="flex items-center justify-center gap-2 rounded-lg border border-[#2E2419] bg-surface-highlight py-3 text-sm font-medium text-white transition hover:bg-[#3E3224] hover:border-primary/50">
+<span class="material-symbols-outlined text-[20px] text-primary">share</span>
+                                Partager
+                            </button>
+</div>
+</div>
+<div class="lg:col-span-7 mt-10 lg:mt-0 flex flex-col justify-start">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary ring-1 ring-inset ring-primary/20">
+                                Best-Seller
+                            </span>
+<span class="inline-flex items-center rounded-full bg-surface-highlight px-3 py-1 text-xs font-medium text-gray-300 ring-1 ring-inset ring-gray-700">
+                                Mystère &amp; Thriller
+                            </span>
+</div>
+<h1 class="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight">
+                                L'Ombre du Vent
+                            </h1>
+<div class="flex items-center gap-2 text-lg">
+<span class="text-gray-400">par</span>
+<a class="font-bold text-primary hover:underline" href="#">Carlos Ruiz Zafón</a>
+</div>
+<div class="flex items-center gap-4 py-2">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+</div>
+<a class="text-sm font-medium text-gray-300 hover:text-primary underline decoration-gray-600 underline-offset-4" href="#avis">
+                                    4.9 (2,845 avis)
+                                </a>
+</div>
+<div class="mt-4 flex items-end gap-4 border-b border-[#2E2419] pb-8">
+<div class="flex flex-col">
+<span class="text-sm text-gray-400 line-through">24,90 €</span>
+<span class="text-4xl font-black text-white">19,90 €</span>
+</div>
+<span class="mb-1 rounded bg-green-900/30 px-2 py-1 text-xs font-bold text-green-400 border border-green-900">-20%</span>
+</div>
+<div class="mt-8 flex flex-col gap-4 sm:flex-row">
+<button class="flex h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-8 text-base font-bold text-background-dark shadow-[0_0_20px_-5px_rgba(255,159,28,0.4)] transition hover:bg-white hover:scale-[1.02] active:scale-95">
+<span class="material-symbols-outlined">shopping_cart</span>
+                                    Acheter maintenant
+                                </button>
+<button class="flex h-14 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary/5 px-6 text-base font-bold text-primary transition hover:bg-primary/10 hover:border-primary active:scale-95">
+<span class="material-symbols-outlined">bookmark_add</span>
+<span class="hidden sm:inline">Ajouter à la bibliothèque</span>
+</button>
+</div>
+<div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 rounded-xl bg-surface-highlight p-4 border border-[#2E2419]">
+<div class="flex flex-col items-center gap-1 text-center border-r border-[#2E2419] last:border-0 sm:last:border-0">
+<span class="text-xs text-gray-400 uppercase tracking-wider">Pages</span>
+<span class="font-bold text-white">560</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-center border-r border-[#2E2419] sm:border-r last:border-0 sm:last:border-0">
+<span class="text-xs text-gray-400 uppercase tracking-wider">Langue</span>
+<span class="font-bold text-white">Français</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-center border-r border-[#2E2419] last:border-0 sm:last:border-0">
+<span class="text-xs text-gray-400 uppercase tracking-wider">Date</span>
+<span class="font-bold text-white">2001</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-center">
+<span class="text-xs text-gray-400 uppercase tracking-wider">Format</span>
+<span class="font-bold text-white">ePub, PDF</span>
+</div>
+</div>
+<div class="mt-8">
+<h3 class="text-lg font-bold text-white mb-2">Résumé</h3>
+<p class="text-gray-400 leading-relaxed">
+                                Dans la Barcelone de l'après-guerre civile, "L'Ombre du Vent" raconte l'histoire d'un jeune garçon, Daniel Sempere, qui est emmené par son père au Cimetière des Livres Oubliés, une bibliothèque secrète conservant des ouvrages délaissés par le monde.
+                                <br/><br/>
+                                Daniel y choisit un livre, L'Ombre du Vent, écrit par un certain Julian Carax. Fasciné par sa lecture, il tente de trouver d'autres œuvres de cet auteur méconnu, pour découvrir qu'un homme mystérieux s'est donné pour mission de brûler tous les exemplaires existants...
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-dark border-t border-[#2E2419] relative">
+<div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+<div class="flex overflow-x-auto border-b border-[#2E2419] no-scrollbar">
+<button class="border-b-2 border-primary px-6 py-4 text-sm font-bold text-white">Description Détaillée</button>
+<button class="border-b-2 border-transparent px-6 py-4 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-700 transition">Détails du Produit</button>
+<button class="border-b-2 border-transparent px-6 py-4 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-700 transition" id="avis">Avis Lecteurs (2845)</button>
+</div>
+<div class="grid lg:grid-cols-3 gap-12 py-12">
+<div class="lg:col-span-2 space-y-8">
+<div>
+<h3 class="text-2xl font-bold text-white mb-4">À propos de l'œuvre</h3>
+<div class="prose prose-invert prose-orange max-w-none text-gray-300 leading-7">
+<p class="mb-4">
+                                    Une énigme littéraire au cœur de Barcelone. Découvrez le Cimetière des Livres Oubliés dans ce chef-d'œuvre qui a conquis le monde entier.
+                                </p>
+<p class="mb-4">
+                                    L'Ombre du Vent est bien plus qu'un simple roman ; c'est une lettre d'amour à la littérature elle-même. À travers les yeux de Daniel, nous explorons une Barcelone gothique et brumeuse, pleine de secrets, de passions interdites et de vengeances inassouvies. La plume de Zafón est magique, tissant une atmosphère envoûtante qui capture le lecteur dès la première page.
+                                </p>
+<p>
+                                    C'est une histoire dans une histoire, un labyrinthe de miroirs où la réalité et la fiction s'entremêlent. Les personnages sont riches, complexes et profondément humains, chacun portant ses propres cicatrices de l'histoire tumultueuse de l'Espagne.
+                                </p>
+</div>
+</div>
+<div class="border-t border-[#2E2419] pt-8">
+<h3 class="text-2xl font-bold text-white mb-6">Avis de la communauté</h3>
+<div class="flex flex-col gap-6">
+<div class="rounded-xl bg-surface-highlight p-6 border border-[#2E2419]">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold border border-primary/30">JD</div>
+<div>
+<p class="font-bold text-white text-sm">Jean Dupont</p>
+<p class="text-xs text-gray-500">Il y a 2 jours</p>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm italic">"Absolument époustouflant. Je n'ai pas pu le lâcher. L'ambiance de Barcelone est décrite avec une telle précision que j'avais l'impression d'y être."</p>
+</div>
+<div class="rounded-xl bg-surface-highlight p-6 border border-[#2E2419]">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center text-gray-300 font-bold border border-gray-600">SM</div>
+<div>
+<p class="font-bold text-white text-sm">Sophie Martin</p>
+<p class="text-xs text-gray-500">Il y a 1 semaine</p>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current">star_half</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm italic">"Un classique moderne. L'intrigue est complexe mais tout se recoupe parfaitement à la fin. Un peu long au milieu, mais ça vaut le coup."</p>
+</div>
+<button class="w-full py-3 rounded-lg border border-[#2E2419] text-sm font-bold text-white hover:bg-surface-highlight transition">
+                                        Voir tous les avis
+                                    </button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1">
+<div class="sticky top-24 flex flex-col gap-6">
+<div class="rounded-xl bg-[#2E2419]/50 p-6 border border-[#2E2419]">
+<h4 class="font-bold text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+                                    À propos de l'auteur
+                                </h4>
+<div class="flex items-center gap-4 mb-4">
+<div class="h-16 w-16 rounded-full bg-gray-600 bg-cover bg-center border-2 border-primary" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaLcN1fioxfva1lZaqrDTmSPeosZTaZNHn2dnNt58yBdJ4dnVL8tplQ-igGdDsDBZuuSord1gBJ7Hb8p8jC6dfDW9kgkiHtFSfR7loGmc5mKFRItbdk5a84d3C-OS-Eyel29rACn23cUWLVJXPLURN2pkfZZuUVAJP_F7P5UG3BX1FHCPB-fmz5nd0YHSBiIDHufxLSd0EIMrRnfNZQS3W5-X89aIV1W3kzSAZWDcY3E0Gu8M-9mre-5YPuWtuc55E-YWOEcW-l8I')"></div>
+<div>
+<p class="font-bold text-white">Carlos Ruiz Zafón</p>
+<p class="text-xs text-gray-400">Écrivain espagnol</p>
+</div>
+</div>
+<p class="text-sm text-gray-400 mb-4">
+                                    Auteur mondialement connu pour sa saga du Cimetière des Livres Oubliés. Ses œuvres ont été traduites dans plus de 40 langues.
+                                </p>
+<a class="text-xs font-bold text-primary hover:underline flex items-center gap-1" href="#">
+                                    Voir tous ses livres <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<div class="rounded-xl bg-[#2E2419]/50 p-6 border border-[#2E2419]">
+<h4 class="font-bold text-white mb-4">Détails techniques</h4>
+<dl class="space-y-3 text-sm">
+<div class="flex justify-between">
+<dt class="text-gray-500">ISBN</dt>
+<dd class="text-gray-300 font-mono">978-2-266-14336-7</dd>
+</div>
+<div class="flex justify-between">
+<dt class="text-gray-500">Éditeur</dt>
+<dd class="text-gray-300">Grasset &amp; Fasquelle</dd>
+</div>
+<div class="flex justify-between">
+<dt class="text-gray-500">Série</dt>
+<dd class="text-gray-300 text-right">Le Cimetière des Livres Oubliés (Tome 1)</dd>
+</div>
+<div class="flex justify-between">
+<dt class="text-gray-500">Catégorie</dt>
+<dd class="text-gray-300">Roman, Fiction</dd>
+</div>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 relative bg-background-dark">
+<div class="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="lines-vertical-2" patternUnits="userSpaceOnUse" width="40">
+<line class="text-primary" stroke="currentColor" stroke-width="1" x1="20" x2="20" y1="0" y2="40"></line>
+</pattern>
+</defs>
+<rect fill="url(#lines-vertical-2)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold leading-tight tracking-tight text-white">Vous aimerez aussi</h2>
+<a class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline" href="#">
+                        Voir tout <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-gray-800 border border-[#2E2419] group-hover:border-primary/50 transition">
+<div class="h-full w-full bg-cover bg-center transition duration-300 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrZPkWSt4Jp8DoxCZo_0aHdPGLTI4tf2m71NzHMfBfVMwtpdECkoCGIgrc27gnjHimUnIiLEfspu2o_39xiOyEJeRF0kP78X2Zg6L8PYw-ZQDHS2pHdxnTvo7UKepwgsJWaARyTitKWWwIea-iK74YhL6GgQg3HVasbkwPjEn4LIYvRrPAN0rfawMnJ1OEwzr2bZYQqcTktLnWS7y2G7UQFu-uzDG2Aa28TY7tZwqGBwWvqsvJPYQ2beS41-IZW2dWVNYmoZcWgCA');"></div>
+<button class="absolute top-2 right-2 rounded-full bg-black/40 p-2 text-white hover:bg-primary hover:text-white transition backdrop-blur-sm z-20">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="line-clamp-1 text-base font-bold text-white group-hover:text-primary transition">Sapiens</h3>
+<p class="text-sm text-gray-400">Yuval Noah Harari</p>
+<span class="font-bold text-white">22,00 €</span>
+</div>
+</div>
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-gray-800 border border-[#2E2419] group-hover:border-primary/50 transition">
+<div class="h-full w-full bg-cover bg-center transition duration-300 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTGG4qb_3KpOrGAdSxl7IBZjlp8e3jIwFrH4TFqP16ECt6_cXWdhsu3FspRxLDoul0PagphMx0vKlu82wNvH3Xsj36j2xnPZ4t3TUNfB7G1mKXDSruG8nL3Jzdw6hT1VPpuVOHcT1kKS3S9471nvavvXdOTJyr0KCwIWoKgA4jJh4WFVzlrpGKeQIJdVwrtT-FK6ms2vQGAtSJUf6KpWisOsD40DTxRZWQ5auFKhWK1uDxnCZmYu3cYHMWvvTZX4PhNS44yAAYVI8');"></div>
+<button class="absolute top-2 right-2 rounded-full bg-black/40 p-2 text-white hover:bg-primary hover:text-white transition backdrop-blur-sm z-20">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="line-clamp-1 text-base font-bold text-white group-hover:text-primary transition">La Forêt Sombre</h3>
+<p class="text-sm text-gray-400">Liu Cixin</p>
+<span class="font-bold text-white">18,50 €</span>
+</div>
+</div>
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-gray-800 border border-[#2E2419] group-hover:border-primary/50 transition">
+<div class="h-full w-full bg-cover bg-center transition duration-300 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9FzgYfG1yvTrQaWLfxbmZYPNOThk5ZN3c0FpqU-EDKS4D6E-z_HmKvUrxH_hgtqAG66ldXlIdGgE9GFoWTzsBbNzTMXCl9UeYfx8QUVXkdxzMvR-qhHIqtKVk0j7vENVyE-kAEb3eReNSwLZ0-RvfbA4JcZZ0O2yI_XOiDEKIbXdBSLUZK_toDUe7g494WzcLlruGudLFSB1q6DXYF0E6Nkl3vIHl1uxyp1SdHjnnO3LPw0jYg7z8RId2nO3ukE0l5IfV9CN67_Q');"></div>
+<button class="absolute top-2 right-2 rounded-full bg-black/40 p-2 text-white hover:bg-primary hover:text-white transition backdrop-blur-sm z-20">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="line-clamp-1 text-base font-bold text-white group-hover:text-primary transition">L'Art de la Guerre</h3>
+<p class="text-sm text-gray-400">Sun Tzu</p>
+<span class="font-bold text-white">9,90 €</span>
+</div>
+</div>
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-gray-800 border border-[#2E2419] group-hover:border-primary/50 transition">
+<div class="h-full w-full bg-cover bg-center transition duration-300 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8wE18Evj2UwxZkW8TWQueqGUaz4znQ0osxB68WOm3GRkzK-1uZeKNA6OaKrlb1GrGroHOH8afF8vy0yFUpjxvpiKxySWl4NKi1W5G772uBBLYDSABqMwVYAag8d2O1C45_agSE7XptG7sbE-AooxYrKsvm5aIStAqDAk0pOkIc1dhLBerabOozIgVk6N8w5YJs0OqO_dW8nnNhp1GK844Y3UU-YhV78425Q_EtC4-qDxAMWD4MgtLVyA-jeK-Y3L9ZFruAghmGLk');"></div>
+<button class="absolute top-2 right-2 rounded-full bg-black/40 p-2 text-white hover:bg-primary hover:text-white transition backdrop-blur-sm z-20">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="line-clamp-1 text-base font-bold text-white group-hover:text-primary transition">Atomic Habits</h3>
+<p class="text-sm text-gray-400">James Clear</p>
+<span class="font-bold text-white">14,99 €</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+  <app-footer></app-footer>
+</div>

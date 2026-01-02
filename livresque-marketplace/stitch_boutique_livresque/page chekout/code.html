@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Livresque - Finalisation de la commande</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Livresque</h2>
+</a>
+</div>
+<div class="flex items-center gap-4 sm:gap-6">
+<div class="flex items-center gap-2 text-sm text-gray-400">
+<span class="material-symbols-outlined text-base">lock</span>
+<span>Paiement Sécurisé</span>
+</div>
+<a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Aide</a>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="relative py-12 lg:py-16">
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<svg class="absolute -top-[10%] -left-[10%] text-primary/5 w-[50%] h-[50%]" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.7,-72.2C55.3,-66.1,65.3,-55.3,73.1,-43.3C80.9,-31.3,86.5,-18.1,85.6,-5.3C84.7,7.5,77.3,19.9,68.6,30.8C59.9,41.7,49.9,51.1,38.6,58.8C27.3,66.5,14.7,72.5,0.7,71.3C-13.3,70.1,-25.6,61.7,-37.8,54.1C-50,46.5,-62.1,39.7,-70.6,29.3C-79.1,18.9,-84,4.9,-82.1,-8.1C-80.2,-21.1,-71.5,-33.1,-61.6,-42.6C-51.7,-52.1,-40.6,-59.1,-29.3,-66.1C-18,-73.1,-6.5,-80.1,5.2,-80.9C16.9,-81.7,30.1,-60.3,42.7,-72.2Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+<svg class="absolute bottom-[10%] right-[0%] text-primary/5 w-[40%] h-[40%]" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M38.1,-49.9C49.9,-44.1,60.5,-35.1,66.3,-23.8C72.1,-12.5,73.1,1.1,69.5,13.8C65.9,26.5,57.7,38.3,47.4,47.4C37.1,56.5,24.7,62.9,11.5,65.6C-1.7,68.3,-15.7,67.3,-28.6,61.8C-41.5,56.3,-53.3,46.3,-61.8,34.1C-70.3,21.9,-75.5,7.5,-73.8,-6.3C-72.1,-20.1,-63.5,-33.3,-52.7,-43.4C-41.9,-53.5,-28.9,-60.5,-16.2,-61.2C-3.5,-61.9,8.5,-56.3,26.3,-55.7" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+</div>
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="max-w-3xl mx-auto mb-10 text-center">
+<h1 class="text-4xl lg:text-5xl font-black tracking-tight text-white">Finalisez votre commande</h1>
+<p class="mt-4 text-lg text-gray-400">Presque fini ! Confirmez vos informations pour recevoir vos livres.</p>
+</div>
+<div class="lg:grid lg:grid-cols-12 lg:gap-12">
+<div class="lg:col-span-7">
+<div class="space-y-10">
+<div class="bg-surface-dark border border-[#2E2419] rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-[#2E2419] flex items-center gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark flex items-center justify-center font-bold text-lg">1</div>
+<h2 class="text-xl font-bold text-white">Informations de livraison</h2>
+</div>
+<div class="p-6 space-y-5">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1.5" for="firstname">Prénom</label>
+<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="firstname" name="firstname" placeholder="Jean" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1.5" for="lastname">Nom</label>
+<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="lastname" name="lastname" placeholder="Dupont" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1.5" for="email">Adresse e-mail</label>
+<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="email" name="email" placeholder="jean.dupont@email.com" type="email"/>
+<p class="text-xs text-gray-500 mt-1.5">Vos livres numériques seront envoyés à cette adresse.</p>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1.5" for="country">Pays</label>
+<select class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white focus:border-primary focus:ring-0 focus:outline-none" id="country" name="country">
+<option>France</option>
+<option>Canada</option>
+<option>Belgique</option>
+<option>Suisse</option>
+</select>
+</div>
+</div>
+</div>
+<div class="bg-surface-dark border border-[#2E2419] rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-[#2E2419] flex items-center gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark flex items-center justify-center font-bold text-lg">2</div>
+<h2 class="text-xl font-bold text-white">Méthode de paiement</h2>
+</div>
+<div class="p-6">
+<div class="space-y-4">
+<div class="border border-[#2E2419] rounded-lg p-4 has-[:checked]:border-primary has-[:checked]:bg-surface-highlight transition-all">
+<label class="flex items-center cursor-pointer">
+<input checked="" class="h-4 w-4 text-primary bg-surface-dark border-[#2E2419] focus:ring-primary focus:ring-offset-surface-dark" name="payment-method" type="radio"/>
+<span class="ml-3 font-medium text-white">Carte Bancaire</span>
+<div class="ml-auto flex items-center gap-1">
+<img alt="Visa" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcq6Usk3GbH7gMNQNstk-21E2BvGnd6S6qimo6f1Kq929Hl1UBFvEiacNjpJSkjlPM4VQEdDIqGFI8qh49jjFW6I-hLcPPQVjA_0_Lv6jhP9OqBQWsEHmDsTvdqAZEGdrKLcWAZbhOKIFN7Ab3UwsF1Q8G0VdrBzBv_Qvz2q-Te9HBzkeFosR9aTe2QpoAzYd0jvos1YieQpPzNjEMNzndM--k-ngZ3pDC8n4Ofv4u1o2Ltl3ulQLclF_5bBx4kgqpjQnIN4FjeYs"/>
+<img alt="Mastercard" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZXf257INBcREBSV4nEO5AelJTv15PgNL0SKHxMtbwZhvhkrmjxX0kVJHeKA0jSdizJxo5UY6uIwA2rTsQU4t-l8VJens8z7zJhdIqgguMaP7ntnx9J-PG2EJx4Qxv0Iov8FlazqZZkezNpZi-TLg3gLQXzLU5tNNZGnnUVraJy5XC28HAkra-Dcrr5syWF-SVDwzCulQDYr--0-ZV660GQVaCQOxNLc8f1gZN0hZAnWRdNv6CW3m3mm2U43VfekhmOPoZXcLcR-4"/>
+</div>
+</label>
+</div>
+<div class="border border-[#2E2419] rounded-lg p-4 has-[:checked]:border-primary has-[:checked]:bg-surface-highlight transition-all">
+<label class="flex items-center cursor-pointer">
+<input class="h-4 w-4 text-primary bg-surface-dark border-[#2E2419] focus:ring-primary focus:ring-offset-surface-dark" name="payment-method" type="radio"/>
+<span class="ml-3 font-medium text-white">Mobile Money</span>
+<div class="ml-auto flex items-center gap-2">
+<img alt="Mobile Money" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR9jbDw3hmmN_0KTkAEtBfLUrZQTpdsXjrknJIkQfdRxJeGRYUzdokC-CGBJU6mel_d6N70Ib60yqmPecBQrqAnYYlxTqoh4goxRi14R2bR_YRxvrip8dgtee6QIPb-YQbF4jU5O5m89bteT-4y1qm5p6LBM-qDw1w2H03lqpthNHozdz_crAWRqkLe6AVxgUODo_obwUMUD8uFwf3UK_ZXRhu_5Pw4sGhq6NDbzhqv8gBIAl60Yjv1kXK7MFRIls3Hlz9Vt5mdeg"/>
+</div>
+</label>
+</div>
+</div>
+<div class="mt-6 space-y-5">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1.5" for="card-number">Numéro de carte</label>
+<div class="relative">
+<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] pl-10 pr-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="card-number" name="card-number" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-base">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-5">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1.5" for="expiry-date">Date d'expiration</label>
+<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="expiry-date" name="expiry-date" placeholder="MM/AA" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1.5" for="cvc">CVC</label>
+<input class="w-full rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" id="cvc" name="cvc" placeholder="123" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 mt-10 lg:mt-0">
+<div class="bg-surface-dark border border-[#2E2419] rounded-xl p-6 lg:sticky lg:top-24">
+<div class="pb-4 border-b border-[#2E2419] flex items-center gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark flex items-center justify-center font-bold text-lg">3</div>
+<h2 class="text-xl font-bold text-white">Récapitulatif de la commande</h2>
+</div>
+<div class="py-6 space-y-4">
+<div class="flex gap-4">
+<div class="w-20 h-28 flex-shrink-0 rounded-md overflow-hidden">
+<img alt="Atomic Habits" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8wE18Evj2UwxZkW8TWQueqGUaz4znQ0osxB68WOm3GRkzK-1uZeKNA6OaKrlb1GrGroHOH8afF8vy0yFUpjxvpiKxySWl4NKi1W5G772uBBLYDSABqMwVYAag8d2O1C45_agSE7XptG7sbE-AooxYrKsvm5aIStAqDAk0pOkIc1dhLBerabOozIgVk6N8w5YJs0OqO_dW8nnNhp1GK844Y3UU-YhV78425Q_EtC4-qDxAMWD4MgtLVyA-jeK-Y3L9ZFruAghmGLk"/>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-white leading-tight">Atomic Habits</h3>
+<p class="text-sm text-gray-400">James Clear</p>
+</div>
+<p class="font-bold text-white">14,99 €</p>
+</div>
+<div class="flex gap-4">
+<div class="w-20 h-28 flex-shrink-0 rounded-md overflow-hidden">
+<img alt="La Forêt Sombre" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTGG4qb_3KpOrGAdSxl7IBZjlp8e3jIwFrH4TFqP16ECt6_cXWdhsu3FspRxLDoul0PagphMx0vKlu82wNvH3Xsj36j2xnPZ4t3TUNfB7G1mKXDSruG8nL3Jzdw6hT1VPpuVOHcT1kKS3S9471nvavvXdOTJyr0KCwIWoKgA4jJh4WFVzlrpGKeQIJdVwrtT-FK6ms2vQGAtSJUf6KpWisOsD40DTxRZWQ5auFKhWK1uDxnCZmYu3cYHMWvvTZX4PhNS44yAAYVI8"/>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-white leading-tight">La Forêt Sombre</h3>
+<p class="text-sm text-gray-400">Liu Cixin</p>
+</div>
+<p class="font-bold text-white">18,50 €</p>
+</div>
+</div>
+<div class="py-4 border-t border-[#2E2419]">
+<form class="flex gap-3">
+<input class="flex-1 rounded-md bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" placeholder="Code promo" type="text"/>
+<button class="px-4 py-2 rounded-md bg-surface-highlight text-white text-sm font-bold hover:bg-[#453625] transition-colors">Appliquer</button>
+</form>
+</div>
+<div class="py-4 border-t border-[#2E2419] space-y-2">
+<div class="flex justify-between text-gray-300 text-sm">
+<span>Sous-total</span>
+<span>33,49 €</span>
+</div>
+<div class="flex justify-between text-gray-300 text-sm">
+<span>Taxes</span>
+<span>Calculées à l'étape suivante</span>
+</div>
+</div>
+<div class="py-4 border-t border-[#2E2419] flex justify-between items-center">
+<span class="text-lg font-bold text-white">Total</span>
+<span class="text-2xl font-black text-primary">33,49 €</span>
+</div>
+<div class="mt-6">
+<button class="w-full flex h-14 min-w-[140px] cursor-pointer items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-background-dark transition hover:scale-105 active:scale-95 shadow-[0_0_20px_-5px_rgba(255,159,28,0.5)]">
+<span class="material-symbols-outlined mr-2">lock</span>
+                                    Payer en toute sécurité
+                                </button>
+<p class="text-xs text-gray-500 mt-4 text-center">En cliquant sur "Payer", vous acceptez les <a class="text-primary hover:underline" href="#">Conditions Générales de Vente</a> de Livresque.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-[#2E2419] bg-background-dark/80 pt-12 pb-8 relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="dots-footer" patternUnits="userSpaceOnUse" width="20">
+<rect class="text-primary" fill="currentColor" height="2" width="2" x="0" y="0"></rect>
+</pattern>
+</defs>
+<rect fill="url(#dots-footer)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center">
+<p>© 2023 Livresque. Tous droits réservés.</p>
+<div class="flex justify-center gap-4 mt-4 text-sm text-gray-400">
+<a class="hover:text-primary transition" href="#">Confidentialité</a>
+<a class="hover:text-primary transition" href="#">Conditions</a>
+<a class="hover:text-primary transition" href="#">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

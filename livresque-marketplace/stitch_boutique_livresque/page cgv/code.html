@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CGV - Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .prose-custom {
+            @apply text-gray-300;
+        }
+        .prose-custom h1, .prose-custom h2, .prose-custom h3, .prose-custom h4, .prose-custom h5, .prose-custom h6 {
+            @apply text-white font-bold;
+        }
+        .prose-custom h1 {
+            @apply text-4xl mb-6;
+        }
+        .prose-custom h2 {
+            @apply text-2xl mt-10 mb-4 pb-2 border-b border-surface-highlight;
+        }
+        .prose-custom p {
+            @apply leading-relaxed mb-4;
+        }
+        .prose-custom ul {
+            @apply list-disc list-inside space-y-2 pl-4 mb-4;
+        }
+         .prose-custom li::marker {
+            color: #FF9F1C;
+        }
+        .prose-custom a {
+            @apply text-primary hover:underline;
+        }
+        .prose-custom strong {
+            @apply text-white font-semibold;
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Livresque</h2>
+</a>
+</div>
+<div class="flex items-center gap-4 sm:gap-6">
+<nav class="hidden md:flex items-center gap-6">
+<a class="flex items-center gap-2 text-sm font-medium text-white transition hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+                        Boutique
+                    </a>
+<a class="flex items-center gap-2 text-sm font-medium text-white transition hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">library_books</span>
+                        Bibliothèque
+                    </a>
+<a class="flex items-center gap-2 text-sm font-medium text-white transition hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                        Panier
+                    </a>
+</nav>
+<button class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-lg bg-primary px-4 text-sm font-bold text-background-dark transition hover:bg-opacity-90">
+                    Se connecter
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-1 py-16 sm:py-24 relative">
+<div class="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
+<svg class="absolute -top-1/4 -left-32 text-primary w-1/2 h-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M43.6,-71.4C56.6,-62.7,67.3,-50.9,74.5,-37.2C81.7,-23.5,85.4,-7.9,82.8,6.2C80.2,20.3,71.2,33,60.8,44.2C50.4,55.5,38.6,65.3,25.4,71.1C12.2,76.9,-2.4,78.7,-16.2,74.9C-30,71.1,-43,61.7,-54.6,50.8C-66.2,39.9,-76.4,27.5,-79.8,13.6C-83.2,-0.3,-80,-15.7,-71.7,-28.1C-63.4,-40.5,-50.1,-49.9,-37.6,-58.3C-25.1,-66.8,-13.4,-74.3,0.3,-74.8C14,-75.3,28.1,-68.8,43.6,-71.4Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+<svg class="absolute -bottom-1/4 -right-32 text-primary w-1/2 h-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M49.9,-75.1C64,-65.3,74.4,-50,79.2,-33.9C84,-17.8,83.3,-0.9,77.5,13.8C71.7,28.5,60.9,40.9,48.5,50.7C36.1,60.4,22.1,67.4,6.7,69.9C-8.7,72.4,-25.5,70.3,-40.2,63.2C-54.9,56.1,-67.5,43.9,-74.2,29.4C-81,14.9,-82,-1.9,-76.8,-16.9C-71.5,-31.9,-60,-45.1,-46.8,-54.3C-33.6,-63.5,-18.7,-68.8,-2.7,-67.5C13.2,-66.2,28.5,-58.4,49.9,-75.1Z" fill="currentColor" transform="translate(100 100) rotate(180)"></path>
+</svg>
+</div>
+<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="prose-custom max-w-none">
+<div class="text-center mb-12">
+<h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white">Conditions Générales de Vente</h1>
+<p class="text-lg text-gray-400 mt-2">Dernière mise à jour : 12 Octobre 2023</p>
+</div>
+<h2>Article 1 : Objet</h2>
+<p>Les présentes conditions régissent les ventes par la société Livresque de livres numériques (ebooks). Ces conditions s'appliquent à l'exclusion de toutes autres conditions.</p>
+<h2>Article 2 : Prix</h2>
+<p>Les prix de nos produits sont indiqués en euros toutes taxes comprises (TVA et autres taxes applicables au jour de la commande), sauf indication contraire. Toutes les commandes quelle que soit leur origine sont payables en euros. La société Livresque se réserve le droit de modifier ses prix à tout moment, mais le produit sera facturé sur la base du tarif en vigueur au moment de la validation de la commande.</p>
+<h2>Article 3 : Commande et Validation</h2>
+<p>Vous pouvez passer commande sur notre site internet : www.livresque.fr. Les informations contractuelles sont présentées en langue française et feront l'objet d'une confirmation au plus tard au moment de la validation de votre commande.</p>
+<ul>
+<li>L'utilisateur sélectionne un ou plusieurs livres numériques et les ajoute à son panier.</li>
+<li>Il valide son panier et procède au paiement.</li>
+<li>Un email de confirmation récapitulant la commande lui est envoyé.</li>
+</ul>
+<p>La validation de votre commande vaut acceptation de ces Conditions Générales de Vente.</p>
+<h2>Article 4 : Paiement</h2>
+<p>Le fait de valider votre commande implique pour vous l'obligation de payer le prix indiqué. Le règlement de vos achats s'effectue par carte bancaire grâce au système sécurisé Stripe. Le débit de la carte n'est effectué qu'au moment de la confirmation de la commande.</p>
+<h2>Article 5 : Rétractation et Remboursement</h2>
+<p>Conformément à l'article L. 221-28 du Code de la consommation, le droit de rétractation ne peut être exercé pour les contrats de fourniture d'un contenu numérique non fourni sur un support matériel dont l'exécution a commencé après accord préalable exprès du consommateur et renoncement exprès à son droit de rétractation. <strong>En acceptant ces CGV, vous renoncez expressément à votre droit de rétractation</strong> pour tout achat de livre numérique sur notre plateforme.</p>
+<h2>Article 6 : Disponibilité et Accès</h2>
+<p>Nos produits sont proposés tant qu'ils sont visibles sur le site Livresque.fr. Après paiement, les livres numériques achetés sont accessibles immédiatement dans la section "Ma Bibliothèque" de votre compte utilisateur. Vous pouvez les lire directement sur notre plateforme via nos applications web et mobiles compatibles.</p>
+<h2>Article 7 : Propriété Intellectuelle</h2>
+<p>Tous les éléments du site Livresque sont et restent la propriété intellectuelle et exclusive de la société Livresque et de ses partenaires (éditeurs, auteurs). Nul n'est autorisé à reproduire, exploiter, rediffuser, ou utiliser à quelque titre que ce soit, même partiellement, des éléments du site qu'ils soient logiciels, visuels ou sonores. Les fichiers numériques acquis sont protégés par des mesures techniques de protection (DRM) pour limiter la copie et le partage non autorisé.</p>
+<h2>Article 8 : Responsabilité</h2>
+<p>La société Livresque ne saurait être tenue pour responsable des dommages résultant d'une mauvaise utilisation du service. La responsabilité de la société Livresque ne saurait être engagée pour tous les inconvénients ou dommages inhérents à l'utilisation du réseau Internet, notamment une rupture de service, une intrusion extérieure ou la présence de virus informatiques.</p>
+<h2>Article 9 : Droit applicable en cas de litiges</h2>
+<p>La langue du présent contrat est la langue française. Les présentes conditions de vente sont soumises à la loi française. En cas de litige, les tribunaux français seront les seuls compétents.</p>
+<h2>Article 10 : Données Personnelles</h2>
+<p>La société Livresque se réserve le droit de collecter les informations nominatives et les données personnelles vous concernant. Elles sont nécessaires à la gestion de votre commande, ainsi qu'à l'amélioration des services et des informations que nous vous adressons. Pour plus d'informations, veuillez consulter notre <a href="#">Politique de Confidentialité</a>.</p>
+</div>
+</div>
+</main>
+<footer class="border-t border-[#2E2419] bg-background-dark pt-12 pb-8 relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="dots-footer" patternUnits="userSpaceOnUse" width="20">
+<rect class="text-primary" fill="currentColor" height="2" width="2" x="0" y="0"></rect>
+</pattern>
+</defs>
+<rect fill="url(#dots-footer)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
+<div class="col-span-2 lg:col-span-2">
+<a class="flex items-center gap-2 mb-4 text-white" href="#">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-lg font-bold">Livresque</span>
+</a>
+<p class="text-sm text-gray-500 mb-6 max-w-sm">La plateforme de lecture numérique qui vous accompagne partout. Découvrez, lisez, partagez votre passion.</p>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Explorer</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Nouveautés</a></li>
+<li><a class="hover:text-primary transition" href="#">Meilleures ventes</a></li>
+<li><a class="hover:text-primary transition" href="#">Catégories</a></li>
+<li><a class="hover:text-primary transition" href="#">Promotions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Compte</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Se connecter</a></li>
+<li><a class="hover:text-primary transition" href="#">Ma bibliothèque</a></li>
+<li><a class="hover:text-primary transition" href="#">Liste de souhaits</a></li>
+<li><a class="hover:text-primary transition" href="#">Abonnement</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Légal</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Conditions de Vente</a></li>
+<li><a class="hover:text-primary transition" href="#">Conditions d'Utilisation</a></li>
+<li><a class="hover:text-primary transition" href="#">Politique de Confidentialité</a></li>
+<li><a class="hover:text-primary transition" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-4 lg:col-span-2 border-t border-[#2E2419] lg:border-none pt-8 lg:pt-0 mt-2 lg:mt-0">
+<h4 class="font-bold text-white mb-4">Newsletter</h4>
+<p class="text-xs text-gray-400 mb-3">Rejoignez +10k lecteurs et recevez nos meilleures offres.</p>
+<form class="flex flex-col gap-2">
+<input class="w-full rounded bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" placeholder="Votre email" type="email"/>
+<button class="w-full rounded bg-white py-2 text-sm font-bold text-background-dark hover:bg-primary transition" type="submit">S'inscrire</button>
+</form>
+</div>
+</div>
+<div class="mt-12 border-t border-[#2E2419] pt-8 text-center text-xs text-gray-500">
+<p>© 2023 Livresque. Tous droits réservés.</p>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

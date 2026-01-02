@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aide &amp; FAQ | Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "primary-hover": "#E0890E",
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.empty {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-lg font-bold tracking-tight leading-none">Livresque</span>
+</a>
+<nav class="hidden md:flex items-center gap-6 border-l border-[#2E2419] pl-6">
+<a class="text-sm font-medium text-gray-400 transition hover:text-white hover:text-primary" href="#">Ma Bibliothèque</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white hover:text-primary" href="#">Boutique</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white hover:text-primary" href="#">Communauté</a>
+<a class="text-sm font-bold text-primary transition" href="#">Aide</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white hover:border-primary/30 transition">
+<span class="material-symbols-outlined text-[20px] empty">notifications</span>
+</button>
+<div class="h-9 w-9 rounded-full bg-surface-highlight border border-[#2E2419] flex items-center justify-center text-gray-300 font-bold text-sm overflow-hidden bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCatPHavQC0yAzGjVKAriE297bCwC40Dw2Wnn9e20DAxA2jwog8SnQiZveWBYrU8i2W_F8xiqcDkPwZ_Xlssd6zr5CecEKVGMwWzSSGcV_ZvqCtjLo7YWBcWRe-qvHtwsFc1Ng2XjPFGPKprTxIqOx_KtyOqW0d1b8kOKzru2R5fOQx2cyYJM0WXcB8DUz2Cg6GVR209t6VE3zMh-eA9FwuxYZ3xVvdRkfTISa9spkQi0WClJOOxYs6bpr_D2WFzYWjYlBUSlgScEk');">
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full flex flex-col">
+<div class="relative bg-surface-dark border-b border-[#2E2419] overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="hero-dots" patternUnits="userSpaceOnUse" width="40" x="0" y="0">
+<circle class="text-primary" cx="2" cy="2" fill="currentColor" r="1.5"></circle>
+</pattern>
+</defs>
+<rect fill="url(#hero-dots)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/80"></div>
+<div class="relative z-10 w-full max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
+<span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-primary uppercase bg-primary/10 border border-primary/20 rounded-full">Centre d'Assistance</span>
+<h1 class="text-4xl sm:text-5xl font-black text-white mb-6 tracking-tight">
+                        Comment pouvons-nous <span class="text-primary">vous aider ?</span>
+</h1>
+<p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+                        Trouvez des réponses à vos questions sur la lecture, la gestion de compte et vos achats.
+                    </p>
+<div class="relative max-w-2xl mx-auto">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-500 text-2xl empty">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 rounded-xl bg-surface-highlight border border-[#2E2419] text-white placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-xl text-lg" placeholder="Rechercher une question, un sujet..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<kbd class="hidden sm:inline-block px-2 py-1 text-xs font-semibold text-gray-500 bg-surface-dark border border-[#2E2419] rounded">⌘K</kbd>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8 py-12">
+<div class="mb-8 flex items-center justify-between">
+<h2 class="text-xl font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">category</span>
+                        Parcourir par thème
+                    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<a class="group relative rounded-xl bg-surface-highlight border border-[#2E2419] p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5" href="#">
+<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface-dark border border-[#2E2419] text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-2xl empty">account_circle</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">Mon Compte</h3>
+<p class="text-sm text-gray-400">Gérer votre profil, mot de passe, et paramètres de confidentialité.</p>
+</a>
+<a class="group relative rounded-xl bg-surface-highlight border border-[#2E2419] p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5" href="#">
+<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface-dark border border-[#2E2419] text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-2xl empty">auto_stories</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">Lecture &amp; Bibliothèque</h3>
+<p class="text-sm text-gray-400">Liseuse web, synchronisation, notes et marque-pages.</p>
+</a>
+<a class="group relative rounded-xl bg-surface-highlight border border-[#2E2419] p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5" href="#">
+<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface-dark border border-[#2E2419] text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-2xl empty">payments</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">Achats &amp; Abonnements</h3>
+<p class="text-sm text-gray-400">Facturation, historique des commandes, remboursements.</p>
+</a>
+<a class="group relative rounded-xl bg-surface-highlight border border-[#2E2419] p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5" href="#">
+<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface-dark border border-[#2E2419] text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-2xl empty">devices</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">Support Technique</h3>
+<p class="text-sm text-gray-400">Problèmes d'affichage, compatibilité app mobile, bugs.</p>
+</a>
+</div>
+</div>
+<div class="w-full mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8 pb-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="hidden lg:block lg:col-span-3">
+<div class="sticky top-24 rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden p-4">
+<h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 px-2">Questions Populaires</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-dark border border-[#2E2419] text-primary font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">star</span>
+                                    Top Questions
+                                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-surface-dark hover:text-white transition text-sm" href="#">
+<span class="material-symbols-outlined text-[18px] empty">rocket_launch</span>
+                                    Premiers pas
+                                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-surface-dark hover:text-white transition text-sm" href="#">
+<span class="material-symbols-outlined text-[18px] empty">card_giftcard</span>
+                                    Cartes Cadeaux
+                                </a>
+</nav>
+</div>
+</div>
+<div class="lg:col-span-9 space-y-6">
+<h2 class="text-2xl font-bold text-white mb-6">Questions Fréquentes</h2>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden">
+<button class="w-full px-6 py-4 flex items-center justify-between bg-surface-dark/30 hover:bg-surface-dark/50 transition">
+<span class="font-bold text-white text-left text-lg">Comment lire mes livres hors connexion ?</span>
+<span class="material-symbols-outlined text-primary rotate-180 transition-transform">expand_more</span>
+</button>
+<div class="px-6 py-4 text-gray-300 space-y-4 text-sm leading-relaxed border-t border-[#2E2419] bg-surface-highlight">
+<p>Pour lire sans connexion internet, vous devez utiliser notre application mobile ou télécharger le livre via le lecteur web pour une utilisation locale temporaire.</p>
+<ol class="list-decimal pl-5 space-y-2 text-gray-400">
+<li>Ouvrez l'application Livresque sur votre tablette ou téléphone.</li>
+<li>Allez dans <strong>Ma Bibliothèque</strong>.</li>
+<li>Appuyez sur l'icône de téléchargement <span class="inline-flex align-middle"><span class="material-symbols-outlined text-[16px]">download</span></span> à côté du livre.</li>
+<li>Une fois le téléchargement terminé, une icône verte apparaîtra.</li>
+</ol>
+<div class="mt-4 p-3 bg-surface-dark border border-[#2E2419] rounded-lg flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+<p class="text-xs text-gray-400 italic">Note : Les livres téléchargés restent accessibles pendant 30 jours sans reconnexion. Passé ce délai, une brève connexion est nécessaire pour vérifier la licence.</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<button class="w-full px-6 py-4 flex items-center justify-between hover:bg-surface-dark/30 transition">
+<span class="font-medium text-white text-left">Puis-je offrir un livre numérique à un ami ?</span>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition">expand_more</span>
+</button>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<button class="w-full px-6 py-4 flex items-center justify-between hover:bg-surface-dark/30 transition">
+<span class="font-medium text-white text-left">Quels formats de fichiers sont supportés pour l'import ?</span>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition">expand_more</span>
+</button>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<button class="w-full px-6 py-4 flex items-center justify-between hover:bg-surface-dark/30 transition">
+<span class="font-medium text-white text-left">Comment demander un remboursement ?</span>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition">expand_more</span>
+</button>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<button class="w-full px-6 py-4 flex items-center justify-between hover:bg-surface-dark/30 transition">
+<span class="font-medium text-white text-left">Comment changer mon adresse email ou mon mot de passe ?</span>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-highlight border-t border-b border-[#2E2419] py-12">
+<div class="mx-auto max-w-4xl px-4 text-center">
+<div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-surface-dark border border-[#2E2419] text-primary shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-3xl empty">support_agent</span>
+</div>
+<h2 class="text-2xl font-bold text-white mb-3">Vous ne trouvez pas votre réponse ?</h2>
+<p class="text-gray-400 mb-8 max-w-lg mx-auto">Notre équipe de support passionnée est là pour vous aider du Lundi au Samedi, de 9h à 19h.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto px-6 py-3 bg-primary hover:bg-primary-hover text-background-dark font-bold rounded-lg transition shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px] empty">mail</span>
+                            Envoyer un email
+                        </button>
+<button class="w-full sm:w-auto px-6 py-3 bg-surface-dark border border-[#2E2419] text-white hover:bg-white/5 font-medium rounded-lg transition flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px] empty">chat</span>
+                            Chat en direct
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-[#2E2419] bg-background-dark py-12">
+<div class="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div class="col-span-1 md:col-span-1">
+<a class="flex items-center gap-2 text-white mb-4" href="#">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-base font-bold tracking-tight">Livresque</span>
+</a>
+<p class="text-xs text-gray-500">Votre plateforme de lecture immersive préférée. Lisez partout, tout le temps.</p>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white mb-3">Découvrir</h4>
+<ul class="space-y-2 text-xs text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Nouveautés</a></li>
+<li><a class="hover:text-primary transition" href="#">Meilleures ventes</a></li>
+<li><a class="hover:text-primary transition" href="#">Auteurs indépendants</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white mb-3">Aide</h4>
+<ul class="space-y-2 text-xs text-gray-400">
+<li><a class="hover:text-primary transition" href="#">FAQ</a></li>
+<li><a class="hover:text-primary transition" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition" href="#">Conditions d'utilisation</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white mb-3">Suivez-nous</h4>
+<div class="flex gap-3 text-gray-400">
+<a class="hover:text-white transition" href="#">Twitter</a>
+<a class="hover:text-white transition" href="#">Instagram</a>
+<a class="hover:text-white transition" href="#">Facebook</a>
+</div>
+</div>
+</div>
+<div class="border-t border-[#2E2419] pt-8 text-center text-xs text-gray-600">
+<p>© 2023 Livresque. Tous droits réservés.</p>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

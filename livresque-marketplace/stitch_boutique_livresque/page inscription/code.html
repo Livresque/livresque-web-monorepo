@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inscription - Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Livresque</h2>
+</a>
+</div>
+<div class="flex items-center gap-4 sm:gap-6">
+<a class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-lg bg-transparent px-4 text-sm font-bold text-white transition hover:bg-surface-highlight">
+                    Se connecter
+                </a>
+<button class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-lg bg-primary px-4 text-sm font-bold text-background-dark transition hover:bg-opacity-90">
+                    S'inscrire
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="relative flex items-center justify-center min-h-[calc(100vh-4rem)] py-12 px-4 sm:px-6 lg:px-8">
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<svg class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 text-primary/5 opacity-50" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.7,-72.2C55.3,-66.1,65.3,-55.3,73.1,-43.3C80.9,-31.3,86.5,-18.1,85.6,-5.3C84.7,7.5,77.3,19.9,68.6,30.8C59.9,41.7,49.9,51.1,38.6,58.8C27.3,66.5,14.7,72.5,0.7,71.3C-13.3,70.1,-25.6,61.7,-37.8,54.1C-50,46.5,-62.1,39.7,-70.6,29.3C-79.1,18.9,-84,4.9,-82.1,-8.1C-80.2,-21.1,-71.5,-33.1,-61.6,-42.6C-51.7,-52.1,-40.6,-59.1,-29.3,-66.1C-18,-73.1,-6.5,-80.1,5.2,-80.9C16.9,-81.7,30.1,-78.3,42.7,-72.2Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+<svg class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 text-primary/5 opacity-50" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M45.7,-76.3C58.9,-69.3,69.1,-55.6,76.3,-41.2C83.5,-26.8,87.7,-11.7,85.2,2.3C82.7,16.3,73.5,29.3,63.5,40.4C53.5,51.5,42.7,60.8,30.5,66.3C18.3,71.8,4.7,73.6,-8.3,72.3C-21.3,71,-33.7,66.6,-44.6,58.8C-55.5,51,-64.9,39.8,-70.7,27.1C-76.5,14.4,-78.7,0.2,-74.9,-12.3C-71.1,-24.8,-61.3,-35.6,-50.7,-43.8C-40.1,-52,-28.7,-57.6,-17.1,-64.8C-5.5,-72,6.3,-80.8,19.2,-82.6C32.1,-84.4,42.5,-83.3,45.7,-76.3Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+</div>
+<div class="relative z-10 w-full max-w-md mx-auto">
+<div class="text-center mb-8">
+<h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white">Créer un compte</h1>
+<p class="mt-3 text-gray-400">Rejoignez la communauté Livresque et commencez à lire dès aujourd'hui.</p>
+</div>
+<div class="bg-surface-dark border border-surface-highlight rounded-2xl shadow-2xl p-6 sm:p-8">
+<form action="#" class="space-y-6" method="POST">
+<div>
+<label class="block text-sm font-medium text-gray-300" for="name">Nom complet</label>
+<div class="mt-2">
+<input autocomplete="name" class="block w-full rounded-lg border-0 bg-surface-highlight py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-surface-highlight focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all duration-200" id="name" name="name" placeholder="Ex: Jean Dupont" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300" for="email">Adresse e-mail</label>
+<div class="mt-2">
+<input autocomplete="email" class="block w-full rounded-lg border-0 bg-surface-highlight py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-surface-highlight focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all duration-200" id="email" name="email" placeholder="vous@exemple.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300" for="password">Mot de passe</label>
+<div class="mt-2">
+<input autocomplete="new-password" class="block w-full rounded-lg border-0 bg-surface-highlight py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-surface-highlight focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all duration-200" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300" for="password-confirm">Confirmer le mot de passe</label>
+<div class="mt-2">
+<input autocomplete="new-password" class="block w-full rounded-lg border-0 bg-surface-highlight py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-surface-highlight focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all duration-200" id="password-confirm" name="password-confirm" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<div>
+<button class="flex w-full justify-center rounded-lg bg-primary px-3 py-3 text-sm font-bold leading-6 text-background-dark shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]" type="submit">S'inscrire</button>
+</div>
+</form>
+<p class="mt-6 text-center text-xs text-gray-500">
+                    En vous inscrivant, vous acceptez nos
+                    <a class="font-medium text-primary hover:text-primary/80" href="#">Conditions Générales de Vente</a>
+                    et notre
+                    <a class="font-medium text-primary hover:text-primary/80" href="#">Politique de Confidentialité</a>.
+                </p>
+</div>
+<div class="mt-6 text-center text-sm">
+<p class="text-gray-400">
+                    Déjà un compte ?
+                    <a class="font-semibold text-primary hover:text-primary/80" href="#">Connectez-vous</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+
+</body></html>

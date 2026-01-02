@@ -1,0 +1,163 @@
+﻿<div class="relative flex min-h-screen w-full flex-col">
+  <app-header></app-header>
+  <main class="flex-1 w-full flex flex-col">
+<div class="relative bg-surface-dark border-b border-[#2E2419] overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="hero-dots" patternUnits="userSpaceOnUse" width="40" x="0" y="0">
+<circle class="text-primary" cx="2" cy="2" fill="currentColor" r="1.5"></circle>
+</pattern>
+</defs>
+<rect fill="url(#hero-dots)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/80"></div>
+<div class="relative z-10 w-full max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
+<span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-primary uppercase bg-primary/10 border border-primary/20 rounded-full">Centre d'Assistance</span>
+<h1 class="text-4xl sm:text-5xl font-black text-white mb-6 tracking-tight">
+                        Comment pouvons-nous <span class="text-primary">vous aider ?</span>
+</h1>
+<p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+                        Trouvez des réponses à vos questions sur la lecture, la gestion de compte et vos achats.
+                    </p>
+<div class="relative max-w-2xl mx-auto">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-500 text-2xl empty">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 rounded-xl bg-surface-highlight border border-[#2E2419] text-white placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-xl text-lg" placeholder="Rechercher une question, un sujet..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<kbd class="hidden sm:inline-block px-2 py-1 text-xs font-semibold text-gray-500 bg-surface-dark border border-[#2E2419] rounded">⌘K</kbd>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8 py-12">
+<div class="mb-8 flex items-center justify-between">
+<h2 class="text-xl font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">category</span>
+                        Parcourir par thème
+                    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<a class="group relative rounded-xl bg-surface-highlight border border-[#2E2419] p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5" href="#">
+<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface-dark border border-[#2E2419] text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-2xl empty">account_circle</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">Mon Compte</h3>
+<p class="text-sm text-gray-400">Gérer votre profil, mot de passe, et paramètres de confidentialité.</p>
+</a>
+<a class="group relative rounded-xl bg-surface-highlight border border-[#2E2419] p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5" href="#">
+<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface-dark border border-[#2E2419] text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-2xl empty">auto_stories</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">Lecture &amp; Bibliothèque</h3>
+<p class="text-sm text-gray-400">Liseuse web, synchronisation, notes et marque-pages.</p>
+</a>
+<a class="group relative rounded-xl bg-surface-highlight border border-[#2E2419] p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5" href="#">
+<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface-dark border border-[#2E2419] text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-2xl empty">payments</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">Achats &amp; Abonnements</h3>
+<p class="text-sm text-gray-400">Facturation, historique des commandes, remboursements.</p>
+</a>
+<a class="group relative rounded-xl bg-surface-highlight border border-[#2E2419] p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5" href="#">
+<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface-dark border border-[#2E2419] text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-2xl empty">devices</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">Support Technique</h3>
+<p class="text-sm text-gray-400">Problèmes d'affichage, compatibilité app mobile, bugs.</p>
+</a>
+</div>
+</div>
+<div class="w-full mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8 pb-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="hidden lg:block lg:col-span-3">
+<div class="sticky top-24 rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden p-4">
+<h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 px-2">Questions Populaires</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-dark border border-[#2E2419] text-primary font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">star</span>
+                                    Top Questions
+                                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-surface-dark hover:text-white transition text-sm" href="#">
+<span class="material-symbols-outlined text-[18px] empty">rocket_launch</span>
+                                    Premiers pas
+                                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-surface-dark hover:text-white transition text-sm" href="#">
+<span class="material-symbols-outlined text-[18px] empty">card_giftcard</span>
+                                    Cartes Cadeaux
+                                </a>
+</nav>
+</div>
+</div>
+<div class="lg:col-span-9 space-y-6">
+<h2 class="text-2xl font-bold text-white mb-6">Questions Fréquentes</h2>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden">
+<button class="w-full px-6 py-4 flex items-center justify-between bg-surface-dark/30 hover:bg-surface-dark/50 transition">
+<span class="font-bold text-white text-left text-lg">Comment lire mes livres hors connexion ?</span>
+<span class="material-symbols-outlined text-primary rotate-180 transition-transform">expand_more</span>
+</button>
+<div class="px-6 py-4 text-gray-300 space-y-4 text-sm leading-relaxed border-t border-[#2E2419] bg-surface-highlight">
+<p>Pour lire sans connexion internet, vous devez utiliser notre application mobile ou télécharger le livre via le lecteur web pour une utilisation locale temporaire.</p>
+<ol class="list-decimal pl-5 space-y-2 text-gray-400">
+<li>Ouvrez l'application Livresque sur votre tablette ou téléphone.</li>
+<li>Allez dans <strong>Ma Bibliothèque</strong>.</li>
+<li>Appuyez sur l'icône de téléchargement <span class="inline-flex align-middle"><span class="material-symbols-outlined text-[16px]">download</span></span> à côté du livre.</li>
+<li>Une fois le téléchargement terminé, une icône verte apparaîtra.</li>
+</ol>
+<div class="mt-4 p-3 bg-surface-dark border border-[#2E2419] rounded-lg flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+<p class="text-xs text-gray-400 italic">Note : Les livres téléchargés restent accessibles pendant 30 jours sans reconnexion. Passé ce délai, une brève connexion est nécessaire pour vérifier la licence.</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<button class="w-full px-6 py-4 flex items-center justify-between hover:bg-surface-dark/30 transition">
+<span class="font-medium text-white text-left">Puis-je offrir un livre numérique à un ami ?</span>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition">expand_more</span>
+</button>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<button class="w-full px-6 py-4 flex items-center justify-between hover:bg-surface-dark/30 transition">
+<span class="font-medium text-white text-left">Quels formats de fichiers sont supportés pour l'import ?</span>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition">expand_more</span>
+</button>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<button class="w-full px-6 py-4 flex items-center justify-between hover:bg-surface-dark/30 transition">
+<span class="font-medium text-white text-left">Comment demander un remboursement ?</span>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition">expand_more</span>
+</button>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<button class="w-full px-6 py-4 flex items-center justify-between hover:bg-surface-dark/30 transition">
+<span class="font-medium text-white text-left">Comment changer mon adresse email ou mon mot de passe ?</span>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-highlight border-t border-b border-[#2E2419] py-12">
+<div class="mx-auto max-w-4xl px-4 text-center">
+<div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-surface-dark border border-[#2E2419] text-primary shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-3xl empty">support_agent</span>
+</div>
+<h2 class="text-2xl font-bold text-white mb-3">Vous ne trouvez pas votre réponse ?</h2>
+<p class="text-gray-400 mb-8 max-w-lg mx-auto">Notre équipe de support passionnée est là pour vous aider du Lundi au Samedi, de 9h à 19h.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto px-6 py-3 bg-primary hover:bg-primary-hover text-background-dark font-bold rounded-lg transition shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px] empty">mail</span>
+                            Envoyer un email
+                        </button>
+<button class="w-full sm:w-auto px-6 py-3 bg-surface-dark border border-[#2E2419] text-white hover:bg-white/5 font-medium rounded-lg transition flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px] empty">chat</span>
+                            Chat en direct
+                        </button>
+</div>
+</div>
+</div>
+</main>
+  <app-footer></app-footer>
+</div>

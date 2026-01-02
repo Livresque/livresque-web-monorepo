@@ -1,0 +1,98 @@
+<div class="group bg-surface-dark rounded-lg overflow-hidden border border-surface-highlight hover:border-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/20">
+  <!-- Image container -->
+  <div class="relative aspect-[3/4] overflow-hidden bg-surface-highlight">
+    <a [routerLink]="['/books', book.id]">
+      <img 
+        [src]="book.image" 
+        [alt]="book.title"
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      >
+    </a>
+    
+    <!-- Badge -->
+    <div *ngIf="book.badge" 
+         [class]="'absolute top-2 left-2 px-3 py-1 rounded-full text-xs font-bold text-white ' + getBadgeColor()">
+      {{ getBadgeLabel() }}
+    </div>
+
+    <!-- Actions overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+      <button 
+        (click)="addToWishlist()"
+        class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+      >
+        <span class="material-symbols-outlined text-xl">
+          favorite
+        </span>
+      </button>
+      <button 
+        (click)="addToCart()"
+        class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+      >
+        <span class="material-symbols-outlined text-xl">
+          shopping_cart
+        </span>
+      </button>
+      <a 
+        [routerLink]="['/books', book.id]"
+        class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+      >
+        <span class="material-symbols-outlined text-xl">
+          visibility
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-4">
+    <!-- Title & Author -->
+    <a [routerLink]="['/books', book.id]" class="block">
+      <h3 class="font-semibold text-lg mb-1 group-hover:text-primary transition-colors line-clamp-2">
+        {{ book.title }}
+      </h3>
+      <p class="text-text-secondary text-sm mb-3">{{ book.author }}</p>
+    </a>
+
+    <!-- Rating -->
+    <div class="flex items-center gap-1 mb-3">
+      <div class="flex">
+        <span 
+          *ngFor="let star of getStars()" 
+          class="material-symbols-outlined text-sm"
+          [class.text-primary]="star <= book.rating"
+          [class.text-gray-600]="star > book.rating"
+        >
+          {{ star <= book.rating ? 'star' : 'star_outline' }}
+        </span>
+      </div>
+      <span class="text-text-secondary text-sm">({{ book.reviewCount }})</span>
+    </div>
+
+    <!-- Price -->
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-primary font-bold text-xl">{{ book.price }} FCFA</span>
+        <span *ngIf="book.originalPrice" class="text-text-secondary line-through text-sm">
+          {{ book.originalPrice }} FCFA
+        </span>
+      </div>
+    </div>
+
+    <!-- Stock status -->
+    <div class="mt-2">
+      <span *ngIf="book.inStock" class="text-green-500 text-xs flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">
+          check_circle
+        </span>
+        En stock
+      </span>
+      <span *ngIf="!book.inStock" class="text-red-500 text-xs flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">
+          cancel
+        </span>
+        Rupture de stock
+      </span>
+    </div>
+  </div>
+</div>

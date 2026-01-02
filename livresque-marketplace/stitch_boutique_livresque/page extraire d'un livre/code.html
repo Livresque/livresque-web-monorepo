@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lecture : L'Ombre du Vent - Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                        "paper": "#F5E6D3", // Paper color for light mode simulation if needed
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Merriweather", "serif"], // Optimized for reading
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }::selection {
+            background-color: #FF9F1C;
+            color: #0F0C08;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden flex flex-col min-h-screen">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 text-gray-400 transition hover:text-white" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="hidden sm:inline text-sm font-medium">Retour au livre</span>
+</a>
+<div class="h-6 w-px bg-[#2E2419]"></div>
+<h1 class="text-sm font-bold text-white tracking-tight truncate max-w-[200px] sm:max-w-md">L'Ombre du Vent</h1>
+<span class="hidden sm:inline text-xs text-gray-500">Carlos Ruiz Zafón</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-lg bg-primary px-4 text-sm font-bold text-background-dark transition hover:bg-opacity-90">
+                    Acheter <span class="hidden sm:inline ml-1">- 19,90 €</span>
+</button>
+</div>
+</div>
+</header>
+<div class="sticky top-16 z-40 w-full border-b border-[#2E2419] bg-surface-dark/90 backdrop-blur shadow-lg">
+<div class="mx-auto flex h-14 max-w-3xl items-center justify-between px-4 sm:px-6">
+<div class="flex items-center gap-2 text-xs font-medium text-gray-400">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+<span>Chapitre 1</span>
+<span class="text-[#2E2419]">/</span>
+<span class="text-primary">Extrait gratuit</span>
+</div>
+<div class="flex items-center gap-1 bg-background-dark rounded-full p-1 border border-[#2E2419]">
+<button class="p-1.5 text-gray-400 hover:text-white rounded-full transition" title="Diminuer la taille">
+<span class="material-symbols-outlined text-[18px]">text_decrease</span>
+</button>
+<button class="p-1.5 text-white bg-surface-highlight rounded-full transition border border-[#2E2419]" title="Taille par défaut">
+<span class="text-xs font-bold px-1">Aa</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-white rounded-full transition" title="Augmenter la taille">
+<span class="material-symbols-outlined text-[18px]">text_increase</span>
+</button>
+<div class="h-4 w-px bg-[#2E2419] mx-1"></div>
+<button class="p-1.5 text-primary rounded-full transition" title="Mode Sombre (Actif)">
+<span class="material-symbols-outlined text-[18px] fill-current">dark_mode</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-white rounded-full transition" title="Mode Clair">
+<span class="material-symbols-outlined text-[18px]">light_mode</span>
+</button>
+</div>
+</div>
+</div>
+<main class="flex-1 relative">
+<div class="absolute inset-0 pointer-events-none opacity-[0.02] fixed">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0 C 20 20 50 100 100 0 Z" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+<line stroke="currentColor" stroke-dasharray="5,5" stroke-width="0.2" x1="0" x2="100" y1="20" y2="20"></line>
+<line stroke="currentColor" stroke-dasharray="5,5" stroke-width="0.2" x1="0" x2="100" y1="80" y2="80"></line>
+</svg>
+</div>
+<div class="relative z-10 mx-auto max-w-3xl px-6 py-12 sm:px-8 sm:py-16 md:px-12">
+<article class="font-body text-gray-300 leading-8 text-lg sm:text-xl space-y-8 text-justify antialiased">
+<header class="text-center mb-16 border-b border-[#2E2419] pb-8">
+<h2 class="font-display text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Première Partie</h2>
+<h3 class="font-display text-3xl sm:text-4xl font-black text-white mb-2">Le Cimetière des Livres Oubliés</h3>
+</header>
+<p>
+<span class="float-left mr-3 mt-[-6px] text-6xl font-black text-primary font-display">J</span>e me souviens encore de ce matin où mon père m'emmena pour la première fois visiter le Cimetière des Livres Oubliés. C'était aux premiers jours de l'été 1945, et nous marchions dans les rues d'une Barcelone emprisonnée sous un ciel de cendre et un soleil de cuivre liquide qui se déversait sur la Rambla de Santa Monica.
+                </p>
+<p>
+                    « Daniel, ce que tu vas voir aujourd'hui, tu ne dois le raconter à personne », me dit mon père. « Pas même à ton ami Tomas. A personne. »
+                </p>
+<p>
+                    « Pas même à maman ? » demandai-je à voix basse.
+                </p>
+<p>
+                    Mon père soupira, dissimulant derrière un triste sourire l'ombre qui le poursuivait depuis toujours.
+                    « Bien sûr que si, » répondit-il en baissant la tête. « Avec elle, nous n'avons pas de secrets. A elle, tu peux tout dire. »
+                </p>
+<p>
+                    Peu après la guerre civile, une épidémie de choléra avait emporté ma mère. Nous l'avions enterrée à Montjuïc le jour de mes quatre ans. Je me rappelais seulement qu'il avait plu tout le jour et toute la nuit, et que, lorsque j'avais demandé à mon père si le ciel pleurait, la voix lui avait manqué pour me répondre. 
+                </p>
+<div class="my-10 flex items-center justify-center">
+<span class="text-primary opacity-50 text-2xl">❖</span>
+</div>
+<p>
+                    Six ans plus tard, l'absence de ma mère était toujours pour moi un mirage, un silence hurlant que je n'avais pas encore appris à faire taire avec des mots. Mon père et moi vivions rue Santa Ana, à deux pas de la place de l'Eglise. Notre appartement était situé juste au-dessus de la librairie spécialisée dans les éditions de collection et les livres d'occasion que mon grand-père avait fondée – un bazar enchanté que mon père espérait me voir reprendre un jour.
+                </p>
+<p>
+                    Je grandissais au milieu des livres, me faisant des amis invisibles dans les pages qui tombaient en poussière et dont l'odeur me tient encore aujourd'hui lieu de parfum. J'appris très tôt à m'endormir en racontant à ma mère, dans l'obscurité de ma chambre, les événements de la journée, mes aventures à l'école, les choses que j'avais apprises.
+                </p>
+<p>
+                    Nous arrivâmes devant une grande porte de bois sculpté, noircie par le temps et l'humidité. La façade ressemblait à celle d'un palais en ruine, ou d'un musée de fantômes. Mon père frappa trois fois avec le heurtoir en bronze en forme de diable grimaçant.
+                </p>
+<blockquote class="border-l-4 border-primary pl-6 py-2 my-8 italic text-white/90 font-medium bg-surface-highlight/30 rounded-r-lg">
+                    « Cet endroit est un mystère, Daniel, un sanctuaire. Chaque livre, chaque tome que tu vois, a une âme. L'âme de celui qui l'a écrit, et l'âme de ceux qui l'ont lu et ont vécu et rêvé avec lui. »
+                </blockquote>
+<p>
+                    La porte s'entrouvrit avec un grincement de plainte. Un petit homme au visage de rongeur et aux cheveux gris en bataille apparut dans l'entrebâillement. Il portait un costume sombre qui avait connu des jours meilleurs et dégageait une odeur de vieux papier et de tabac froid.
+                </p>
+<p>
+                    « Bonjour, Isaac », dit mon père. « Je vous amène mon fils, Daniel. Il a bientôt dix ans. Il est temps. »
+                </p>
+<p>
+                    L'homme nommé Isaac me sourit, révélant une dentition jaunie, et nous fit signe d'entrer. Nous traversâmes un long couloir obscur, éclairé par des lampes à gaz qui projetaient des ombres dansantes sur les murs écaillés. L'air était frais et imprégné de cette odeur si particulière de poussière, de colle et de magie qui caractérise les vieilles bibliothèques.
+                </p>
+<p>
+                    Puis, nous débouchâmes dans une immense salle circulaire, surmontée d'une coupole de verre par laquelle filtrait une lumière laiteuse. Je restai bouche bée. Devant moi se dressait un labyrinthe de spirales et de tunnels, une structure gigantesque qui s'élevait vers le ciel, composée de milliers, de millions de livres...
+                </p>
+</article>
+<div class="mt-20 relative overflow-hidden rounded-2xl border border-primary/30 bg-surface-highlight p-1">
+<div class="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 -mb-10 -ml-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="relative flex flex-col items-center gap-8 rounded-xl bg-[#15110c] px-6 py-10 text-center sm:px-10 md:flex-row md:text-left">
+<div class="shrink-0 relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-[#D4B483] rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+<div class="relative w-32 shadow-2xl rounded-md overflow-hidden aspect-[2/3] border border-[#2E2419]">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtNbvRcRGQnHEH6A0xazN0k9Yq1JMIcbEBpl_b7whkd9NPGrn57P4fzXnTITCzSU2ktHCcHetuElJLoalPA4UG4vQsmgg-IhfiQv094XHZE0-u3JRrafhC5LoJkYc9kQLMjXMXvJ9cD9_aK9APiz5-wpGOCalXgmJwmsY2XR9JWsOV95xdeR_cka5MikySlI_h-PLv5of4hQJJ4XmJ1a9vSckYrrCjrONP4G2uSdTcyBGMIFdinfWxsyrMkR6YSP47Y7B7PMlW5Ww');"></div>
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            Fin de l'extrait
+                        </div>
+<h3 class="text-2xl font-bold text-white">L'histoire ne fait que commencer...</h3>
+<p class="text-gray-400">
+                            Découvrez ce que le Cimetière des Livres Oubliés réserve à Daniel. Plongez dans les secrets de la Barcelone de l'après-guerre.
+                        </p>
+<div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
+<button class="flex w-full sm:w-auto h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 font-bold text-background-dark transition hover:bg-white hover:scale-105">
+                                Acheter le livre complet
+                                <span class="bg-black/10 px-1.5 py-0.5 rounded text-xs ml-1">19,90 €</span>
+</button>
+<button class="flex w-full sm:w-auto h-12 items-center justify-center gap-2 rounded-lg border border-[#2E2419] px-6 font-medium text-white transition hover:bg-surface-highlight hover:border-gray-500">
+                                Voir la fiche détaillée
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<p class="text-xs text-gray-500">
+                    Extrait offert par Livresque. © Grasset &amp; Fasquelle, 2004. Tous droits réservés.
+                </p>
+</div>
+</div>
+</main>
+<footer class="border-t border-[#2E2419] bg-background-dark py-8 relative">
+<div class="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8 text-sm text-gray-500">
+<p>© 2023 Livresque. Tous droits réservés.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition" href="#">Aide</a>
+<a class="hover:text-primary transition" href="#">Confidentialité</a>
+<a class="hover:text-primary transition" href="#">Conditions</a>
+</div>
+</div>
+</footer>
+
+</body></html>

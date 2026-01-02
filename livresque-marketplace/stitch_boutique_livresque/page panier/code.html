@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panier - Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Livresque</h2>
+</a>
+</div>
+<div class="flex items-center gap-4 sm:gap-6">
+<nav class="hidden md:flex items-center gap-6">
+<a class="flex items-center gap-2 text-sm font-medium text-white transition hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">library_books</span>
+                        Bibliothèque
+                    </a>
+<a class="flex items-center gap-2 text-sm font-medium text-primary" href="#">
+<span class="material-symbols-outlined text-[20px] fill-current">shopping_bag</span>
+                        Panier
+                        <span class="flex items-center justify-center w-5 h-5 text-xs font-bold text-background-dark bg-primary rounded-full">3</span>
+</a>
+</nav>
+<button class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-lg bg-primary px-4 text-sm font-bold text-background-dark transition hover:bg-opacity-90">
+                    Se connecter
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-1 py-12 lg:py-16 relative">
+<div class="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
+<div class="absolute inset-0 bg-background-dark"></div>
+<svg class="absolute -top-1/4 left-0 text-primary/5 w-1/2 h-1/2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.7,-72.2C55.3,-66.1,65.3,-55.3,73.1,-43.3C80.9,-31.3,86.5,-18.1,85.6,-5.3C84.7,7.5,77.3,19.9,68.6,30.8C59.9,41.7,49.9,51.1,38.6,58.8C27.3,66.5,14.7,72.5,0.7,71.3C-13.3,70.1,-25.6,61.7,-37.8,54.1C-50,46.5,-62.1,39.7,-70.6,29.3C-79.1,18.9,-84,4.9,-82.1,-8.1C-80.2,-21.1,-71.5,-33.1,-61.6,-42.6C-51.7,-52.1,-40.6,-59.1,-29.3,-66.1C-18,-73.1,-6.5,-80.1,5.2,-80.9C16.9,-81.7,30.1,-60.3,42.7,-72.2Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+<svg class="absolute bottom-0 right-0 text-surface-highlight/10 w-2/3 h-2/3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M47.1,-63.9C61.8,-53.5,74.9,-42.2,81.4,-28.4C87.9,-14.7,87.8,1.5,82.8,16.2C77.7,30.8,67.7,43.9,55.5,53.8C43.3,63.7,28.9,70.3,13.9,73.1C-1.1,75.9,-16.7,74.8,-30.4,68.9C-44.1,62.9,-55.8,52,-64.2,39.3C-72.6,26.6,-77.6,12.1,-76.3,-1.9C-75,-16,-67.4,-29.6,-56.9,-39.2C-46.3,-48.8,-32.8,-54.4,-19.6,-66C-6.4,-77.6,6.5,-95.2,18.8,-94.1C31.1,-93,42.8,-73.2,47.1,-63.9Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+</div>
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center mb-10">
+<h1 class="text-4xl font-black tracking-tight text-white sm:text-5xl">Votre Panier</h1>
+<p class="mt-4 text-lg text-gray-400">Finalisez votre commande et plongez dans de nouvelles lectures.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12">
+<div class="lg:col-span-2">
+<div class="space-y-6">
+<div class="bg-surface-dark/80 backdrop-blur-sm border border-surface-highlight rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+<div class="w-full sm:w-24 flex-shrink-0">
+<div class="aspect-[2/3] rounded-md overflow-hidden bg-surface-highlight">
+<img alt="Couverture de Sapiens" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrZPkWSt4Jp8DoxCZo_0aHdPGLTI4tf2m71NzHMfBfVMwtpdECkoCGIgrc27gnjHimUnIiLEfspu2o_39xiOyEJeRF0kP78X2Zg6L8PYw-ZQDHS2pHdxnTvo7UKepwgsJWaARyTitKWWwIea-iK74YhL6GgQg3HVasbkwPjEn4LIYvRrPAN0rfawMnJ1OEwzr2bZYQqcTktLnWS7y2G7UQFu-uzDG2Aa28TY7tZwqGBwWvqsvJPYQ2beS41-IZW2dWVNYmoZcWgCA"/>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-lg text-white">Sapiens</h3>
+<p class="text-sm text-gray-400">Yuval Noah Harari</p>
+<p class="text-xs text-primary font-medium mt-1">Format numérique (ePub)</p>
+</div>
+<div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-6">
+<div class="flex items-center border border-surface-highlight rounded-md">
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">-</button>
+<span class="w-8 text-center text-white font-medium">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">+</button>
+</div>
+<p class="text-lg font-bold text-white w-20 text-right">22,00 €</p>
+<button class="text-gray-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-dark/80 backdrop-blur-sm border border-surface-highlight rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+<div class="w-full sm:w-24 flex-shrink-0">
+<div class="aspect-[2/3] rounded-md overflow-hidden bg-surface-highlight">
+<img alt="Couverture de Atomic Habits" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8wE18Evj2UwxZkW8TWQueqGUaz4znQ0osxB68WOm3GRkzK-1uZeKNA6OaKrlb1GrGroHOH8afF8vy0yFUpjxvpiKxySWl4NKi1W5G772uBBLYDSABqMwVYAag8d2O1C45_agSE7XptG7sbE-AooxYrKsvm5aIStAqDAk0pOkIc1dhLBerabOozIgVk6N8w5YJs0OqO_dW8nnNhp1GK844Y3UU-YhV78425Q_EtC4-qDxAMWD4MgtLVyA-jeK-Y3L9ZFruAghmGLk"/>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-lg text-white">Atomic Habits</h3>
+<p class="text-sm text-gray-400">James Clear</p>
+<p class="text-xs text-primary font-medium mt-1">Format numérique (ePub)</p>
+</div>
+<div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-6">
+<div class="flex items-center border border-surface-highlight rounded-md">
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">-</button>
+<span class="w-8 text-center text-white font-medium">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">+</button>
+</div>
+<p class="text-lg font-bold text-white w-20 text-right">14,99 €</p>
+<button class="text-gray-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-dark/80 backdrop-blur-sm border border-surface-highlight rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+<div class="w-full sm:w-24 flex-shrink-0">
+<div class="aspect-[2/3] rounded-md overflow-hidden bg-surface-highlight">
+<img alt="Couverture de La Forêt Sombre" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTGG4qb_3KpOrGAdSxl7IBZjlp8e3jIwFrH4TFqP16ECt6_cXWdhsu3FspRxLDoul0PagphMx0vKlu82wNvH3Xsj36j2xnPZ4t3TUNfB7G1mKXDSruG8nL3Jzdw6hT1VPpuVOHcT1kKS3S9471nvavvXdOTJyr0KCwIWoKgA4jJh4WFVzlrpGKeQIJdVwrtT-FK6ms2vQGAtSJUf6KpWisOsD40DTxRZWQ5auFKhWK1uDxnCZmYu3cYHMWvvTZX4PhNS44yAAYVI8"/>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-lg text-white">La Forêt Sombre</h3>
+<p class="text-sm text-gray-400">Liu Cixin</p>
+<p class="text-xs text-primary font-medium mt-1">Format numérique (ePub)</p>
+</div>
+<div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-6">
+<div class="flex items-center border border-surface-highlight rounded-md">
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">-</button>
+<span class="w-8 text-center text-white font-medium">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">+</button>
+</div>
+<p class="text-lg font-bold text-white w-20 text-right">18,50 €</p>
+<button class="text-gray-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<a class="text-primary hover:underline flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+                            Continuer mes achats
+                        </a>
+</div>
+</div>
+<div class="lg:col-span-1">
+<div class="bg-surface-dark border border-surface-highlight rounded-2xl p-6 lg:p-8 sticky top-24">
+<h2 class="text-2xl font-bold text-white mb-6">Résumé de la commande</h2>
+<div class="space-y-4">
+<div class="flex justify-between text-gray-300">
+<span>Sous-total</span>
+<span class="font-medium">55,49 €</span>
+</div>
+<div class="flex justify-between text-gray-300">
+<span>TVA (20%)</span>
+<span class="font-medium">11,10 €</span>
+</div>
+<div class="border-t border-surface-highlight my-4"></div>
+<div class="flex justify-between text-white text-xl font-bold">
+<span>Total</span>
+<span>66,59 €</span>
+</div>
+</div>
+<div class="mt-8">
+<label class="block text-sm font-medium text-gray-300 mb-2" for="promo-code">Code promotionnel</label>
+<div class="flex gap-2">
+<input class="flex-grow bg-surface-highlight border border-[#2E2419] rounded-lg px-4 py-2 text-white placeholder:text-gray-500 focus:border-primary focus:ring-primary/50" id="promo-code" placeholder="Entrez votre code" type="text"/>
+<button class="px-4 py-2 rounded-lg border border-[#2E2419] text-white font-semibold hover:bg-surface-highlight transition-colors">Appliquer</button>
+</div>
+</div>
+<div class="mt-10">
+<button class="w-full bg-primary text-background-dark font-bold text-lg py-4 rounded-xl hover:bg-opacity-90 transition-all duration-300 transform hover:scale-[1.02] shadow-[0_0_20px_-5px_rgba(255,159,28,0.5)] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">lock</span>
+                                Passer la commande
+                            </button>
+<p class="text-xs text-gray-500 text-center mt-4">Paiement 100% sécurisé.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-[#2E2419] bg-background-dark pt-12 pb-8 relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="dots-footer" patternUnits="userSpaceOnUse" width="20">
+<rect class="text-primary" fill="currentColor" height="2" width="2" x="0" y="0"></rect>
+</pattern>
+</defs>
+<rect fill="url(#dots-footer)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
+<div class="col-span-2 lg:col-span-2">
+<a class="flex items-center gap-2 mb-4 text-white" href="#">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-lg font-bold">Livresque</span>
+</a>
+<p class="text-sm text-gray-500 mb-6 max-w-sm">La plateforme de lecture numérique qui vous accompagne partout. Découvrez, lisez, partagez votre passion.</p>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Explorer</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Nouveautés</a></li>
+<li><a class="hover:text-primary transition" href="#">Meilleures ventes</a></li>
+<li><a class="hover:text-primary transition" href="#">Catégories</a></li>
+<li><a class="hover:text-primary transition" href="#">Promotions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Compte</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Se connecter</a></li>
+<li><a class="hover:text-primary transition" href="#">Ma bibliothèque</a></li>
+<li><a class="hover:text-primary transition" href="#">Liste de souhaits</a></li>
+<li><a class="hover:text-primary transition" href="#">Abonnement</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Support</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Aide &amp; FAQ</a></li>
+<li><a class="hover:text-primary transition" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition" href="#">Conditions</a></li>
+<li><a class="hover:text-primary transition" href="#">Confidentialité</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-4 lg:col-span-1 border-t border-[#2E2419] lg:border-none pt-8 lg:pt-0 mt-2 lg:mt-0">
+<h4 class="font-bold text-white mb-4">Newsletter</h4>
+<p class="text-xs text-gray-400 mb-3">Rejoignez +10k lecteurs et recevez nos meilleures offres.</p>
+<form class="flex flex-col gap-2">
+<input class="w-full rounded bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" placeholder="Votre email" type="email"/>
+<button class="w-full rounded bg-white py-2 text-sm font-bold text-background-dark hover:bg-primary transition" type="submit">S'inscrire</button>
+</form>
+</div>
+</div>
+<div class="mt-12 border-t border-[#2E2419] pt-8 text-center text-xs text-gray-500">
+<p>© 2023 Livresque. Tous droits réservés.</p>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

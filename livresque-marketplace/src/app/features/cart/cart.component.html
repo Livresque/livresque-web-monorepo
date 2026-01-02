@@ -1,0 +1,136 @@
+﻿<div class="relative flex min-h-screen w-full flex-col">
+  <app-header></app-header>
+  <main class="flex-1 py-12 lg:py-16 relative">
+<div class="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
+<div class="absolute inset-0 bg-background-dark"></div>
+<svg class="absolute -top-1/4 left-0 text-primary/5 w-1/2 h-1/2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.7,-72.2C55.3,-66.1,65.3,-55.3,73.1,-43.3C80.9,-31.3,86.5,-18.1,85.6,-5.3C84.7,7.5,77.3,19.9,68.6,30.8C59.9,41.7,49.9,51.1,38.6,58.8C27.3,66.5,14.7,72.5,0.7,71.3C-13.3,70.1,-25.6,61.7,-37.8,54.1C-50,46.5,-62.1,39.7,-70.6,29.3C-79.1,18.9,-84,4.9,-82.1,-8.1C-80.2,-21.1,-71.5,-33.1,-61.6,-42.6C-51.7,-52.1,-40.6,-59.1,-29.3,-66.1C-18,-73.1,-6.5,-80.1,5.2,-80.9C16.9,-81.7,30.1,-60.3,42.7,-72.2Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+<svg class="absolute bottom-0 right-0 text-surface-highlight/10 w-2/3 h-2/3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M47.1,-63.9C61.8,-53.5,74.9,-42.2,81.4,-28.4C87.9,-14.7,87.8,1.5,82.8,16.2C77.7,30.8,67.7,43.9,55.5,53.8C43.3,63.7,28.9,70.3,13.9,73.1C-1.1,75.9,-16.7,74.8,-30.4,68.9C-44.1,62.9,-55.8,52,-64.2,39.3C-72.6,26.6,-77.6,12.1,-76.3,-1.9C-75,-16,-67.4,-29.6,-56.9,-39.2C-46.3,-48.8,-32.8,-54.4,-19.6,-66C-6.4,-77.6,6.5,-95.2,18.8,-94.1C31.1,-93,42.8,-73.2,47.1,-63.9Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+</div>
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center mb-10">
+<h1 class="text-4xl font-black tracking-tight text-white sm:text-5xl">Votre Panier</h1>
+<p class="mt-4 text-lg text-gray-400">Finalisez votre commande et plongez dans de nouvelles lectures.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12">
+<div class="lg:col-span-2">
+<div class="space-y-6">
+<div class="bg-surface-dark/80 backdrop-blur-sm border border-surface-highlight rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+<div class="w-full sm:w-24 flex-shrink-0">
+<div class="aspect-[2/3] rounded-md overflow-hidden bg-surface-highlight">
+<img alt="Couverture de Sapiens" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrZPkWSt4Jp8DoxCZo_0aHdPGLTI4tf2m71NzHMfBfVMwtpdECkoCGIgrc27gnjHimUnIiLEfspu2o_39xiOyEJeRF0kP78X2Zg6L8PYw-ZQDHS2pHdxnTvo7UKepwgsJWaARyTitKWWwIea-iK74YhL6GgQg3HVasbkwPjEn4LIYvRrPAN0rfawMnJ1OEwzr2bZYQqcTktLnWS7y2G7UQFu-uzDG2Aa28TY7tZwqGBwWvqsvJPYQ2beS41-IZW2dWVNYmoZcWgCA"/>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-lg text-white">Sapiens</h3>
+<p class="text-sm text-gray-400">Yuval Noah Harari</p>
+<p class="text-xs text-primary font-medium mt-1">Format numérique (ePub)</p>
+</div>
+<div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-6">
+<div class="flex items-center border border-surface-highlight rounded-md">
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">-</button>
+<span class="w-8 text-center text-white font-medium">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">+</button>
+</div>
+<p class="text-lg font-bold text-white w-20 text-right">22,00 €</p>
+<button class="text-gray-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-dark/80 backdrop-blur-sm border border-surface-highlight rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+<div class="w-full sm:w-24 flex-shrink-0">
+<div class="aspect-[2/3] rounded-md overflow-hidden bg-surface-highlight">
+<img alt="Couverture de Atomic Habits" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8wE18Evj2UwxZkW8TWQueqGUaz4znQ0osxB68WOm3GRkzK-1uZeKNA6OaKrlb1GrGroHOH8afF8vy0yFUpjxvpiKxySWl4NKi1W5G772uBBLYDSABqMwVYAag8d2O1C45_agSE7XptG7sbE-AooxYrKsvm5aIStAqDAk0pOkIc1dhLBerabOozIgVk6N8w5YJs0OqO_dW8nnNhp1GK844Y3UU-YhV78425Q_EtC4-qDxAMWD4MgtLVyA-jeK-Y3L9ZFruAghmGLk"/>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-lg text-white">Atomic Habits</h3>
+<p class="text-sm text-gray-400">James Clear</p>
+<p class="text-xs text-primary font-medium mt-1">Format numérique (ePub)</p>
+</div>
+<div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-6">
+<div class="flex items-center border border-surface-highlight rounded-md">
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">-</button>
+<span class="w-8 text-center text-white font-medium">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">+</button>
+</div>
+<p class="text-lg font-bold text-white w-20 text-right">14,99 €</p>
+<button class="text-gray-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-dark/80 backdrop-blur-sm border border-surface-highlight rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+<div class="w-full sm:w-24 flex-shrink-0">
+<div class="aspect-[2/3] rounded-md overflow-hidden bg-surface-highlight">
+<img alt="Couverture de La Forêt Sombre" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTGG4qb_3KpOrGAdSxl7IBZjlp8e3jIwFrH4TFqP16ECt6_cXWdhsu3FspRxLDoul0PagphMx0vKlu82wNvH3Xsj36j2xnPZ4t3TUNfB7G1mKXDSruG8nL3Jzdw6hT1VPpuVOHcT1kKS3S9471nvavvXdOTJyr0KCwIWoKgA4jJh4WFVzlrpGKeQIJdVwrtT-FK6ms2vQGAtSJUf6KpWisOsD40DTxRZWQ5auFKhWK1uDxnCZmYu3cYHMWvvTZX4PhNS44yAAYVI8"/>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-lg text-white">La Forêt Sombre</h3>
+<p class="text-sm text-gray-400">Liu Cixin</p>
+<p class="text-xs text-primary font-medium mt-1">Format numérique (ePub)</p>
+</div>
+<div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-6">
+<div class="flex items-center border border-surface-highlight rounded-md">
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">-</button>
+<span class="w-8 text-center text-white font-medium">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">+</button>
+</div>
+<p class="text-lg font-bold text-white w-20 text-right">18,50 €</p>
+<button class="text-gray-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<a class="text-primary hover:underline flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+                            Continuer mes achats
+                        </a>
+</div>
+</div>
+<div class="lg:col-span-1">
+<div class="bg-surface-dark border border-surface-highlight rounded-2xl p-6 lg:p-8 sticky top-24">
+<h2 class="text-2xl font-bold text-white mb-6">Résumé de la commande</h2>
+<div class="space-y-4">
+<div class="flex justify-between text-gray-300">
+<span>Sous-total</span>
+<span class="font-medium">55,49 €</span>
+</div>
+<div class="flex justify-between text-gray-300">
+<span>TVA (20%)</span>
+<span class="font-medium">11,10 €</span>
+</div>
+<div class="border-t border-surface-highlight my-4"></div>
+<div class="flex justify-between text-white text-xl font-bold">
+<span>Total</span>
+<span>66,59 €</span>
+</div>
+</div>
+<div class="mt-8">
+<label class="block text-sm font-medium text-gray-300 mb-2" for="promo-code">Code promotionnel</label>
+<div class="flex gap-2">
+<input class="flex-grow bg-surface-highlight border border-[#2E2419] rounded-lg px-4 py-2 text-white placeholder:text-gray-500 focus:border-primary focus:ring-primary/50" id="promo-code" placeholder="Entrez votre code" type="text"/>
+<button class="px-4 py-2 rounded-lg border border-[#2E2419] text-white font-semibold hover:bg-surface-highlight transition-colors">Appliquer</button>
+</div>
+</div>
+<div class="mt-10">
+<button class="w-full bg-primary text-background-dark font-bold text-lg py-4 rounded-xl hover:bg-opacity-90 transition-all duration-300 transform hover:scale-[1.02] shadow-[0_0_20px_-5px_rgba(255,159,28,0.5)] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">lock</span>
+                                Passer la commande
+                            </button>
+<p class="text-xs text-gray-500 text-center mt-4">Paiement 100% sécurisé.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+  <app-footer></app-footer>
+</div>

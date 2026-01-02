@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>À propos de Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Livresque</h2>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-white transition hover:text-primary" href="#">Accueil</a>
+<a class="text-sm font-bold text-primary transition" href="#">À Propos</a>
+<a class="text-sm font-medium text-white transition hover:text-primary" href="#">Catalogue</a>
+<a class="text-sm font-medium text-white transition hover:text-primary" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 sm:gap-6">
+<button class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-lg bg-primary px-4 text-sm font-bold text-background-dark transition hover:bg-opacity-90">
+                    Se connecter
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="relative py-20 sm:py-24 lg:py-32 bg-surface-dark/20 border-b border-[#2E2419]">
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<svg class="absolute -top-[20%] -left-[10%] text-primary/5 w-1/2 h-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.7,-72.2C55.3,-66.1,65.3,-55.3,73.1,-43.3C80.9,-31.3,86.5,-18.1,85.6,-5.3C84.7,7.5,77.3,19.9,68.6,30.8C59.9,41.7,49.9,51.1,38.6,58.8C27.3,66.5,14.7,72.5,0.7,71.3C-13.3,70.1,-25.6,61.7,-37.8,54.1C-50,46.5,-62.1,39.7,-70.6,29.3C-79.1,18.9,-84,4.9,-82.1,-8.1C-80.2,-21.1,-71.5,-33.1,-61.6,-42.6C-51.7,-52.1,-40.6,-59.1,-29.3,-66.1C-18,-73.1,-6.5,-80.1,5.2,-80.9C16.9,-81.7,30.1,-78.3,42.7,-72.2Z" fill="currentColor" transform="translate(100 100) scale(1.1)"></path>
+</svg>
+<svg class="absolute -bottom-[20%] -right-[15%] text-primary/5 w-1/2 h-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M41.5,-73.4C54.4,-64.7,66,-55.1,74.1,-43.3C82.2,-31.5,86.8,-17.5,84.5,-4.4C82.2,8.7,73.1,20.9,64.2,32.3C55.3,43.7,46.6,54.4,35.9,62.1C25.2,69.8,12.6,74.5,-0.6,75.6C-13.8,76.6,-27.6,74.1,-40.8,67.8C-53.9,61.5,-66.4,51.4,-74.6,38.8C-82.9,26.2,-86.8,11.1,-84.9,-3.3C-82.9,-17.7,-75.2,-31.4,-64.8,-41.8C-54.5,-52.3,-41.5,-59.5,-29.2,-68.6C-16.9,-77.7,-5.4,-88.7,7.2,-89.9C19.7,-91.1,32.2,-82.5,41.5,-73.4Z" fill="currentColor" transform="translate(100 100) scale(1.2)"></path>
+</svg>
+</div>
+<div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-white">L'amour de la lecture, réinventé pour le monde numérique.</h1>
+<p class="mt-6 max-w-2xl mx-auto text-lg text-gray-300 leading-relaxed">
+            Livresque est né d'une passion partagée pour les histoires et la technologie. Nous croyons que la lecture doit être accessible, immersive et adaptée à notre temps.
+        </p>
+</div>
+</section>
+<section class="relative py-20 sm:py-24 lg:py-32">
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute inset-0 opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="60" id="hex-pattern" patternUnits="userSpaceOnUse" width="60">
+<path class="text-primary" d="M30 0l25 15v30l-25 15L5 45V15z" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#hex-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+</div>
+<div class="relative z-10 mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-highlight text-primary">
+<span class="material-symbols-outlined text-3xl">lightbulb</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-white">Notre Vision</h2>
+<p class="text-gray-400">Devenir la porte d'entrée vers tous les univers littéraires.</p>
+</div>
+</div>
+<p class="text-gray-300 leading-relaxed">
+                                Nous imaginons un monde où chaque lecteur peut trouver sa prochaine grande aventure littéraire en un instant, où les auteurs peuvent atteindre leur public sans barrières, et où la technologie enrichit l'expérience de lecture plutôt que de la distraire. Notre vision est de créer une communauté mondiale unie par le pouvoir des mots.
+                            </p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-highlight text-primary">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-white">Notre Mission</h2>
+<p class="text-gray-400">Offrir une expérience de lecture numérique inégalée.</p>
+</div>
+</div>
+<p class="text-gray-300 leading-relaxed">
+                                Notre mission est de construire une plateforme intuitive, élégante et puissante qui place le lecteur au premier plan. Nous nous engageons à proposer un catalogue vaste et diversifié, à développer des fonctionnalités innovantes qui facilitent la découverte et la lecture, et à garantir un accès juste et équitable aux œuvres pour tous.
+                            </p>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<div class="relative aspect-square w-full rounded-2xl overflow-hidden shadow-2xl bg-surface-highlight border-2 border-[#2E2419]">
+<div class="h-full w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAO13jOVrjJpMWCIUqQ916QT-4MEpa2sxzSBgruLoGZuS-4mVY_9_x1vK77-623feoO1Hm3_-cKFbFMSzz-K23YJ-pHljl3-s8U_9Sig3Jj9FEQwHj6kjRywNeWbNlF8x5OaHjqE3MFN7cOQVXansGNorhQapTFN9KyF0kDj7bzkKSc_l2iHlmGvJtqH2e2oxc8SCGdmx9c247kBjRIQFRr5PickCqffP7QlWcAiWLE2t5PZUkRZX2Q_ykHB1vNOp65422j9EE5Yj0');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/70 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<blockquote class="border-l-4 border-primary pl-4">
+<p class="text-xl italic font-medium text-white">
+                                    "Un livre est un rêve que vous tenez dans votre main."
+                                </p>
+<span class="mt-2 block text-sm text-gray-400">- Neil Gaiman</span>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-20 sm:py-24 lg:py-32 bg-surface-dark/40 border-y border-[#2E2419]">
+<div class="absolute inset-0 pointer-events-none opacity-[0.05]">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="lines-pattern" patternTransform="rotate(45)" patternUnits="userSpaceOnUse" width="40">
+<rect class="text-primary" fill="currentColor" height="20" width="1"></rect>
+</pattern>
+</defs>
+<rect fill="url(#lines-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="relative z-10 mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="text-3xl sm:text-4xl font-black text-white">Nos Engagements</h2>
+<p class="mt-4 max-w-2xl mx-auto text-gray-400">Les valeurs qui guident chacune de nos décisions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="flex flex-col items-center text-center p-8 bg-surface-highlight rounded-xl border border-transparent hover:border-primary/30 transition-all duration-300">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#2E2419] mb-6 text-primary border-2 border-primary/20">
+<span class="material-symbols-outlined text-3xl">diversity_3</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Pour les Lecteurs</h3>
+<p class="text-gray-400 leading-relaxed">
+                    Nous nous engageons à offrir une expérience utilisateur exceptionnelle, un catalogue riche et une plateforme sécurisée pour que vous puissiez vous concentrer sur ce qui compte : la lecture.
+                </p>
+</div>
+<div class="flex flex-col items-center text-center p-8 bg-surface-highlight rounded-xl border border-transparent hover:border-primary/30 transition-all duration-300">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#2E2419] mb-6 text-primary border-2 border-primary/20">
+<span class="material-symbols-outlined text-3xl">draw</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Pour les Auteurs</h3>
+<p class="text-gray-400 leading-relaxed">
+                    Nous soutenons les créateurs en leur fournissant des outils pour atteindre un public plus large et en assurant une rémunération juste et transparente pour leur travail.
+                </p>
+</div>
+<div class="flex flex-col items-center text-center p-8 bg-surface-highlight rounded-xl border border-transparent hover:border-primary/30 transition-all duration-300">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#2E2419] mb-6 text-primary border-2 border-primary/20">
+<span class="material-symbols-outlined text-3xl">recycling</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Pour la Planète</h3>
+<p class="text-gray-400 leading-relaxed">
+                    En promouvant la lecture numérique, nous contribuons à réduire l'empreinte carbone de l'industrie du livre. Un geste simple pour une planète plus saine.
+                </p>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-20 sm:py-24 lg:py-32">
+<div class="absolute inset-0 pointer-events-none opacity-5">
+<svg class="absolute top-[10%] left-[5%] text-primary w-[200px] h-[200px]" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"></path>
+</svg>
+<svg class="absolute bottom-[15%] right-[8%] text-primary w-[150px] h-[150px]" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+<div class="relative overflow-hidden rounded-2xl bg-surface-highlight border border-[#2E2419] shadow-2xl">
+<div class="absolute inset-0 bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtNbvRcRGQnHEH6A0xazN0k9Yq1JMIcbEBpl_b7whkd9NPGrn57P4fzXnTITCzSU2ktHCcHetuElJLoalPA4UG4vQsmgg-IhfiQv094XHZE0-u3JRrafhC5LoJkYc9kQLMjXMXvJ9cD9_aK9APiz5-wpGOCalXgmJwmsY2XR9JWsOV95xdeR_cka5MikySlI_h-PLv5of4hQJJ4XmJ1a9vSckYrrCjrONP4G2uSdTcyBGMIFdinfWxsyrMkR6YSP47Y7B7PMlW5Ww')] bg-cover bg-center opacity-10"></div>
+<div class="relative z-10 p-12 text-center">
+<h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Rejoignez l'aventure Livresque</h2>
+<p class="max-w-2xl mx-auto text-gray-300 mb-8 text-lg">
+                    Que vous soyez un lecteur avide, un auteur en herbe ou simplement curieux, il y a une place pour vous dans notre communauté.
+                </p>
+<div class="flex flex-wrap gap-4 justify-center">
+<button class="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-base font-bold text-background-dark transition hover:bg-opacity-90 hover:scale-105">
+                        Parcourir le catalogue
+                    </button>
+<button class="inline-flex h-12 items-center justify-center rounded-lg bg-surface-dark px-8 text-base font-bold text-white transition hover:bg-[#453625] hover:scale-105">
+                        Nous contacter
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-[#2E2419] bg-background-dark pt-12 pb-8 relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="dots-footer" patternUnits="userSpaceOnUse" width="20">
+<rect class="text-primary" fill="currentColor" height="2" width="2" x="0" y="0"></rect>
+</pattern>
+</defs>
+<rect fill="url(#dots-footer)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
+<div class="col-span-2 lg:col-span-2">
+<a class="flex items-center gap-2 mb-4 text-white" href="#">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-lg font-bold">Livresque</span>
+</a>
+<p class="text-sm text-gray-500 mb-6 max-w-sm">La plateforme de lecture numérique qui vous accompagne partout. Découvrez, lisez, partagez votre passion.</p>
+<div class="flex gap-4">
+<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-primary/20 hover:text-primary">
+<span class="text-xs font-bold">FB</span>
+</div>
+<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-primary/20 hover:text-primary">
+<span class="text-xs font-bold">TW</span>
+</div>
+<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-primary/20 hover:text-primary">
+<span class="text-xs font-bold">IG</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Explorer</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Nouveautés</a></li>
+<li><a class="hover:text-primary transition" href="#">Meilleures ventes</a></li>
+<li><a class="hover:text-primary transition" href="#">Catégories</a></li>
+<li><a class="hover:text-primary transition" href="#">Promotions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Compagnie</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">À propos</a></li>
+<li><a class="hover:text-primary transition" href="#">Carrières</a></li>
+<li><a class="hover:text-primary transition" href="#">Presse</a></li>
+<li><a class="hover:text-primary transition" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4">Support</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-primary transition" href="#">Aide &amp; FAQ</a></li>
+<li><a class="hover:text-primary transition" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition" href="#">Conditions</a></li>
+<li><a class="hover:text-primary transition" href="#">Confidentialité</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-4 lg:col-span-2 border-t border-[#2E2419] lg:border-none pt-8 lg:pt-0 mt-2 lg:mt-0">
+<h4 class="font-bold text-white mb-4">Newsletter</h4>
+<p class="text-xs text-gray-400 mb-3">Rejoignez +10k lecteurs et recevez nos meilleures offres.</p>
+<form class="flex flex-col gap-2">
+<input class="w-full rounded bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" placeholder="Votre email" type="email"/>
+<button class="w-full rounded bg-white py-2 text-sm font-bold text-background-dark hover:bg-primary transition" type="submit">S'inscrire</button>
+</form>
+</div>
+</div>
+<div class="mt-12 border-t border-[#2E2419] pt-8 text-center text-xs text-gray-500">
+<p>© 2023 Livresque. Tous droits réservés.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,65 @@
+﻿<div class="relative flex min-h-screen w-full flex-col">
+  <app-header></app-header>
+  <main class="flex-1">
+<section class="relative flex items-center justify-center min-h-[calc(100vh-4rem)] py-12 px-4 sm:px-6 lg:px-8">
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<svg class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 text-primary/5 opacity-50" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.7,-72.2C55.3,-66.1,65.3,-55.3,73.1,-43.3C80.9,-31.3,86.5,-18.1,85.6,-5.3C84.7,7.5,77.3,19.9,68.6,30.8C59.9,41.7,49.9,51.1,38.6,58.8C27.3,66.5,14.7,72.5,0.7,71.3C-13.3,70.1,-25.6,61.7,-37.8,54.1C-50,46.5,-62.1,39.7,-70.6,29.3C-79.1,18.9,-84,4.9,-82.1,-8.1C-80.2,-21.1,-71.5,-33.1,-61.6,-42.6C-51.7,-52.1,-40.6,-59.1,-29.3,-66.1C-18,-73.1,-6.5,-80.1,5.2,-80.9C16.9,-81.7,30.1,-78.3,42.7,-72.2Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+<svg class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 text-primary/5 opacity-50" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M45.7,-76.3C58.9,-69.3,69.1,-55.6,76.3,-41.2C83.5,-26.8,87.7,-11.7,85.2,2.3C82.7,16.3,73.5,29.3,63.5,40.4C53.5,51.5,42.7,60.8,30.5,66.3C18.3,71.8,4.7,73.6,-8.3,72.3C-21.3,71,-33.7,66.6,-44.6,58.8C-55.5,51,-64.9,39.8,-70.7,27.1C-76.5,14.4,-78.7,0.2,-74.9,-12.3C-71.1,-24.8,-61.3,-35.6,-50.7,-43.8C-40.1,-52,-28.7,-57.6,-17.1,-64.8C-5.5,-72,6.3,-80.8,19.2,-82.6C32.1,-84.4,42.5,-83.3,45.7,-76.3Z" fill="currentColor" transform="translate(100 100)"></path>
+</svg>
+</div>
+<div class="relative z-10 w-full max-w-md mx-auto">
+<div class="text-center mb-8">
+<h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white">Créer un compte</h1>
+<p class="mt-3 text-gray-400">Rejoignez la communauté Livresque et commencez à lire dès aujourd'hui.</p>
+</div>
+<div class="bg-surface-dark border border-surface-highlight rounded-2xl shadow-2xl p-6 sm:p-8">
+<form action="#" class="space-y-6" method="POST">
+<div>
+<label class="block text-sm font-medium text-gray-300" for="name">Nom complet</label>
+<div class="mt-2">
+<input autocomplete="name" class="block w-full rounded-lg border-0 bg-surface-highlight py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-surface-highlight focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all duration-200" id="name" name="name" placeholder="Ex: Jean Dupont" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300" for="email">Adresse e-mail</label>
+<div class="mt-2">
+<input autocomplete="email" class="block w-full rounded-lg border-0 bg-surface-highlight py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-surface-highlight focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all duration-200" id="email" name="email" placeholder="vous@exemple.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300" for="password">Mot de passe</label>
+<div class="mt-2">
+<input autocomplete="new-password" class="block w-full rounded-lg border-0 bg-surface-highlight py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-surface-highlight focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all duration-200" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300" for="password-confirm">Confirmer le mot de passe</label>
+<div class="mt-2">
+<input autocomplete="new-password" class="block w-full rounded-lg border-0 bg-surface-highlight py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-surface-highlight focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all duration-200" id="password-confirm" name="password-confirm" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<div>
+<button class="flex w-full justify-center rounded-lg bg-primary px-3 py-3 text-sm font-bold leading-6 text-background-dark shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]" type="submit">S'inscrire</button>
+</div>
+</form>
+<p class="mt-6 text-center text-xs text-gray-500">
+                    En vous inscrivant, vous acceptez nos
+                    <a class="font-medium text-primary hover:text-primary/80" href="#">Conditions Générales de Vente</a>
+                    et notre
+                    <a class="font-medium text-primary hover:text-primary/80" href="#">Politique de Confidentialité</a>.
+                </p>
+</div>
+<div class="mt-6 text-center text-sm">
+<p class="text-gray-400">
+                    Déjà un compte ?
+                    <a class="font-semibold text-primary hover:text-primary/80" href="#">Connectez-vous</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+  <app-footer></app-footer>
+</div>

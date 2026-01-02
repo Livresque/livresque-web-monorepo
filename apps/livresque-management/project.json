@@ -3,7 +3,7 @@
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "livresque-management/src",
+  "sourceRoot": "apps/livresque-management/src",
   "tags": [],
   "targets": {
     "build": {
@@ -11,16 +11,16 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/livresque-management",
-        "browser": "livresque-management/src/main.ts",
-        "tsConfig": "livresque-management/tsconfig.app.json",
+        "browser": "apps/livresque-management/src/main.ts",
+        "tsConfig": "apps/livresque-management/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "livresque-management/public"
+            "input": "apps/livresque-management/public"
           }
         ],
-        "styles": ["livresque-management/src/styles.scss"]
+        "styles": ["apps/livresque-management/src/styles.scss"]
       },
       "configurations": {
         "production": {

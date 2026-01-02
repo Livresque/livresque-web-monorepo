@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./livresque-marketplace/src/**/*.{html,ts,scss}",
-    "./livresque-management/src/**/*.{html,ts,scss}",
+    "./apps/livresque-marketplace/src/**/*.{html,ts,scss}",
+    "./apps/livresque-management/src/**/*.{html,ts,scss}",
   ],
   theme: {
     extend: {

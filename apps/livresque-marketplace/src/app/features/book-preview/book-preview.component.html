@@ -78,9 +78,9 @@
                             Découvrez ce que le Cimetière des Livres Oubliés réserve à Daniel. Plongez dans les secrets de la Barcelone de l'après-guerre.
                         </p>
 <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
-<button class="flex w-full sm:w-auto h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 font-bold text-background-dark transition hover:bg-white hover:scale-105">
+<button (click)="addToCart()" class="flex w-full sm:w-auto h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 font-bold text-background-dark transition hover:bg-white hover:scale-105">
                                 Acheter le livre complet
-                                <span class="bg-black/10 px-1.5 py-0.5 rounded text-xs ml-1">19,90 €</span>
+                                <span class="bg-black/10 px-1.5 py-0.5 rounded text-xs ml-1">{{ currentPrice$ | async }}</span>
 </button>
 <button class="flex w-full sm:w-auto h-12 items-center justify-center gap-2 rounded-lg border border-[#2E2419] px-6 font-medium text-white transition hover:bg-surface-highlight hover:border-gray-500">
                                 Voir la fiche détaillée

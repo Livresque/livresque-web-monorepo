@@ -22,13 +22,13 @@
 </a>
 <p class="text-sm text-gray-500 mb-6 max-w-sm">La plateforme de lecture numérique qui vous accompagne partout. Découvrez, lisez, partagez votre passion.</p>
 <div class="flex gap-4">
-<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-primary/20 hover:text-primary">
+<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-orange-500/20 hover:text-orange-500">
 <span class="text-xs font-bold">FB</span>
 </div>
-<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-primary/20 hover:text-primary">
+<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-orange-500/20 hover:text-orange-500">
 <span class="text-xs font-bold">TW</span>
 </div>
-<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-primary/20 hover:text-primary">
+<div class="h-8 w-8 rounded bg-[#2E2419] flex items-center justify-center text-gray-400 hover:text-white cursor-pointer transition hover:bg-orange-500/20 hover:text-orange-500">
 <span class="text-xs font-bold">IG</span>
 </div>
 </div>
@@ -36,41 +36,41 @@
 <div>
 <h4 class="font-bold text-white mb-4">Explorer</h4>
 <ul class="space-y-2 text-sm text-gray-400">
-<li><a class="hover:text-primary transition" href="#">Nouveautés</a></li>
-<li><a class="hover:text-primary transition" href="#">Meilleures ventes</a></li>
-<li><a class="hover:text-primary transition" href="#">Catégories</a></li>
-<li><a class="hover:text-primary transition" href="#">Promotions</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/shop" [queryParams]="{section: 'nouveautes'}">Nouveautés</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/shop" [queryParams]="{section: 'tendances'}">Meilleures ventes</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/shop">Boutique</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/shop" [queryParams]="{section: 'promotions'}">Promotions</a></li>
 </ul>
 </div>
 <div>
 <h4 class="font-bold text-white mb-4">Compte</h4>
 <ul class="space-y-2 text-sm text-gray-400">
-<li><a class="hover:text-primary transition" href="#">Se connecter</a></li>
-<li><a class="hover:text-primary transition" href="#">Ma bibliothèque</a></li>
-<li><a class="hover:text-primary transition" href="#">Liste de souhaits</a></li>
-<li><a class="hover:text-primary transition" href="#">Abonnement</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/login">Se connecter</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/register">Créer un compte</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/cart">Mon panier</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/about">À propos</a></li>
 </ul>
 </div>
 <div>
 <h4 class="font-bold text-white mb-4">Support</h4>
 <ul class="space-y-2 text-sm text-gray-400">
-<li><a class="hover:text-primary transition" href="#">Aide &amp; FAQ</a></li>
-<li><a class="hover:text-primary transition" href="#">Contact</a></li>
-<li><a class="hover:text-primary transition" href="#">Conditions</a></li>
-<li><a class="hover:text-primary transition" href="#">Confidentialité</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/faq">Aide &amp; FAQ</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/contact">Contact</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/terms">Conditions</a></li>
+<li><a class="hover:text-orange-500 transition" routerLink="/privacy-policy">Confidentialité</a></li>
 </ul>
 </div>
 <div class="col-span-2 md:col-span-4 lg:col-span-1 border-t border-[#2E2419] lg:border-none pt-8 lg:pt-0 mt-2 lg:mt-0">
 <h4 class="font-bold text-white mb-4">Newsletter</h4>
 <p class="text-xs text-gray-400 mb-3">Rejoignez +10k lecteurs et recevez nos meilleures offres.</p>
 <form class="flex flex-col gap-2">
-<input class="w-full rounded bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-primary focus:ring-0 focus:outline-none" placeholder="Votre email" type="email"/>
-<button class="w-full rounded bg-white py-2 text-sm font-bold text-background-dark hover:bg-primary transition" type="submit">S'inscrire</button>
+<input class="w-full rounded bg-surface-highlight border border-[#2E2419] px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-orange-500 focus:ring-0 focus:outline-none" placeholder="Votre email" type="email"/>
+<button class="w-full rounded bg-white py-2 text-sm font-bold text-background-dark hover:bg-orange-500 transition" type="submit">S'inscrire</button>
 </form>
 </div>
 </div>
 <div class="mt-12 border-t border-[#2E2419] pt-8 text-center text-xs text-gray-500">
-<p>© 2023 Livresque. Tous droits réservés.</p>
+<p>© {{ currentYear }} Livresque. Tous droits réservés.</p>
 </div>
 </div>
 </footer>

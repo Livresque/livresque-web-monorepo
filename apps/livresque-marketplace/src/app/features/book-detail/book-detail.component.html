@@ -35,7 +35,7 @@
 </div>
 </div>
 <div class="grid grid-cols-2 gap-4">
-<button class="flex items-center justify-center gap-2 rounded-lg border border-[#2E2419] bg-surface-highlight py-3 text-sm font-medium text-white transition hover:bg-[#3E3224] hover:border-primary/50">
+<button (click)="goToPreview()" class="flex items-center justify-center gap-2 rounded-lg border border-[#2E2419] bg-surface-highlight py-3 text-sm font-medium text-white transition hover:bg-[#3E3224] hover:border-primary/50">
 <span class="material-symbols-outlined text-[20px] text-primary">visibility</span>
                                 Lire un extrait
                             </button>
@@ -60,7 +60,7 @@
                             </h1>
 <div class="flex items-center gap-2 text-lg">
 <span class="text-gray-400">par</span>
-<a class="font-bold text-primary hover:underline" href="#">Carlos Ruiz Zafón</a>
+<a  routerLink="/author/carlos-ruiz-zafon/" class="font-bold text-primary hover:underline cursor-pointer transition">Carlos Ruiz Zafón</a>
 </div>
 <div class="flex items-center gap-4 py-2">
 <div class="flex items-center gap-1 text-primary">
@@ -68,29 +68,36 @@
 <span class="material-symbols-outlined text-[20px] fill-current">star</span>
 <span class="material-symbols-outlined text-[20px] fill-current">star</span>
 <span class="material-symbols-outlined text-[20px] fill-current">star</span>
-<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span> 
 </div>
-<a class="text-sm font-medium text-gray-300 hover:text-primary underline decoration-gray-600 underline-offset-4" href="#avis">
+<a class="text-sm font-medium text-gray-300 hover:text-primary underline decoration-gray-600 underline-offset-4" href="#avis/">
                                     4.9 (2,845 avis)
                                 </a>
 </div>
 <div class="mt-4 flex items-end gap-4 border-b border-[#2E2419] pb-8">
 <div class="flex flex-col">
-<span class="text-sm text-gray-400 line-through">24,90 €</span>
-<span class="text-4xl font-black text-white">19,90 €</span>
+<span class="text-sm text-gray-400 line-through">{{ originalPrice$ | async }}</span>
+<span class="text-4xl font-black text-white">{{ currentPrice$ | async }}</span>
 </div>
 <span class="mb-1 rounded bg-green-900/30 px-2 py-1 text-xs font-bold text-green-400 border border-green-900">-20%</span>
 </div>
-<div class="mt-8 flex flex-col gap-4 sm:flex-row">
-<button class="flex h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-8 text-base font-bold text-background-dark shadow-[0_0_20px_-5px_rgba(255,159,28,0.4)] transition hover:bg-white hover:scale-[1.02] active:scale-95">
+<div class="mt-8 flex flex-col gap-4 lg:flex-row">
+<button (click)="addToCart()" class="flex h-14 flex-1 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary/5 px-8 text-base font-bold text-primary transition hover:bg-primary/10 hover:border-primary active:scale-95">
 <span class="material-symbols-outlined">shopping_cart</span>
+                                    Ajouter au panier
+                                </button>
+<button (click)="buyNow()" class="flex h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-8 text-base font-bold text-background-dark shadow-[0_0_20px_-5px_rgba(255,159,28,0.4)] transition hover:bg-white hover:scale-[1.02] active:scale-95">
+<span class="material-symbols-outlined">flash_on</span>
                                     Acheter maintenant
                                 </button>
-<button class="flex h-14 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary/5 px-6 text-base font-bold text-primary transition hover:bg-primary/10 hover:border-primary active:scale-95">
-<span class="material-symbols-outlined">bookmark_add</span>
-<span class="hidden sm:inline">Ajouter à la bibliothèque</span>
-</button>
+
 </div>
+
+<button class="flex h-14 flex-1 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary/5 px-6 py-4 text-base font-bold text-primary transition hover:bg-primary/10 hover:border-primary active:scale-95">
+<span class="material-symbols-outlined">bookmark_add</span>
+<span class="hidden sm:inline">Ajouter à la bibliothèque Bibliothèque</span>
+</button>
+
 <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 rounded-xl bg-surface-highlight p-4 border border-[#2E2419]">
 <div class="flex flex-col items-center gap-1 text-center border-r border-[#2E2419] last:border-0 sm:last:border-0">
 <span class="text-xs text-gray-400 uppercase tracking-wider">Pages</span>
@@ -125,12 +132,27 @@
 <section class="bg-surface-dark border-t border-[#2E2419] relative">
 <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
 <div class="flex overflow-x-auto border-b border-[#2E2419] no-scrollbar">
-<button class="border-b-2 border-primary px-6 py-4 text-sm font-bold text-white">Description Détaillée</button>
-<button class="border-b-2 border-transparent px-6 py-4 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-700 transition">Détails du Produit</button>
-<button class="border-b-2 border-transparent px-6 py-4 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-700 transition" id="avis">Avis Lecteurs (2845)</button>
+<button 
+  (click)="switchTab('description')" 
+  [class]="activeTab === 'description' ? 'border-b-2 border-primary px-6 py-4 text-sm font-bold text-white' : 'border-b-2 border-transparent px-6 py-4 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-700 transition'">
+  Description Détaillée
+</button>
+<button 
+  (click)="switchTab('details')" 
+  [class]="activeTab === 'details' ? 'border-b-2 border-primary px-6 py-4 text-sm font-bold text-white' : 'border-b-2 border-transparent px-6 py-4 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-700 transition'">
+  Détails du Produit
+</button>
+<button 
+  (click)="switchTab('reviews')" 
+  [class]="activeTab === 'reviews' ? 'border-b-2 border-primary px-6 py-4 text-sm font-bold text-white' : 'border-b-2 border-transparent px-6 py-4 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-700 transition'">
+  Avis Lecteurs (2845)
+</button>
 </div>
 <div class="grid lg:grid-cols-3 gap-12 py-12">
 <div class="lg:col-span-2 space-y-8">
+
+<!-- Contenu de l'onglet Description Détaillée -->
+<div *ngIf="activeTab === 'description'">
 <div>
 <h3 class="text-2xl font-bold text-white mb-4">À propos de l'œuvre</h3>
 <div class="prose prose-invert prose-orange max-w-none text-gray-300 leading-7">
@@ -145,6 +167,55 @@
                                 </p>
 </div>
 </div>
+</div>
+
+<!-- Contenu de l'onglet Détails du Produit -->
+<div *ngIf="activeTab === 'details'">
+<div>
+<h3 class="text-2xl font-bold text-white mb-4">Informations techniques</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-4">
+<div class="flex justify-between py-2 border-b border-[#2E2419]">
+<span class="text-gray-400">ISBN</span>
+<span class="text-white font-mono">978-2-266-14336-7</span>
+</div>
+<div class="flex justify-between py-2 border-b border-[#2E2419]">
+<span class="text-gray-400">Éditeur</span>
+<span class="text-white">Grasset & Fasquelle</span>
+</div>
+<div class="flex justify-between py-2 border-b border-[#2E2419]">
+<span class="text-gray-400">Date de publication</span>
+<span class="text-white">2001</span>
+</div>
+<div class="flex justify-between py-2 border-b border-[#2E2419]">
+<span class="text-gray-400">Nombre de pages</span>
+<span class="text-white">560 pages</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between py-2 border-b border-[#2E2419]">
+<span class="text-gray-400">Langue</span>
+<span class="text-white">Français</span>
+</div>
+<div class="flex justify-between py-2 border-b border-[#2E2419]">
+<span class="text-gray-400">Format disponible</span>
+<span class="text-white">ePub, PDF, Broché</span>
+</div>
+<div class="flex justify-between py-2 border-b border-[#2E2419]">
+<span class="text-gray-400">Série</span>
+<span class="text-white">Le Cimetière des Livres Oubliés (Tome 1)</span>
+</div>
+<div class="flex justify-between py-2 border-b border-[#2E2419]">
+<span class="text-gray-400">Genre</span>
+<span class="text-white">Roman, Fiction, Mystère</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Contenu de l'onglet Avis Lecteurs -->
+<div *ngIf="activeTab === 'reviews'">
 <div class="border-t border-[#2E2419] pt-8">
 <h3 class="text-2xl font-bold text-white mb-6">Avis de la communauté</h3>
 <div class="flex flex-col gap-6">
@@ -192,6 +263,8 @@
 </div>
 </div>
 </div>
+
+</div>
 <div class="lg:col-span-1">
 <div class="sticky top-24 flex flex-col gap-6">
 <div class="rounded-xl bg-[#2E2419]/50 p-6 border border-[#2E2419]">
@@ -209,7 +282,7 @@
 <p class="text-sm text-gray-400 mb-4">
                                     Auteur mondialement connu pour sa saga du Cimetière des Livres Oubliés. Ses œuvres ont été traduites dans plus de 40 langues.
                                 </p>
-<a class="text-xs font-bold text-primary hover:underline flex items-center gap-1" href="#">
+<a routerLink="/author/carlos-ruiz-zafon/" class="text-xs font-bold text-primary hover:underline flex items-center gap-1 cursor-pointer transition">
                                     Voir tous ses livres <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
 </a>
 </div>
@@ -268,7 +341,7 @@
 <div class="flex flex-col gap-1">
 <h3 class="line-clamp-1 text-base font-bold text-white group-hover:text-primary transition">Sapiens</h3>
 <p class="text-sm text-gray-400">Yuval Noah Harari</p>
-<span class="font-bold text-white">22,00 €</span>
+<span class="font-bold text-white">{{ getSuggestionPrice(0) | async }}</span>
 </div>
 </div>
 <div class="group flex flex-col gap-3">
@@ -281,7 +354,7 @@
 <div class="flex flex-col gap-1">
 <h3 class="line-clamp-1 text-base font-bold text-white group-hover:text-primary transition">La Forêt Sombre</h3>
 <p class="text-sm text-gray-400">Liu Cixin</p>
-<span class="font-bold text-white">18,50 €</span>
+<span class="font-bold text-white">{{ getSuggestionPrice(1) | async }}</span>
 </div>
 </div>
 <div class="group flex flex-col gap-3">
@@ -294,7 +367,7 @@
 <div class="flex flex-col gap-1">
 <h3 class="line-clamp-1 text-base font-bold text-white group-hover:text-primary transition">L'Art de la Guerre</h3>
 <p class="text-sm text-gray-400">Sun Tzu</p>
-<span class="font-bold text-white">9,90 €</span>
+<span class="font-bold text-white">{{ getSuggestionPrice(2) | async }}</span>
 </div>
 </div>
 <div class="group flex flex-col gap-3">
@@ -307,7 +380,7 @@
 <div class="flex flex-col gap-1">
 <h3 class="line-clamp-1 text-base font-bold text-white group-hover:text-primary transition">Atomic Habits</h3>
 <p class="text-sm text-gray-400">James Clear</p>
-<span class="font-bold text-white">14,99 €</span>
+<span class="font-bold text-white">{{ getSuggestionPrice(3) | async }}</span>
 </div>
 </div>
 </div>

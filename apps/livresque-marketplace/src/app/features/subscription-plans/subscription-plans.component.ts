@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
+import { CurrencyService } from '../../shared/services/currency.service';
 
 @Component({
   selector: 'app-subscription-plans',
@@ -13,6 +14,7 @@ import { HeaderComponent } from '../../shared/components/header/header.component
 })
 export class SubscriptionPlansComponent {
   isAnnual = true;
+  private currencyService = inject(CurrencyService);
   
   plans = [
     {
@@ -125,12 +127,27 @@ export class SubscriptionPlansComponent {
   }
 
   getPlanPrice(plan: any): string {
+    // Free plan
     if (!plan.monthlyPrice) return plan.price;
-    
-    if (this.isAnnual && plan.annualPrice) {
-      return `${(plan.annualPrice / 12).toFixed(2)} €`;
+
+    const currency = this.currencyService.getCurrentCurrency();
+    const basePrice = this.isAnnual && plan.annualPrice
+      ? (plan.annualPrice / 12)
+      : plan.monthlyPrice;
+
+    return this.formatPrice(basePrice, currency);
+  }
+
+  private formatPrice(price: number, currency: string): string {
+    if (currency === 'XOF') {
+      return `${price.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} FCFA`;
     }
-    return plan.price;
+    return new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(price);
   }
 
   selectPlan(planId: string) {

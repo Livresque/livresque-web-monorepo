@@ -1,0 +1,74 @@
+<div class="relative flex min-h-screen w-full flex-col">
+  <app-header></app-header>
+  <main class="flex-1 flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+      <div class="w-full rounded-2xl bg-surface-dark border border-surface-highlight p-8 shadow-2xl shadow-black/20">
+        <div class="text-center mb-8">
+          <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+            <span class="material-symbols-outlined text-primary text-[32px]">verified_user</span>
+          </div>
+          <h2 class="text-3xl font-black text-white">Vérification</h2>
+          <p class="text-gray-400 mt-2">Entrez le code à 5 chiffres envoyé à</p>
+          <p class="text-primary font-medium mt-1">{{ email }}</p>
+        </div>
+        
+        <form class="space-y-6">
+          <!-- OTP Input Fields -->
+          <div>
+            <div class="flex justify-center gap-3">
+              <input
+                *ngFor="let digit of otp; let i = index"
+                type="text"
+                [name]="'otp-' + i"
+                maxlength="1"
+                [value]="otp[i]"
+                (input)="onOtpChange(i, $event)"
+                (keydown)="onKeyDown(i, $event)"
+                (paste)="i === 0 ? onPaste($event) : null"
+                class="w-14 h-14 text-center text-2xl font-bold rounded-lg border-2 border-surface-highlight bg-surface-highlight/50 text-white placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary transition"
+                [class.border-red-500]="errorMessage"
+                [disabled]="isVerifying"
+              />
+            </div>
+            
+            <!-- Message d'erreur -->
+            <div *ngIf="errorMessage" class="mt-4 flex items-center justify-center gap-2 text-red-500 text-sm">
+              <span class="material-symbols-outlined text-[18px]">error</span>
+              {{ errorMessage }}
+            </div>
+          </div>
+          
+          <!-- État de vérification -->
+          <div *ngIf="isVerifying" class="text-center">
+            <div class="inline-flex items-center gap-2 text-primary">
+              <div class="h-5 w-5 animate-spin rounded-full border-2 border-primary border-t-transparent"></div>
+              <span class="text-sm">Vérification en cours...</span>
+            </div>
+          </div>
+
+          <!-- Renvoyer le code -->
+          <div class="text-center">
+            <p class="text-sm text-gray-400">
+              Vous n'avez pas reçu le code ?
+              <button 
+                type="button"
+                (click)="resendCode()"
+                class="font-medium text-primary hover:underline ml-1"
+                [disabled]="isVerifying">
+                Renvoyer
+              </button>
+            </p>
+          </div>
+        </form>
+        
+        <div class="text-center mt-6">
+          <a class="text-sm text-gray-400 hover:text-primary transition" routerLink="/forgot-password">
+            <span class="material-symbols-outlined text-[16px] align-middle">arrow_back</span>
+            Changer l'adresse email
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <app-footer></app-footer>
+</div>

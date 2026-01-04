@@ -254,15 +254,16 @@
     <!-- Section CTA Final -->
     <section class="py-16 bg-surface-highlight relative border-t border-[#2E2419]">
       <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h2 class="text-3xl font-black text-white mb-6">Prêt à commencer ?</h2>
+        <h2 class="text-3xl font-black text-white mb-6">Vous ne savez pas par où commencer ?</h2>
         <p class="text-gray-400 mb-8 max-w-xl mx-auto">
           Rejoignez plus de 100 000 lecteurs satisfaits et découvrez une nouvelle façon de lire.
         </p>
-        <button 
-          class="flex mx-auto h-12 min-w-[200px] cursor-pointer items-center justify-center rounded-lg bg-primary px-8 text-base font-bold text-background-dark transition hover:bg-white hover:scale-105 active:scale-95 shadow-xl shadow-primary/20"
-          (click)="selectPlan('passionate')">
-          Voir les plans
-        </button>
+        <div class="flex justify-center">
+          <a routerLink="/contact"
+          class="inline-flex h-12 cursor-pointer items-center justify-center rounded-lg bg-primary px-8 text-base font-bold text-background-dark transition hover:bg-white hover:scale-105 active:scale-95 shadow-xl shadow-primary/20">
+          Contactez le support
+        </a>
+        </div>
         <p class="mt-4 text-xs text-gray-500">
           Pas de carte de crédit requise pour l'inscription gratuite.
         </p>

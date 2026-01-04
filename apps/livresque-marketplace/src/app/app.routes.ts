@@ -60,6 +60,18 @@ export const appRoutes: Route[] = [
   {
     path: 'subscription-plans',
     loadComponent: () => import('./features/subscription-plans/subscription-plans.component').then(m => m.SubscriptionPlansComponent)
+  },
+  {
+    path: 'forgot-password',
+    loadComponent: () => import('./features/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
+  },
+  {
+    path: 'verify-otp',
+    loadComponent: () => import('./features/verify-otp/verify-otp.component').then(m => m.VerifyOtpComponent)
+  },
+  {
+    path: 'change-password',
+    loadComponent: () => import('./features/change-password/change-password.component').then(m => m.ChangePasswordComponent)
   }
 ];
 

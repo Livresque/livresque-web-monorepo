@@ -73,7 +73,7 @@
                     <div class="h-full bg-primary rounded-full" [style.width.%]="book.progress"></div>
                   </div>
                   <p class="text-[10px] text-gray-500 mt-1">Dernière lecture : {{ book.lastRead }}</p>
-                  <button class="mt-2 w-full flex items-center justify-center gap-1 px-3 py-1.5 rounded-lg bg-primary text-background-dark text-xs font-bold hover:bg-white transition">
+                  <button [routerLink]="['/reader', book.id]" class="mt-2 w-full flex items-center justify-center gap-1 px-3 py-1.5 rounded-lg bg-primary text-background-dark text-xs font-bold hover:bg-white transition">
                     <span class="material-symbols-outlined text-[14px] empty">play_arrow</span>
                     Continuer à lire
                   </button>
@@ -83,7 +83,7 @@
                     <span class="px-2 py-0.5 rounded-full bg-gray-800 text-[10px] text-gray-400 border border-gray-700">À lire</span>
                   </div>
                   <p class="text-[10px] text-gray-500 mt-2">{{ book.lastRead }}</p>
-                  <button class="mt-2 w-full flex items-center justify-center gap-1 px-3 py-1.5 rounded-lg bg-surface-dark border border-[#2E2419] text-white text-xs font-medium hover:bg-white/5 transition">
+                  <button [routerLink]="['/reader', book.id]" class="mt-2 w-full flex items-center justify-center gap-1 px-3 py-1.5 rounded-lg bg-surface-dark border border-[#2E2419] text-white text-xs font-medium hover:bg-white/5 transition">
                     <span class="material-symbols-outlined text-[14px] empty">auto_stories</span>
                     Démarrer la lecture
                   </button>

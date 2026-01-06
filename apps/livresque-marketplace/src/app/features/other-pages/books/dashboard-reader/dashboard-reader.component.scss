@@ -1,0 +1,35 @@
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.reader-content {
+  column-gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .reader-content.two-columns {
+    column-count: 2;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1A140E;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2E2419;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #FF9F1C;
+}

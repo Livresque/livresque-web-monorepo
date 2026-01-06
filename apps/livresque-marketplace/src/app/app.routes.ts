@@ -106,6 +106,14 @@ export const appRoutes: Route[] = [
         loadComponent: () => import('./features/other-pages/dashbord/dashboard-profile/dashboard-profile.component').then(m => m.DashboardProfileComponent)
       }
     ]
+  },
+  {
+    path: 'reader/:bookId',
+    loadComponent: () => import('./features/other-pages/books/dashboard-reader/dashboard-reader.component').then(m => m.DashboardReaderComponent)
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./features/other-pages/site-pages/not-found/not-found.component').then(m => m.NotFoundComponent)
   }
 ];
 

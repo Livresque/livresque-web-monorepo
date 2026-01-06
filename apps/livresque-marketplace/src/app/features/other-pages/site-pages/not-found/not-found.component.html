@@ -1,0 +1,89 @@
+<div class="min-h-screen bg-background-dark flex items-center justify-center relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+    <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <pattern height="4" id="grid-pattern" patternUnits="userSpaceOnUse" width="4">
+        <path d="M 0 0 L 0 4 M 0 0 L 4 0" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.5"></path>
+      </pattern>
+      <rect fill="url(#grid-pattern)" height="100%" width="100%"></rect>
+    </svg>
+  </div>
+
+  <!-- Gradient Orbs -->
+  <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-2xl mx-auto px-4 text-center">
+    <!-- 404 Number -->
+    <div class="mb-8 relative">
+      <h1 class="text-[180px] md:text-[240px] font-black text-primary/20 leading-none select-none">
+        404
+      </h1>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="material-symbols-outlined text-[120px] text-primary animate-pulse">
+          menu_book
+        </span>
+      </div>
+    </div>
+
+    <!-- Message -->
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+      Page introuvable
+    </h2>
+    <p class="text-lg text-gray-400 mb-8 max-w-md mx-auto">
+      Oups ! Il semblerait que cette page ait été perdue dans le Cimetière des Livres Oubliés...
+    </p>
+
+    <!-- Actions -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <button
+        (click)="goBack()"
+        class="flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-highlight border border-[#2E2419] text-white font-medium hover:bg-white/5 hover:border-primary/30 transition group">
+        <span class="material-symbols-outlined text-[20px] group-hover:text-primary transition">arrow_back</span>
+        Retour
+      </button>
+      
+      <button
+        (click)="goToHome()"
+        class="flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-white transition shadow-[0_0_20px_-5px_rgba(255,159,28,0.5)]">
+        <span class="material-symbols-outlined text-[20px]">home</span>
+        Accueil
+      </button>
+
+      <button
+        (click)="goToDashboard()"
+        class="flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-highlight border border-primary/30 text-primary font-medium hover:bg-primary hover:text-background-dark transition">
+        <span class="material-symbols-outlined text-[20px]">dashboard</span>
+        Dashboard
+      </button>
+    </div>
+
+    <!-- Suggestions -->
+    <div class="mt-16 pt-8 border-t border-[#2E2419]">
+      <p class="text-sm text-gray-500 mb-4">Vous cherchez peut-être :</p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          routerLink="/shop"
+          class="px-4 py-2 rounded-full bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm hover:text-primary hover:border-primary/30 transition">
+          Boutique
+        </a>
+        <a
+          routerLink="/dashboard/library"
+          class="px-4 py-2 rounded-full bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm hover:text-primary hover:border-primary/30 transition">
+          Ma bibliothèque
+        </a>
+        <a
+          routerLink="/contact"
+          class="px-4 py-2 rounded-full bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm hover:text-primary hover:border-primary/30 transition">
+          Contact
+        </a>
+        <a
+          routerLink="/support"
+          class="px-4 py-2 rounded-full bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm hover:text-primary hover:border-primary/30 transition">
+          Support
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

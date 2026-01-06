@@ -1,0 +1,350 @@
+<!-- Header -->
+<header class="h-16 border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm flex items-center justify-between px-4 lg:px-6 relative z-50 shrink-0">
+  <div class="flex items-center gap-4">
+    <button (click)="goBack()" class="text-gray-400 hover:text-white transition p-2 rounded-full hover:bg-surface-highlight">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <div class="flex items-center gap-3">
+      <div class="h-10 w-8 rounded overflow-hidden shadow-sm hidden sm:block">
+        <div class="h-full w-full bg-cover bg-center" [style.background-image]="'url(' + book.cover + ')'"></div>
+      </div>
+      <div>
+        <h1 class="text-sm font-bold text-white leading-tight">{{ book.title }}</h1>
+        <p class="text-xs text-gray-400">{{ book.author }} • {{ book.currentChapter }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="flex items-center gap-2 sm:gap-4">
+    <!-- Desktop controls -->
+    <div class="hidden md:flex items-center bg-surface-highlight rounded-lg p-1 border border-[#2E2419]">
+      <button class="p-2 rounded text-gray-400 hover:text-white hover:bg-surface-dark transition" title="Rechercher">
+        <span class="material-symbols-outlined text-[20px]">search</span>
+      </button>
+      <div class="h-4 w-px bg-[#2E2419] mx-1"></div>
+      <button (click)="toggleBookmark()" class="p-2 rounded transition" 
+              [class.text-primary]="isBookmarked"
+              [class.text-gray-400]="!isBookmarked"
+              [class.hover:text-white]="!isBookmarked"
+              [class.hover:bg-surface-dark]="true"
+              title="Marque-pages">
+        <span class="material-symbols-outlined text-[20px]" [class.material-symbols-filled]="isBookmarked">bookmark</span>
+      </button>
+      <button class="p-2 rounded text-gray-400 hover:text-white hover:bg-surface-dark transition" title="Notes">
+        <span class="material-symbols-outlined text-[20px]">edit_note</span>
+      </button>
+    </div>
+
+    <!-- Settings dropdown -->
+    <div class="relative group">
+      <button class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-highlight text-white transition">
+        <span class="material-symbols-outlined">format_size</span>
+        <span class="material-symbols-outlined text-[16px]">expand_more</span>
+      </button>
+      <div class="absolute right-0 top-full mt-2 w-72 rounded-xl border border-[#2E2419] bg-surface-dark shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4 z-50 transform origin-top-right">
+        <div class="space-y-4">
+          <!-- Theme -->
+          <div>
+            <span class="text-xs font-bold text-gray-400 uppercase mb-2 block">Thème</span>
+            <div class="flex bg-surface-highlight rounded-lg p-1 border border-[#2E2419]">
+              <button (click)="setTheme('light')" 
+                      class="flex-1 py-1.5 rounded text-xs font-bold transition"
+                      [class.bg-[#FFFBF5]]="theme === 'light'"
+                      [class.text-black]="theme === 'light'"
+                      [class.shadow-sm]="theme === 'light'"
+                      [class.text-gray-400]="theme !== 'light'"
+                      [class.hover:text-white]="theme !== 'light'">
+                Clair
+              </button>
+              <button (click)="setTheme('sepia')"
+                      class="flex-1 py-1.5 rounded text-xs font-bold transition"
+                      [class.bg-[#FDF8F0]]="theme === 'sepia'"
+                      [class.text-black]="theme === 'sepia'"
+                      [class.shadow-sm]="theme === 'sepia'"
+                      [class.text-gray-400]="theme !== 'sepia'"
+                      [class.hover:text-white]="theme !== 'sepia'">
+                Sépia
+              </button>
+              <button (click)="setTheme('dark')"
+                      class="flex-1 py-1.5 rounded text-xs font-bold transition"
+                      [class.bg-surface-dark]="theme === 'dark'"
+                      [class.text-white]="theme === 'dark'"
+                      [class.shadow-sm]="theme === 'dark'"
+                      [class.text-gray-400]="theme !== 'dark'"
+                      [class.hover:text-white]="theme !== 'dark'">
+                Sombre
+              </button>
+            </div>
+          </div>
+
+          <!-- Font size -->
+          <div>
+            <span class="text-xs font-bold text-gray-400 uppercase mb-2 block">Police</span>
+            <div class="flex items-center justify-between bg-surface-highlight rounded-lg px-3 py-2 border border-[#2E2419]">
+              <button (click)="adjustFontSize(false)" class="text-gray-400 hover:text-white">
+                <span class="material-symbols-outlined text-[18px]">remove</span>
+              </button>
+              <span class="text-sm font-bold text-white">{{ fontSize }}%</span>
+              <button (click)="adjustFontSize(true)" class="text-gray-400 hover:text-white">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Line spacing -->
+          <div>
+            <span class="text-xs font-bold text-gray-400 uppercase mb-2 block">Interligne</span>
+            <div class="flex items-center gap-2">
+              <button (click)="setLineSpacing('compact')"
+                      class="flex-1 py-2 rounded border transition flex justify-center items-center"
+                      [class.border-primary]="lineSpacing === 'compact'"
+                      [class.bg-primary/10]="lineSpacing === 'compact'"
+                      [class.text-primary]="lineSpacing === 'compact'"
+                      [class.border-[#2E2419]]="lineSpacing !== 'compact'"
+                      [class.bg-surface-highlight]="lineSpacing !== 'compact'"
+                      [class.text-white]="lineSpacing !== 'compact'"
+                      [class.hover:border-primary/50]="lineSpacing !== 'compact'">
+                <span class="material-symbols-outlined text-[18px]">format_align_justify</span>
+              </button>
+              <button (click)="setLineSpacing('normal')"
+                      class="flex-1 py-2 rounded border transition flex justify-center items-center"
+                      [class.border-primary]="lineSpacing === 'normal'"
+                      [class.bg-primary/10]="lineSpacing === 'normal'"
+                      [class.text-primary]="lineSpacing === 'normal'"
+                      [class.border-[#2E2419]]="lineSpacing !== 'normal'"
+                      [class.bg-surface-highlight]="lineSpacing !== 'normal'"
+                      [class.text-white]="lineSpacing !== 'normal'"
+                      [class.hover:border-primary/50]="lineSpacing !== 'normal'">
+                <span class="material-symbols-outlined text-[18px]">format_line_spacing</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="p-2 rounded-full text-white bg-primary hover:bg-white hover:text-primary transition shadow-[0_0_15px_-3px_rgba(255,159,28,0.4)]">
+      <span class="material-symbols-outlined">menu_book</span>
+    </button>
+  </div>
+</header>
+
+<!-- Main content area -->
+<div class="flex-1 flex overflow-hidden relative">
+  <!-- Left sidebar - Table of contents -->
+  <aside class="hidden lg:flex w-80 flex-col border-r border-[#2E2419] bg-surface-dark z-20 shrink-0">
+    <div class="p-4 border-b border-[#2E2419]">
+      <h2 class="font-bold text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">list</span>
+        Sommaire
+      </h2>
+    </div>
+    <div class="flex-1 overflow-y-auto no-scrollbar py-2">
+      <nav class="space-y-1 px-2">
+        <ng-container *ngFor="let chapter of chapters">
+          <a class="block px-3 py-2 text-sm rounded-md transition"
+             [class.text-primary]="chapter.isActive"
+             [class.bg-primary/10]="chapter.isActive"
+             [class.font-medium]="chapter.isActive"
+             [class.border]="chapter.isActive"
+             [class.border-primary/20]="chapter.isActive"
+             [class.text-gray-400]="!chapter.isActive"
+             [class.hover:text-white]="!chapter.isActive"
+             [class.hover:bg-surface-highlight]="!chapter.isActive"
+             href="#">
+            {{ chapter.title }}
+          </a>
+          <div *ngIf="chapter.children" class="pl-4 space-y-1 mt-1 border-l border-[#2E2419] ml-4">
+            <a *ngFor="let child of chapter.children" 
+               class="block px-3 py-2 text-sm rounded-md transition"
+               [class.text-primary]="child.isActive"
+               [class.bg-primary/10]="child.isActive"
+               [class.font-medium]="child.isActive"
+               [class.border]="child.isActive"
+               [class.border-primary/20]="child.isActive"
+               [class.text-gray-400]="!child.isActive"
+               [class.hover:text-white]="!child.isActive"
+               [class.hover:bg-surface-highlight]="!child.isActive"
+               href="#">
+              {{ child.title }}
+            </a>
+          </div>
+        </ng-container>
+      </nav>
+    </div>
+    
+    <!-- Progress -->
+    <div class="p-4 border-t border-[#2E2419] bg-background-dark">
+      <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
+        <span>Progression</span>
+        <span class="text-primary font-bold">{{ book.progress }}%</span>
+      </div>
+      <div class="h-1.5 w-full bg-surface-highlight rounded-full overflow-hidden">
+        <div class="h-full bg-primary rounded-full shadow-[0_0_10px_rgba(255,159,28,0.5)]" 
+             [style.width.%]="book.progress"></div>
+      </div>
+      <p class="text-xs text-gray-500 mt-2 text-center">Page {{ book.currentPage }} sur {{ book.totalPages }}</p>
+    </div>
+  </aside>
+
+  <!-- Main reading area -->
+  <main class="flex-1 relative bg-paper-dark overflow-y-auto custom-scrollbar flex justify-center w-full">
+    <!-- Background texture -->
+    <div class="fixed inset-0 pointer-events-none opacity-[0.03]">
+      <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <pattern height="4" id="paper-texture" patternUnits="userSpaceOnUse" width="4">
+          <path d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2" stroke="currentColor" stroke-opacity="0.3" stroke-width="1"></path>
+        </pattern>
+        <rect fill="url(#paper-texture)" height="100%" width="100%"></rect>
+      </svg>
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="w-full max-w-4xl px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 z-10">
+      <div class="font-body text-gray-300 text-lg md:text-xl leading-loose reader-content selection:bg-primary/30 selection:text-white">
+        <!-- Chapter heading -->
+        <div class="mb-12 text-center">
+          <span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Chapitre 3</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 font-display">Les murmures du passé</h2>
+          <div class="w-24 h-1 bg-primary mx-auto rounded-full opacity-50"></div>
+        </div>
+
+        <!-- Content paragraphs -->
+        <p class="mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+          Le lendemain matin, je me réveillai avec la sensation d'avoir dormi pendant des siècles. La lumière du soleil filtrait à travers les persiennes, dessinant des rayures dorées sur le plancher poussiéreux de ma chambre. Le livre reposait sur ma table de chevet, comme une relique sacrée attendant d'être vénérée.
+        </p>
+        
+        <p class="mb-6">
+          Je le pris entre mes mains, savourant le poids de ses pages, l'odeur de vieux papier et d'encre qui s'en dégageait. C'était une odeur de magie, de secrets enfouis, une odeur qui promettait des voyages immobiles vers des mondes inconnus. Je l'ouvris au hasard, mes yeux parcourant les lignes avec une avidité nouvelle.
+        </p>
+
+        <div class="my-8 pl-6 border-l-4 border-primary/40 italic text-gray-400 py-2">
+          "Les livres sont des miroirs : on n'y voit que ce qu'on porte déjà en soi."
+          <footer class="mt-2 text-sm text-primary font-bold not-italic">— Julian Carax</footer>
+        </div>
+
+        <p class="mb-6">
+          Cette phrase résonna en moi comme un écho lointain. Avais-je trouvé ce livre, ou m'avait-il trouvé ? Mon père m'avait dit que le Cimetière des Livres Oubliés choisissait ses visiteurs, que chaque livre avait une âme, l'âme de celui qui l'avait écrit et l'âme de ceux qui l'avaient lu et rêvé avec lui.
+        </p>
+
+        <p class="mb-6">
+          Je descendis à la cuisine, où l'odeur du café fraîchement moulu m'accueillit. Mon père était déjà levé, absorbé par la lecture du journal. Il leva les yeux à mon approche, un sourire bienveillant aux lèvres.
+        </p>
+
+        <p class="mb-6">
+          — Tu as l'air d'avoir fait de beaux rêves, Daniel, dit-il en posant sa tasse.
+        </p>
+
+        <p class="mb-6">
+          — J'ai rêvé du livre, avouai-je. J'ai rêvé que je marchais dans une ville de brume et d'ombres, à la recherche de son auteur.
+        </p>
+
+        <p class="mb-6">
+          Il hocha la tête, comme s'il s'y attendait.
+          — C'est le pouvoir des histoires, fils. Elles s'insinuent dans nos esprits et refusent de nous lâcher. Mais prends garde, certaines histoires sont dangereuses. Elles peuvent nous consumer si l'on n'y prend pas garde.
+        </p>
+
+        <div class="flex justify-center my-12 opacity-50">
+          <span class="material-symbols-outlined text-primary">more_horiz</span>
+        </div>
+
+        <p class="mb-6">
+          La journée se passa dans un flou étrange. J'aidai mon père à la librairie, rangeant des ouvrages, conseillant des clients, mais mon esprit était ailleurs. Il était resté entre les pages de "L'Ombre du Vent". J'avais hâte de retrouver ma chambre, de m'isoler du monde et de plonger à nouveau dans cet univers fascinant.
+        </p>
+
+        <p class="mb-6">
+          Vers le soir, un homme entra dans la boutique. Il portait un long manteau sombre et un chapeau qui dissimulait en partie son visage. Il ne regarda pas les rayons, il se dirigea directement vers le comptoir où je me tenais. Une aura de mystère l'entourait, glaciale et pénétrante.
+        </p>
+
+        <p>
+          — Je cherche un livre, dit-il d'une voix rauque, comme si ses cordes vocales étaient rouillées par le silence. Un livre de Julian Carax.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="mt-20 flex items-center justify-between border-t border-[#2E2419] pt-8">
+        <a class="group flex items-center gap-4 text-left" href="#">
+          <div class="h-12 w-12 rounded-full border border-[#2E2419] bg-surface-highlight flex items-center justify-center text-gray-400 group-hover:border-primary group-hover:text-primary transition">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </div>
+          <div class="hidden sm:block">
+            <span class="block text-xs text-gray-500 uppercase">Précédent</span>
+            <span class="block font-bold text-white group-hover:text-primary transition">Chapitre 2</span>
+          </div>
+        </a>
+
+        <span class="text-sm font-bold text-primary bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
+          Chapitre 3 terminé
+        </span>
+
+        <a class="group flex items-center gap-4 text-right" href="#">
+          <div class="hidden sm:block">
+            <span class="block text-xs text-gray-500 uppercase">Suivant</span>
+            <span class="block font-bold text-white group-hover:text-primary transition">Chapitre 4</span>
+          </div>
+          <div class="h-12 w-12 rounded-full border border-[#2E2419] bg-surface-highlight flex items-center justify-center text-gray-400 group-hover:border-primary group-hover:text-primary transition">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile bookmark button -->
+    <button class="fixed bottom-6 right-6 lg:hidden h-14 w-14 rounded-full bg-primary text-background-dark shadow-lg flex items-center justify-center hover:scale-110 transition z-50">
+      <span class="material-symbols-outlined">bookmark_add</span>
+    </button>
+  </main>
+
+  <!-- Right sidebar - Notes & highlights -->
+  <aside class="hidden 2xl:flex w-72 flex-col border-l border-[#2E2419] bg-surface-dark z-20 shrink-0">
+    <div class="p-4 border-b border-[#2E2419] flex justify-between items-center">
+      <h2 class="font-bold text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">edit_note</span>
+        Notes & Surlignages
+      </h2>
+      <button class="text-gray-400 hover:text-white">
+        <span class="material-symbols-outlined text-[18px]">filter_list</span>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto no-scrollbar p-4 space-y-4">
+      <div *ngFor="let note of notes" 
+           class="bg-surface-highlight rounded-lg p-3 border border-[#2E2419] hover:border-primary/30 transition cursor-pointer group">
+        <div class="flex justify-between items-start mb-2">
+          <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded"
+                [class.text-primary]="note.type === 'highlight'"
+                [class.bg-primary/10]="note.type === 'highlight'"
+                [class.text-blue-400]="note.type === 'note'"
+                [class.bg-blue-400/10]="note.type === 'note'">
+            {{ note.type === 'highlight' ? 'Surlignage' : 'Note' }}
+          </span>
+          <span class="text-[10px] text-gray-500">{{ note.chapter }}</span>
+        </div>
+        
+        <p *ngIf="note.content" class="text-xs text-gray-300 mb-2 font-medium">{{ note.content }}</p>
+        
+        <p class="text-xs text-gray-300 italic border-l-2 pl-2 mb-2 group-hover:text-white transition"
+           [class.border-primary]="note.type === 'highlight'"
+           [class.border-blue-400]="note.type === 'note'"
+           [class.truncate]="note.content">
+          {{ note.text }}
+        </p>
+        
+        <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition">
+          <button class="text-gray-500 hover:text-white">
+            <span class="material-symbols-outlined text-[14px]">edit</span>
+          </button>
+          <button (click)="deleteNote(note.id)" class="text-gray-500 hover:text-red-400">
+            <span class="material-symbols-outlined text-[14px]">delete</span>
+          </button>
+        </div>
+      </div>
+
+      <button class="w-full py-2 text-xs font-bold text-gray-400 border border-dashed border-gray-700 rounded hover:text-primary hover:border-primary transition">
+        + Ajouter une note rapide
+      </button>
+    </div>
+  </aside>
+</div>

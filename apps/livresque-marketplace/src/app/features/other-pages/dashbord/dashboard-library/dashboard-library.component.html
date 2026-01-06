@@ -123,7 +123,7 @@
         <!-- Actions -->
         <div class="flex gap-2">
           <button 
-            (click)="readBook(book.id)"
+            [routerLink]="['/reader', book.id]"
             class="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg bg-primary text-background-dark text-xs font-bold hover:bg-white transition">
             <span class="material-symbols-outlined text-[16px]">play_arrow</span>
             Lire
@@ -192,7 +192,7 @@
         <!-- Actions -->
         <div class="flex gap-2">
           <button
-            (click)="readBook(book.id)"
+            [routerLink]="['/reader', book.id]"
             class="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-primary text-background-dark text-sm font-bold hover:bg-white transition">
             <span class="material-symbols-outlined text-[18px]">play_arrow</span>
             Lire

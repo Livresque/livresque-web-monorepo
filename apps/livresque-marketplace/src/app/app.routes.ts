@@ -30,6 +30,10 @@ export const appRoutes: Route[] = [
     loadComponent: () => import('./features/other-pages/site-pages/contact/contact.component').then(m => m.ContactComponent)
   },
   {
+    path: 'support',
+    loadComponent: () => import('./features/other-pages/site-pages/support/support.component').then(m => m.SupportComponent)
+  },
+  {
     path: 'faq',
     loadComponent: () => import('./features/other-pages/site-pages/faq/faq.component').then(m => m.FaqComponent)
   },
@@ -72,6 +76,36 @@ export const appRoutes: Route[] = [
   {
     path: 'change-password',
     loadComponent: () => import('./features/auth/change-password/change-password.component').then(m => m.ChangePasswordComponent)
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () => import('./features/other-pages/dashbord/dashboard-layout/dashboard-layout.component').then(m => m.DashboardLayoutComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./features/other-pages/dashbord/dashboard-home/dashboard-home.component').then(m => m.DashboardHomeComponent)
+      },
+      {
+        path: 'library',
+        loadComponent: () => import('./features/other-pages/dashbord/dashboard-library/dashboard-library.component').then(m => m.DashboardLibraryComponent)
+      },
+      {
+        path: 'favorites',
+        loadComponent: () => import('./features/other-pages/dashbord/dashboard-favorites/dashboard-favorites.component').then(m => m.DashboardFavoritesComponent)
+      },
+      {
+        path: 'orders',
+        loadComponent: () => import('./features/other-pages/dashbord/dashboard-orders/dashboard-orders.component').then(m => m.DashboardOrdersComponent)
+      },
+      {
+        path: 'notifications',
+        loadComponent: () => import('./features/other-pages/dashbord/dashboard-notifications/dashboard-notifications.component').then(m => m.DashboardNotificationsComponent)
+      },
+      {
+        path: 'profile',
+        loadComponent: () => import('./features/other-pages/dashbord/dashboard-profile/dashboard-profile.component').then(m => m.DashboardProfileComponent)
+      }
+    ]
   }
 ];
 

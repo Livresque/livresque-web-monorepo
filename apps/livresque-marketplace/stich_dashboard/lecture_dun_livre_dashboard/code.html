@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lecteur - L'Ombre du Vent - Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "primary-light": "#FFB957",
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                        "paper-light": "#FDF8F0",
+                        "paper-dark": "#16120D",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Merriweather", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }.reader-content {
+            column-gap: 3rem;
+        }
+        @media (min-width: 1024px) {
+            .reader-content.two-columns {
+                column-count: 2;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-hidden h-screen flex flex-col">
+<header class="h-16 border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm flex items-center justify-between px-4 lg:px-6 relative z-50 shrink-0">
+<div class="flex items-center gap-4">
+<a class="text-gray-400 hover:text-white transition p-2 rounded-full hover:bg-surface-highlight" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<div class="flex items-center gap-3">
+<div class="h-10 w-8 rounded overflow-hidden shadow-sm hidden sm:block">
+<div class="h-full w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtNbvRcRGQnHEH6A0xazN0k9Yq1JMIcbEBpl_b7whkd9NPGrn57P4fzXnTITCzSU2ktHCcHetuElJLoalPA4UG4vQsmgg-IhfiQv094XHZE0-u3JRrafhC5LoJkYc9kQLMjXMXvJ9cD9_aK9APiz5-wpGOCalXgmJwmsY2XR9JWsOV95xdeR_cka5MikySlI_h-PLv5of4hQJJ4XmJ1a9vSckYrrCjrONP4G2uSdTcyBGMIFdinfWxsyrMkR6YSP47Y7B7PMlW5Ww');"></div>
+</div>
+<div>
+<h1 class="text-sm font-bold text-white leading-tight">L'Ombre du Vent</h1>
+<p class="text-xs text-gray-400">Carlos Ruiz Zafón • Chapitre 3</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 sm:gap-4">
+<div class="hidden md:flex items-center bg-surface-highlight rounded-lg p-1 border border-[#2E2419]">
+<button class="p-2 rounded text-gray-400 hover:text-white hover:bg-surface-dark transition" title="Rechercher">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<div class="h-4 w-px bg-[#2E2419] mx-1"></div>
+<button class="p-2 rounded text-primary hover:bg-surface-dark transition" title="Marque-pages">
+<span class="material-symbols-outlined text-[20px] material-symbols-filled">bookmark</span>
+</button>
+<button class="p-2 rounded text-gray-400 hover:text-white hover:bg-surface-dark transition" title="Notes">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</button>
+</div>
+<div class="relative group">
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-highlight text-white transition">
+<span class="material-symbols-outlined">format_size</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="absolute right-0 top-full mt-2 w-72 rounded-xl border border-[#2E2419] bg-surface-dark shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4 z-50 transform origin-top-right">
+<div class="space-y-4">
+<div>
+<span class="text-xs font-bold text-gray-400 uppercase mb-2 block">Thème</span>
+<div class="flex bg-surface-highlight rounded-lg p-1 border border-[#2E2419]">
+<button class="flex-1 py-1.5 rounded text-xs font-bold bg-[#FFFBF5] text-black shadow-sm">Clair</button>
+<button class="flex-1 py-1.5 rounded text-xs font-bold text-gray-400 hover:text-white">Sépia</button>
+<button class="flex-1 py-1.5 rounded text-xs font-bold text-gray-400 hover:text-white">Sombre</button>
+</div>
+</div>
+<div>
+<span class="text-xs font-bold text-gray-400 uppercase mb-2 block">Police</span>
+<div class="flex items-center justify-between bg-surface-highlight rounded-lg px-3 py-2 border border-[#2E2419]">
+<button class="text-gray-400 hover:text-white"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<span class="text-sm font-bold text-white">110%</span>
+<button class="text-gray-400 hover:text-white"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+</div>
+<div>
+<span class="text-xs font-bold text-gray-400 uppercase mb-2 block">Interligne</span>
+<div class="flex items-center gap-2">
+<button class="flex-1 py-2 rounded border border-[#2E2419] hover:border-primary/50 bg-surface-highlight text-white flex justify-center items-center">
+<span class="material-symbols-outlined text-[18px]">format_align_justify</span>
+</button>
+<button class="flex-1 py-2 rounded border border-primary bg-primary/10 text-primary flex justify-center items-center">
+<span class="material-symbols-outlined text-[18px]">format_line_spacing</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="p-2 rounded-full text-white bg-primary hover:bg-white hover:text-primary transition shadow-[0_0_15px_-3px_rgba(255,159,28,0.4)]">
+<span class="material-symbols-outlined">menu_book</span>
+</button>
+</div>
+</header>
+<div class="flex-1 flex overflow-hidden relative">
+<aside class="hidden lg:flex w-80 flex-col border-r border-[#2E2419] bg-surface-dark z-20 shrink-0">
+<div class="p-4 border-b border-[#2E2419]">
+<h2 class="font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">list</span>
+                Sommaire
+            </h2>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar py-2">
+<nav class="space-y-1 px-2">
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition" href="#">Couverture</a>
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition" href="#">Dédicace</a>
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition" href="#">Première Partie: Le Cimetière des Livres Oubliés</a>
+<div class="pl-4 space-y-1 mt-1 border-l border-[#2E2419] ml-4">
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition" href="#">Chapitre 1</a>
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition" href="#">Chapitre 2</a>
+<a class="block px-3 py-2 text-sm font-medium text-primary bg-primary/10 rounded-md transition border border-primary/20" href="#">Chapitre 3</a>
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition" href="#">Chapitre 4</a>
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition" href="#">Chapitre 5</a>
+</div>
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition mt-2" href="#">Deuxième Partie: La Cité des Ombres</a>
+<a class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-surface-highlight rounded-md transition" href="#">Troisième Partie: Le Jeu de l'Ange</a>
+</nav>
+</div>
+<div class="p-4 border-t border-[#2E2419] bg-background-dark">
+<div class="flex items-center justify-between text-xs text-gray-500 mb-2">
+<span>Progression</span>
+<span class="text-primary font-bold">24%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-highlight rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[24%] rounded-full shadow-[0_0_10px_rgba(255,159,28,0.5)]"></div>
+</div>
+<p class="text-xs text-gray-500 mt-2 text-center">Page 45 sur 560</p>
+</div>
+</aside>
+<main class="flex-1 relative bg-paper-dark overflow-y-auto custom-scrollbar flex justify-center w-full">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03] fixed">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<pattern height="4" id="paper-texture" patternUnits="userSpaceOnUse" width="4">
+<path d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2" stroke="currentColor" stroke-opacity="0.3" stroke-width="1"></path>
+</pattern>
+<rect fill="url(#paper-texture)" height="100%" width="100%"></rect>
+</svg>
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+</div>
+<div class="w-full max-w-4xl px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 z-10">
+<div class="font-body text-gray-300 text-lg md:text-xl leading-loose reader-content selection:bg-primary/30 selection:text-white">
+<div class="mb-12 text-center">
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Chapitre 3</span>
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6 font-display">Les murmures du passé</h2>
+<div class="w-24 h-1 bg-primary mx-auto rounded-full opacity-50"></div>
+</div>
+<p class="mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+                    Le lendemain matin, je me réveillai avec la sensation d'avoir dormi pendant des siècles. La lumière du soleil filtrait à travers les persiennes, dessinant des rayures dorées sur le plancher poussiéreux de ma chambre. Le livre reposait sur ma table de chevet, comme une relique sacrée attendant d'être vénérée.
+                </p>
+<p class="mb-6">
+                    Je le pris entre mes mains, savourant le poids de ses pages, l'odeur de vieux papier et d'encre qui s'en dégageait. C'était une odeur de magie, de secrets enfouis, une odeur qui promettait des voyages immobiles vers des mondes inconnus. Je l'ouvris au hasard, mes yeux parcourant les lignes avec une avidité nouvelle.
+                </p>
+<div class="my-8 pl-6 border-l-4 border-primary/40 italic text-gray-400 py-2">
+                    "Les livres sont des miroirs : on n'y voit que ce qu'on porte déjà en soi."
+                    <footer class="mt-2 text-sm text-primary font-bold not-italic">— Julian Carax</footer>
+</div>
+<p class="mb-6">
+                    Cette phrase résonna en moi comme un écho lointain. Avais-je trouvé ce livre, ou m'avait-il trouvé ? Mon père m'avait dit que le Cimetière des Livres Oubliés choisissait ses visiteurs, que chaque livre avait une âme, l'âme de celui qui l'avait écrit et l'âme de ceux qui l'avaient lu et rêvé avec lui.
+                </p>
+<p class="mb-6">
+                    Je descendis à la cuisine, où l'odeur du café fraîchement moulu m'accueillit. Mon père était déjà levé, absorbé par la lecture du journal. Il leva les yeux à mon approche, un sourire bienveillant aux lèvres.
+                </p>
+<p class="mb-6">
+                    — Tu as l'air d'avoir fait de beaux rêves, Daniel, dit-il en posant sa tasse.
+                </p>
+<p class="mb-6">
+                    — J'ai rêvé du livre, avouai-je. J'ai rêvé que je marchais dans une ville de brume et d'ombres, à la recherche de son auteur.
+                </p>
+<p class="mb-6">
+                    Il hocha la tête, comme s'il s'y attendait.
+                    — C'est le pouvoir des histoires, fils. Elles s'insinuent dans nos esprits et refusent de nous lâcher. Mais prends garde, certaines histoires sont dangereuses. Elles peuvent nous consumer si l'on n'y prend pas garde.
+                </p>
+<div class="flex justify-center my-12 opacity-50">
+<span class="material-symbols-outlined text-primary">more_horiz</span>
+</div>
+<p class="mb-6">
+                    La journée se passa dans un flou étrange. J'aidai mon père à la librairie, rangeant des ouvrages, conseillant des clients, mais mon esprit était ailleurs. Il était resté entre les pages de "L'Ombre du Vent". J'avais hâte de retrouver ma chambre, de m'isoler du monde et de plonger à nouveau dans cet univers fascinant.
+                </p>
+<p class="mb-6">
+                   Vers le soir, un homme entra dans la boutique. Il portait un long manteau sombre et un chapeau qui dissimulait en partie son visage. Il ne regarda pas les rayons, il se dirigea directement vers le comptoir où je me tenais. Une aura de mystère l'entourait, glaciale et pénétrante.
+                </p>
+<p>
+                    — Je cherche un livre, dit-il d'une voix rauque, comme si ses cordes vocales étaient rouillées par le silence. Un livre de Julian Carax.
+                </p>
+</div>
+<div class="mt-20 flex items-center justify-between border-t border-[#2E2419] pt-8">
+<a class="group flex items-center gap-4 text-left" href="#">
+<div class="h-12 w-12 rounded-full border border-[#2E2419] bg-surface-highlight flex items-center justify-center text-gray-400 group-hover:border-primary group-hover:text-primary transition">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<div class="hidden sm:block">
+<span class="block text-xs text-gray-500 uppercase">Précédent</span>
+<span class="block font-bold text-white group-hover:text-primary transition">Chapitre 2</span>
+</div>
+</a>
+<span class="text-sm font-bold text-primary bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">Chapitre 3 terminé</span>
+<a class="group flex items-center gap-4 text-right" href="#">
+<div class="hidden sm:block">
+<span class="block text-xs text-gray-500 uppercase">Suivant</span>
+<span class="block font-bold text-white group-hover:text-primary transition">Chapitre 4</span>
+</div>
+<div class="h-12 w-12 rounded-full border border-[#2E2419] bg-surface-highlight flex items-center justify-center text-gray-400 group-hover:border-primary group-hover:text-primary transition">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+<button class="fixed bottom-6 right-6 lg:hidden h-14 w-14 rounded-full bg-primary text-background-dark shadow-lg flex items-center justify-center hover:scale-110 transition z-50">
+<span class="material-symbols-outlined">bookmark_add</span>
+</button>
+</main>
+<aside class="hidden 2xl:flex w-72 flex-col border-l border-[#2E2419] bg-surface-dark z-20 shrink-0">
+<div class="p-4 border-b border-[#2E2419] flex justify-between items-center">
+<h2 class="font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">edit_note</span>
+                Notes &amp; Surlignages
+            </h2>
+<button class="text-gray-400 hover:text-white">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar p-4 space-y-4">
+<div class="bg-surface-highlight rounded-lg p-3 border border-[#2E2419] hover:border-primary/30 transition cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary uppercase bg-primary/10 px-1.5 py-0.5 rounded">Surlignage</span>
+<span class="text-[10px] text-gray-500">Chap. 1</span>
+</div>
+<p class="text-xs text-gray-300 italic border-l-2 border-primary pl-2 mb-2 group-hover:text-white transition">"Barcelone, la ville des prodiges..."</p>
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition">
+<button class="text-gray-500 hover:text-white"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-gray-500 hover:text-red-400"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="bg-surface-highlight rounded-lg p-3 border border-[#2E2419] hover:border-primary/30 transition cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-blue-400 uppercase bg-blue-400/10 px-1.5 py-0.5 rounded">Note</span>
+<span class="text-[10px] text-gray-500">Chap. 2</span>
+</div>
+<p class="text-xs text-gray-300 mb-2 font-medium">Référence importante au passé du père.</p>
+<p class="text-xs text-gray-500 italic border-l-2 border-blue-400 pl-2 mb-2 truncate">"Il ne parlait jamais de la guerre..."</p>
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition">
+<button class="text-gray-500 hover:text-white"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-gray-500 hover:text-red-400"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="bg-surface-highlight rounded-lg p-3 border border-[#2E2419] hover:border-primary/30 transition cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary uppercase bg-primary/10 px-1.5 py-0.5 rounded">Surlignage</span>
+<span class="text-[10px] text-gray-500">Chap. 3</span>
+</div>
+<p class="text-xs text-gray-300 italic border-l-2 border-primary pl-2 mb-2 group-hover:text-white transition">"Les livres sont des miroirs : on n'y voit que ce qu'on porte déjà en soi."</p>
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition">
+<button class="text-gray-500 hover:text-white"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-gray-500 hover:text-red-400"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<button class="w-full py-2 text-xs font-bold text-gray-400 border border-dashed border-gray-700 rounded hover:text-primary hover:border-primary transition">
+                + Ajouter une note rapide
+            </button>
+</div>
+</aside>
+</div>
+
+</body></html>

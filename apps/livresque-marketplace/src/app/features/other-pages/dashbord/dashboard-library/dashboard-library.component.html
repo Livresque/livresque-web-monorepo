@@ -1,0 +1,252 @@
+<div class="max-w-[1600px] mx-auto">
+  <!-- Header -->
+  <div class="mb-8">
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Ma Bibliothèque</h1>
+    <p class="text-gray-400">{{ books.length }} livre(s) dans votre collection</p>
+  </div>
+
+  <!-- Filters & View Toggle -->
+  <div class="mb-6 flex flex-col sm:flex-row gap-4">
+    <!-- Search -->
+    <div class="flex-1">
+      <label class="flex h-10 items-center overflow-hidden rounded-lg bg-surface-highlight border border-[#2E2419] focus-within:border-primary/50 transition-colors">
+        <div class="pl-3 text-gray-400">
+          <span class="material-symbols-outlined text-[20px] empty">search</span>
+        </div>
+        <input 
+          [(ngModel)]="searchQuery"
+          class="h-full w-full border-none bg-transparent px-2 text-sm text-white placeholder:text-gray-500 focus:ring-0" 
+          placeholder="Rechercher par titre ou auteur..."
+          type="text" />
+      </label>
+    </div>
+
+    <!-- Format Filter -->
+    <select 
+      [(ngModel)]="selectedFormatFilter"
+      class="h-10 px-4 rounded-lg bg-surface-highlight border border-[#2E2419] text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary transition">
+      <option value="all">Tous les formats</option>
+      <option value="book">Livres physiques</option>
+      <option value="tablet_mac">Ebooks (PDF)</option>
+      <option value="headphones">Audiobooks</option>
+    </select>
+
+    <!-- Category Filter -->
+    <select 
+      [(ngModel)]="selectedCategoryFilter"
+      class="h-10 px-4 rounded-lg bg-surface-highlight border border-[#2E2419] text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary transition">
+      <option value="all">Toutes les catégories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+    <!-- Sort -->
+    <select 
+      [(ngModel)]="selectedSort"
+      class="h-10 px-4 rounded-lg bg-surface-highlight border border-[#2E2419] text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary transition">
+      <option value="recent">Plus récents</option>
+      <option value="title">Titre (A-Z)</option>
+      <option value="author">Auteur (A-Z)</option>
+      <option value="progress">Progression</option>
+    </select>
+
+    <!-- View Mode Toggle -->
+    <div class="flex gap-2 bg-surface-highlight rounded-lg p-1 border border-[#2E2419]">
+      <button
+        (click)="setViewMode('grid')"
+        [class.bg-primary]="viewMode === 'grid'"
+        [class.text-background-dark]="viewMode === 'grid'"
+        [class.text-gray-400]="viewMode !== 'grid'"
+        class="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition">
+        <span class="material-symbols-outlined text-[18px]">grid_view</span>
+        Grille
+      </button>
+      <button
+        (click)="setViewMode('list')"
+        [class.bg-primary]="viewMode === 'list'"
+        [class.text-background-dark]="viewMode === 'list'"
+        [class.text-gray-400]="viewMode !== 'list'"
+        class="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition">
+        <span class="material-symbols-outlined text-[18px]">view_list</span>
+        Liste
+      </button>
+    </div>
+  </div>
+
+  <!-- Books Grid View -->
+  <div *ngIf="viewMode === 'grid'" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div 
+      *ngFor="let book of filteredBooks"
+      class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden hover:border-primary/30 transition-all hover:scale-[1.02]">
+      <!-- Cover -->
+      <div class="relative h-48 bg-surface-dark">
+        <img 
+          [src]="book.cover"
+          [alt]="book.title"
+          class="w-full h-full object-cover" />
+        
+        <!-- Format Badge -->
+        <div class="absolute top-2 right-2">
+          <span class="px-2 py-1 rounded-full text-xs font-bold bg-background-dark/80 backdrop-blur-sm"
+                [class.text-blue-400]="book.format === 'Ebook'"
+                [class.text-purple-400]="book.format === 'Audio'">
+            <span class="material-symbols-outlined text-[14px] align-middle empty">
+              {{ book.format === 'Ebook' ? 'menu_book' : 'headphones' }}
+            </span>
+            {{ book.format }}
+          </span>
+        </div>
+
+        <!-- Progress Overlay -->
+        <div *ngIf="book.progress && book.progress > 0" class="absolute bottom-0 left-0 right-0 bg-background-dark/90 p-2">
+          <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+            <span>Progression</span>
+            <span class="font-bold text-primary">{{ book.progress }}%</span>
+          </div>
+          <div class="h-1 bg-surface-dark rounded-full overflow-hidden">
+            <div 
+              class="h-full bg-primary rounded-full transition-all"
+              [style.width.%]="book.progress"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="p-3">
+        <h3 class="font-bold text-white text-sm mb-1 line-clamp-1">{{ book.title }}</h3>
+        <p class="text-xs text-gray-400 mb-2">{{ book.author }}</p>
+        
+        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+          <span class="material-symbols-outlined text-[14px] empty">calendar_today</span>
+          {{ book.purchaseDate || 'Date inconnue' }}
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-2">
+          <button 
+            (click)="readBook(book.id)"
+            class="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg bg-primary text-background-dark text-xs font-bold hover:bg-white transition">
+            <span class="material-symbols-outlined text-[16px]">play_arrow</span>
+            Lire
+          </button>
+          <button 
+            (click)="downloadBook(book.id)"
+            class="p-1.5 rounded-lg bg-surface-dark border border-[#2E2419] text-gray-400 hover:text-primary hover:border-primary/30 transition">
+            <span class="material-symbols-outlined text-[18px] empty">download</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Books List View -->
+  <div *ngIf="viewMode === 'list'" class="space-y-4">
+    <div 
+      *ngFor="let book of filteredBooks"
+      class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden hover:border-primary/30 transition-all flex">
+      
+      <!-- Cover -->
+      <div class="relative w-32 flex-shrink-0 bg-surface-dark">
+        <img 
+          [src]="book.cover"
+          [alt]="book.title"
+          class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Info -->
+      <div class="flex-1 p-4 flex flex-col justify-between">
+        <div>
+          <h3 class="font-bold text-white text-lg mb-1">{{ book.title }}</h3>
+          <p class="text-sm text-gray-400 mb-3">{{ book.author }}</p>
+          
+          <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px] empty">calendar_today</span>
+              {{ book.purchaseDate || 'Date inconnue' }}
+            </span>
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]" 
+                [ngClass]="{
+                  'empty': book.format === 'book',
+                  '': book.format !== 'book'
+                }">
+                {{ book.format === 'tablet_mac' ? 'tablet_mac' : book.format === 'headphones' ? 'headphones' : 'book' }}
+              </span>
+              {{ book.format === 'tablet_mac' ? 'Ebook' : book.format === 'headphones' ? 'Audiobook' : 'Livre physique' }}
+            </span>
+          </div>
+
+          <!-- Progress -->
+          <div *ngIf="book.progress && book.progress > 0" class="mb-3">
+            <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+              <span>Progression</span>
+              <span class="font-bold text-primary">{{ book.progress }}%</span>
+            </div>
+            <div class="h-2 bg-surface-dark rounded-full overflow-hidden">
+              <div 
+                class="h-full bg-primary rounded-full transition-all"
+                [style.width.%]="book.progress"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-2">
+          <button
+            (click)="readBook(book.id)"
+            class="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-primary text-background-dark text-sm font-bold hover:bg-white transition">
+            <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+            Lire
+          </button>
+          <button
+            (click)="downloadBook(book.id)"
+            class="flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-surface-dark border border-[#2E2419] text-gray-300 text-sm font-medium hover:text-white hover:border-primary/30 transition">
+            <span class="material-symbols-outlined text-[18px] empty">download</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="filteredBooks.length === 0" class="text-center py-16">
+    <span class="material-symbols-outlined text-[64px] text-gray-600 empty mb-4">
+      auto_stories
+    </span>
+    <p class="text-gray-400 mb-4">Aucun livre trouvé</p>
+    <a 
+      routerLink="/shop"
+      class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-white transition">
+      <span class="material-symbols-outlined text-[20px] empty">shopping_bag</span>
+      Acheter des livres
+    </a>
+  </div>
+
+  <!-- Pagination -->
+  <div *ngIf="totalPages > 1" class="mt-8 flex items-center justify-center gap-2">
+    <button
+      (click)="previousPage()"
+      [disabled]="currentPage === 1"
+      class="flex items-center justify-center w-10 h-10 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white hover:border-primary/30 transition disabled:opacity-50 disabled:cursor-not-allowed">
+      <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+    </button>
+
+    <button
+      *ngFor="let page of pages"
+      (click)="goToPage(page)"
+      [class.bg-primary]="currentPage === page"
+      [class.text-background-dark]="currentPage === page"
+      [class.font-bold]="currentPage === page"
+      [class.bg-surface-highlight]="currentPage !== page"
+      [class.text-gray-400]="currentPage !== page"
+      class="flex items-center justify-center w-10 h-10 rounded-lg border border-[#2E2419] text-sm hover:text-white hover:border-primary/30 transition">
+      {{ page }}
+    </button>
+
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      class="flex items-center justify-center w-10 h-10 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white hover:border-primary/30 transition disabled:opacity-50 disabled:cursor-not-allowed">
+      <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+    </button>
+  </div>
+</div>

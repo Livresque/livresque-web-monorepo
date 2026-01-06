@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ma Bibliothèque | Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.empty {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-bold tracking-tight leading-none">Livresque</span>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Membre</span>
+</div>
+</a>
+<nav class="hidden md:flex items-center gap-6 border-l border-[#2E2419] pl-6">
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Accueil</a>
+<a class="text-sm font-bold text-primary transition" href="#">Ma Bibliothèque</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Boutique</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Communauté</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:block">
+<label class="flex h-9 w-64 items-center overflow-hidden rounded-md bg-surface-highlight border border-[#2E2419] focus-within:border-primary/50 transition-colors">
+<div class="pl-3 text-gray-400">
+<span class="material-symbols-outlined text-[18px] empty">search</span>
+</div>
+<input class="h-full w-full border-none bg-transparent px-2 text-sm text-white placeholder:text-gray-500 focus:ring-0" placeholder="Rechercher un livre..."/>
+</label>
+</div>
+<button class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white hover:border-primary/30 transition">
+<span class="material-symbols-outlined text-[20px] empty">notifications</span>
+</button>
+<div class="h-9 w-9 rounded-full bg-gray-700 border-2 border-surface-highlight flex items-center justify-center overflow-hidden bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCatPHavQC0yAzGjVKAriE297bCwC40Dw2Wnn9e20DAxA2jwog8SnQiZveWBYrU8i2W_F8xiqcDkPwZ_Xlssd6zr5CecEKVGMwWzSSGcV_ZvqCtjLo7YWBcWRe-qvHtwsFc1Ng2XjPFGPKprTxIqOx_KtyOqW0d1b8kOKzru2R5fOQx2cyYJM0WXcB8DUz2Cg6GVR209t6VE3zMh-eA9FwuxYZ3xVvdRkfTISa9spkQi0WClJOOxYs6bpr_D2WFzYWjYlBUSlgScEk');">
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+<div>
+<nav class="flex text-sm text-gray-500 mb-1">
+<a class="hover:text-primary transition" href="#">Accueil</a>
+<span class="mx-2">/</span>
+<span class="text-gray-300">Ma bibliothèque</span>
+</nav>
+<h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
+                        Ma Bibliothèque
+                        <span class="px-2.5 py-1 rounded-full bg-surface-highlight border border-[#2E2419] text-gray-400 text-xs font-medium uppercase tracking-wide">34 Livres</span>
+</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm font-medium hover:bg-white/5 transition">
+<span class="material-symbols-outlined text-[18px] empty">tune</span>
+                        Gérer les étagères
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-background-dark text-sm font-bold hover:bg-white transition">
+<span class="material-symbols-outlined text-[18px] empty">add</span>
+                        Ajouter un livre
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-3 flex flex-col gap-6">
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-5 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-bold text-white text-sm">Défi Lecture 2023</h3>
+<span class="material-symbols-outlined text-primary text-[20px] empty">emoji_events</span>
+</div>
+<div class="flex items-end gap-2 mb-2">
+<span class="text-3xl font-black text-white">18</span>
+<span class="text-sm text-gray-400 mb-1">/ 25 livres</span>
+</div>
+<div class="w-full bg-surface-dark rounded-full h-2.5 mb-2 overflow-hidden border border-[#2E2419]">
+<div class="bg-primary h-2.5 rounded-full" style="width: 72%"></div>
+</div>
+<p class="text-xs text-gray-400 italic">"Excellent rythme ! Vous êtes en avance sur votre objectif."</p>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden">
+<div class="p-4 bg-surface-dark/30 border-b border-[#2E2419]">
+<h3 class="font-bold text-gray-200 text-sm uppercase tracking-wider">Collections</h3>
+</div>
+<div class="p-2">
+<nav class="space-y-1">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium text-sm border border-primary/20" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] empty">grid_view</span>
+                                        Tous les livres
+                                    </span>
+<span class="text-xs bg-primary text-background-dark font-bold px-1.5 py-0.5 rounded">34</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition text-sm" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] empty">favorite</span>
+                                        Favoris
+                                    </span>
+<span class="text-xs text-gray-500">8</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition text-sm" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] empty">bookmark</span>
+                                        À lire plus tard
+                                    </span>
+<span class="text-xs text-gray-500">12</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition text-sm" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] empty">check_circle</span>
+                                        Terminés
+                                    </span>
+<span class="text-xs text-gray-500">14</span>
+</a>
+</nav>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden">
+<div class="p-4 bg-surface-dark/30 border-b border-[#2E2419]">
+<h3 class="font-bold text-gray-200 text-sm uppercase tracking-wider">Formats</h3>
+</div>
+<div class="p-2 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition text-sm" href="#">
+<span class="material-symbols-outlined text-[18px] empty">book</span>
+                                Physiques
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition text-sm" href="#">
+<span class="material-symbols-outlined text-[18px] empty">tablet_mac</span>
+                                Ebooks
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition text-sm" href="#">
+<span class="material-symbols-outlined text-[18px] empty">headphones</span>
+                                Audiobooks
+                            </a>
+</div>
+</div>
+</div>
+<div class="lg:col-span-9 flex flex-col gap-8">
+<section>
+<h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_stories</span>
+                            Lectures en cours
+                        </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex gap-4 p-4 rounded-xl bg-surface-highlight border border-[#2E2419] group hover:border-primary/50 transition duration-300">
+<div class="w-24 shrink-0 rounded-lg overflow-hidden shadow-lg border border-[#2E2419] relative">
+<div class="aspect-[2/3] bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrZPkWSt4Jp8DoxCZo_0aHdPGLTI4tf2m71NzHMfBfVMwtpdECkoCGIgrc27gnjHimUnIiLEfspu2o_39xiOyEJeRF0kP78X2Zg6L8PYw-ZQDHS2pHdxnTvo7UKepwgsJWaARyTitKWWwIea-iK74YhL6GgQg3HVasbkwPjEn4LIYvRrPAN0rfawMnJ1OEwzr2bZYQqcTktLnWS7y2G7UQFu-uzDG2Aa28TY7tZwqGBwWvqsvJPYQ2beS41-IZW2dWVNYmoZcWgCA');"></div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+<button class="h-8 w-8 rounded-full bg-primary text-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col justify-between py-1 flex-1">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-white text-lg line-clamp-1 group-hover:text-primary transition">Sapiens</h4>
+<span class="material-symbols-outlined text-gray-500 text-[18px] empty">tablet_mac</span>
+</div>
+<p class="text-sm text-gray-400">Yuval Noah Harari</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-xs">
+<span class="text-gray-400">Page 284 sur 443</span>
+<span class="text-primary font-bold">65%</span>
+</div>
+<div class="h-2 w-full bg-surface-dark rounded-full overflow-hidden border border-white/5">
+<div class="h-full bg-primary w-[65%] rounded-full shadow-[0_0_10px_rgba(255,159,28,0.3)]"></div>
+</div>
+<button class="w-full mt-2 py-1.5 rounded bg-surface-dark border border-[#2E2419] text-xs font-bold text-gray-300 hover:text-white hover:border-gray-500 transition">
+                                            Continuer la lecture
+                                        </button>
+</div>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-xl bg-surface-highlight border border-[#2E2419] group hover:border-primary/50 transition duration-300">
+<div class="w-24 shrink-0 rounded-lg overflow-hidden shadow-lg border border-[#2E2419] relative">
+<div class="aspect-[2/3] bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTGG4qb_3KpOrGAdSxl7IBZjlp8e3jIwFrH4TFqP16ECt6_cXWdhsu3FspRxLDoul0PagphMx0vKlu82wNvH3Xsj36j2xnPZ4t3TUNfB7G1mKXDSruG8nL3Jzdw6hT1VPpuVOHcT1kKS3S9471nvavvXdOTJyr0KCwIWoKgA4jJh4WFVzlrpGKeQIJdVwrtT-FK6ms2vQGAtSJUf6KpWisOsD40DTxRZWQ5auFKhWK1uDxnCZmYu3cYHMWvvTZX4PhNS44yAAYVI8');"></div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+<button class="h-8 w-8 rounded-full bg-primary text-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col justify-between py-1 flex-1">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-white text-lg line-clamp-1 group-hover:text-primary transition">La Forêt Sombre</h4>
+<span class="material-symbols-outlined text-gray-500 text-[18px] empty">book</span>
+</div>
+<p class="text-sm text-gray-400">Liu Cixin</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-xs">
+<span class="text-gray-400">Chapitre 4</span>
+<span class="text-primary font-bold">12%</span>
+</div>
+<div class="h-2 w-full bg-surface-dark rounded-full overflow-hidden border border-white/5">
+<div class="h-full bg-primary w-[12%] rounded-full shadow-[0_0_10px_rgba(255,159,28,0.3)]"></div>
+</div>
+<button class="w-full mt-2 py-1.5 rounded bg-surface-dark border border-[#2E2419] text-xs font-bold text-gray-300 hover:text-white hover:border-gray-500 transition">
+                                            Ajouter une note
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6 p-2 rounded-lg bg-surface-highlight border border-[#2E2419]">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative flex-1 max-w-md">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-gray-500 text-[20px] empty">search</span>
+<input class="w-full bg-surface-dark border-none rounded text-sm text-white pl-10 focus:ring-1 focus:ring-primary placeholder:text-gray-600" placeholder="Rechercher dans mes livres..." type="text"/>
+</div>
+<div class="hidden sm:flex gap-2 border-l border-[#2E2419] pl-4">
+<select class="bg-surface-dark border-none rounded text-sm text-gray-300 py-1.5 pl-3 pr-8 focus:ring-1 focus:ring-primary cursor-pointer">
+<option>Genre: Tous</option>
+<option>Science-Fiction</option>
+<option>Fantasy</option>
+<option>Policier</option>
+</select>
+<select class="bg-surface-dark border-none rounded text-sm text-gray-300 py-1.5 pl-3 pr-8 focus:ring-1 focus:ring-primary cursor-pointer">
+<option>Trier par: Récents</option>
+<option>Titre (A-Z)</option>
+<option>Auteur (A-Z)</option>
+</select>
+</div>
+</div>
+<div class="flex gap-1">
+<button class="p-2 rounded bg-surface-dark text-primary hover:text-white transition" title="Vue Grille">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+</button>
+<button class="p-2 rounded hover:bg-surface-dark text-gray-500 hover:text-white transition" title="Vue Liste">
+<span class="material-symbols-outlined text-[20px] empty">list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden border border-[#2E2419] shadow-md group-hover:shadow-primary/20 transition-all group-hover:-translate-y-1">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9FzgYfG1yvTrQaWLfxbmZYPNOThk5ZN3c0FpqU-EDKS4D6E-z_HmKvUrxH_hgtqAG66ldXlIdGgE9GFoWTzsBbNzTMXCl9UeYfx8QUVXkdxzMvR-qhHIqtKVk0j7vENVyE-kAEb3eReNSwLZ0-RvfbA4JcZZ0O2yI_XOiDEKIbXdBSLUZK_toDUe7g494WzcLlruGudLFSB1q6DXYF0E6Nkl3vIHl1uxyp1SdHjnnO3LPw0jYg7z8RId2nO3ukE0l5IfV9CN67_Q');"></div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md rounded px-1.5 py-0.5 border border-white/10">
+<span class="material-symbols-outlined text-white text-[14px] empty">headphones</span>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2 p-4">
+<button class="bg-primary text-background-dark font-bold text-xs px-4 py-2 rounded-full hover:bg-white transition w-full">Écouter</button>
+<button class="bg-surface-dark border border-gray-600 text-white font-bold text-xs px-4 py-2 rounded-full hover:bg-gray-700 transition w-full">Détails</button>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-white text-sm line-clamp-1 group-hover:text-primary transition">L'Art de la Guerre</h3>
+<p class="text-xs text-gray-400 line-clamp-1">Sun Tzu</p>
+<div class="flex text-[10px] text-primary mt-1">
+<span class="material-symbols-outlined text-[12px] filled">star</span>
+<span class="material-symbols-outlined text-[12px] filled">star</span>
+<span class="material-symbols-outlined text-[12px] filled">star</span>
+<span class="material-symbols-outlined text-[12px] filled">star</span>
+<span class="material-symbols-outlined text-[12px] filled">star_half</span>
+</div>
+</div>
+</div>
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden border border-[#2E2419] shadow-md group-hover:shadow-primary/20 transition-all group-hover:-translate-y-1">
+<div class="absolute inset-0 bg-surface-highlight flex items-center justify-center text-gray-600">
+<span class="material-symbols-outlined text-4xl opacity-20">auto_stories</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-white font-serif text-lg leading-tight">Dune</p>
+</div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md rounded px-1.5 py-0.5 border border-white/10">
+<span class="material-symbols-outlined text-white text-[14px] empty">tablet_mac</span>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2 p-4">
+<button class="bg-primary text-background-dark font-bold text-xs px-4 py-2 rounded-full hover:bg-white transition w-full">Lire</button>
+<button class="bg-surface-dark border border-gray-600 text-white font-bold text-xs px-4 py-2 rounded-full hover:bg-gray-700 transition w-full">Détails</button>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-white text-sm line-clamp-1 group-hover:text-primary transition">Dune</h3>
+<p class="text-xs text-gray-400 line-clamp-1">Frank Herbert</p>
+<div class="flex text-[10px] text-gray-600 mt-1">
+                                        Non noté
+                                    </div>
+</div>
+</div>
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden border border-[#2E2419] shadow-md group-hover:shadow-primary/20 transition-all group-hover:-translate-y-1">
+<div class="absolute inset-0 bg-surface-highlight flex items-center justify-center text-gray-600">
+<span class="material-symbols-outlined text-4xl opacity-20">menu_book</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-indigo-900/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-white font-serif text-lg leading-tight">Foundation</p>
+</div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md rounded px-1.5 py-0.5 border border-white/10">
+<span class="material-symbols-outlined text-white text-[14px] empty">book</span>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2 p-4">
+<button class="bg-gray-600 text-gray-300 font-bold text-xs px-4 py-2 rounded-full cursor-not-allowed w-full">Terminé</button>
+<button class="bg-surface-dark border border-gray-600 text-white font-bold text-xs px-4 py-2 rounded-full hover:bg-gray-700 transition w-full">Relire</button>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-white text-sm line-clamp-1 group-hover:text-primary transition">Foundation</h3>
+<p class="text-xs text-gray-400 line-clamp-1">Isaac Asimov</p>
+<div class="flex text-[10px] text-primary mt-1">
+<span class="material-symbols-outlined text-[12px] filled">star</span>
+<span class="material-symbols-outlined text-[12px] filled">star</span>
+<span class="material-symbols-outlined text-[12px] filled">star</span>
+<span class="material-symbols-outlined text-[12px] filled">star</span>
+<span class="material-symbols-outlined text-[12px] filled">star_border</span>
+</div>
+</div>
+</div>
+<div class="group flex flex-col gap-3 opacity-75 hover:opacity-100 transition">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden border border-[#2E2419] shadow-md group-hover:shadow-primary/20 transition-all group-hover:-translate-y-1">
+<div class="absolute inset-0 bg-surface-highlight flex items-center justify-center text-gray-600">
+<span class="material-symbols-outlined text-4xl opacity-20">history_edu</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-orange-900/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-white font-serif text-lg leading-tight">1984</p>
+</div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md rounded px-1.5 py-0.5 border border-white/10">
+<span class="material-symbols-outlined text-white text-[14px] empty">tablet_mac</span>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2 p-4">
+<button class="bg-primary text-background-dark font-bold text-xs px-4 py-2 rounded-full hover:bg-white transition w-full">Lire</button>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-white text-sm line-clamp-1 group-hover:text-primary transition">1984</h3>
+<p class="text-xs text-gray-400 line-clamp-1">George Orwell</p>
+<div class="mt-1">
+<span class="text-[10px] bg-surface-highlight border border-[#2E2419] text-gray-400 px-1.5 py-0.5 rounded">À lire</span>
+</div>
+</div>
+</div>
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden border border-[#2E2419] shadow-md group-hover:shadow-primary/20 transition-all group-hover:-translate-y-1">
+<div class="absolute inset-0 bg-surface-highlight flex items-center justify-center text-gray-600">
+<span class="material-symbols-outlined text-4xl opacity-20">psychology</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent"></div>
+<div class="absolute top-2 left-2 bg-primary text-background-dark text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
+                                        NOUVEAU
+                                    </div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-white font-serif text-lg leading-tight">Thinking, Fast and Slow</p>
+</div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md rounded px-1.5 py-0.5 border border-white/10">
+<span class="material-symbols-outlined text-white text-[14px] empty">book</span>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2 p-4">
+<button class="bg-primary text-background-dark font-bold text-xs px-4 py-2 rounded-full hover:bg-white transition w-full">Commencer</button>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-white text-sm line-clamp-1 group-hover:text-primary transition">Thinking, Fast &amp; Slow</h3>
+<p class="text-xs text-gray-400 line-clamp-1">Daniel Kahneman</p>
+<div class="flex text-[10px] text-gray-600 mt-1">
+                                        Non noté
+                                    </div>
+</div>
+</div>
+</div>
+<div class="mt-10 flex justify-center">
+<nav class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-500 hover:text-white transition">
+<span class="material-symbols-outlined text-[20px] empty">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-background-dark font-bold text-sm">1</button>
+<button class="w-10 h-10 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white transition text-sm">2</button>
+<button class="w-10 h-10 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white transition text-sm">3</button>
+<span class="text-gray-600 px-2">...</span>
+<button class="p-2 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white transition">
+<span class="material-symbols-outlined text-[20px] empty">chevron_right</span>
+</button>
+</nav>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="mt-12 border-t border-[#2E2419] bg-background-dark py-8">
+<div class="mx-auto max-w-[1600px] px-4 text-center text-xs text-gray-500">
+<div class="flex justify-center gap-6 mb-4">
+<a class="hover:text-primary transition" href="#">Aide</a>
+<a class="hover:text-primary transition" href="#">Confidentialité</a>
+<a class="hover:text-primary transition" href="#">Conditions</a>
+</div>
+<p>© 2023 Livresque. Tous droits réservés. <span class="mx-2">•</span> Fait avec passion pour les lecteurs.</p>
+</div>
+</footer>
+</div>
+
+</body></html>

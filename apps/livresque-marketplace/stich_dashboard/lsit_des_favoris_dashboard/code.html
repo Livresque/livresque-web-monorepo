@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ma Liste de Souhaits | Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "primary-hover": "#E68A00", 
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.empty {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-bold tracking-tight leading-none">Livresque</span>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Espace Lecteur</span>
+</div>
+</a>
+<nav class="hidden md:flex items-center gap-6 border-l border-[#2E2419] pl-6">
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Accueil</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Nouveautés</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Meilleures ventes</a>
+<a class="text-sm font-bold text-primary transition" href="#">Mon Espace</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:block">
+<label class="flex h-9 w-64 items-center overflow-hidden rounded-md bg-surface-highlight border border-[#2E2419] focus-within:border-primary/50 transition-colors">
+<div class="pl-3 text-gray-400">
+<span class="material-symbols-outlined text-[18px] empty">search</span>
+</div>
+<input class="h-full w-full border-none bg-transparent px-2 text-sm text-white placeholder:text-gray-500 focus:ring-0" placeholder="Rechercher un livre..."/>
+</label>
+</div>
+<button class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white hover:border-primary/30 transition relative">
+<span class="material-symbols-outlined text-[20px] empty">shopping_cart</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-background-dark">2</span>
+</button>
+<div class="h-9 w-9 rounded-full bg-surface-highlight border border-[#2E2419] flex items-center justify-center overflow-hidden">
+<div class="bg-cover bg-center h-full w-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCatPHavQC0yAzGjVKAriE297bCwC40Dw2Wnn9e20DAxA2jwog8SnQiZveWBYrU8i2W_F8xiqcDkPwZ_Xlssd6zr5CecEKVGMwWzSSGcV_ZvqCtjLo7YWBcWRe-qvHtwsFc1Ng2XjPFGPKprTxIqOx_KtyOqW0d1b8kOKzru2R5fOQx2cyYJM0WXcB8DUz2Cg6GVR209t6VE3zMh-eA9FwuxYZ3xVvdRkfTISa9spkQi0WClJOOxYs6bpr_D2WFzYWjYlBUSlgScEk');"></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+<div>
+<nav class="flex text-sm text-gray-500 mb-1">
+<a class="hover:text-primary transition" href="#">Accueil</a>
+<span class="mx-2">/</span>
+<a class="hover:text-primary transition" href="#">Mon Espace</a>
+<span class="mx-2">/</span>
+<span class="text-gray-300">Liste de souhaits</span>
+</nav>
+<h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
+                        Ma Liste de Souhaits
+                        <span class="px-2.5 py-0.5 rounded-full bg-surface-highlight border border-[#2E2419] text-gray-400 text-xs font-bold uppercase tracking-wide">4 articles</span>
+</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm font-medium hover:bg-white/5 transition">
+<span class="material-symbols-outlined text-[18px] empty">share</span>
+                        Partager ma liste
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-background-dark text-sm font-bold hover:bg-white transition shadow-[0_0_15px_rgba(255,159,28,0.3)] hover:shadow-[0_0_20px_rgba(255,159,28,0.5)]">
+<span class="material-symbols-outlined text-[18px] empty">add_shopping_cart</span>
+                        Tout ajouter au panier
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-3 flex flex-col gap-6">
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden">
+<div class="h-20 bg-gradient-to-r from-surface-dark to-[#2E2419] relative">
+<div class="absolute inset-0 opacity-10">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<pattern height="20" id="dots-profile" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+<rect fill="url(#dots-profile)" height="100%" width="100%"></rect>
+</svg>
+</div>
+</div>
+<div class="px-6 pb-6 relative">
+<div class="-mt-10 mb-3 flex items-end">
+<div class="h-20 w-20 rounded-xl bg-gray-700 border-4 border-surface-highlight shadow-xl bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCatPHavQC0yAzGjVKAriE297bCwC40Dw2Wnn9e20DAxA2jwog8SnQiZveWBYrU8i2W_F8xiqcDkPwZ_Xlssd6zr5CecEKVGMwWzSSGcV_ZvqCtjLo7YWBcWRe-qvHtwsFc1Ng2XjPFGPKprTxIqOx_KtyOqW0d1b8kOKzru2R5fOQx2cyYJM0WXcB8DUz2Cg6GVR209t6VE3zMh-eA9FwuxYZ3xVvdRkfTISa9spkQi0WClJOOxYs6bpr_D2WFzYWjYlBUSlgScEk');"></div>
+</div>
+<h2 class="text-lg font-bold text-white">Sophie Martin</h2>
+<p class="text-sm text-gray-500">Membre depuis Jan 2023</p>
+</div>
+<nav class="flex flex-col p-2 border-t border-[#2E2419]">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition" href="#">
+<span class="material-symbols-outlined text-[20px] empty">dashboard</span>
+                                Tableau de bord
+                            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition" href="#">
+<span class="material-symbols-outlined text-[20px] empty">auto_stories</span>
+                                Ma Bibliothèque
+                            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold text-white bg-surface-dark border border-[#2E2419] shadow-inner transition" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary">favorite</span>
+                                Liste de Souhaits
+                            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition" href="#">
+<span class="material-symbols-outlined text-[20px] empty">receipt_long</span>
+                                Commandes
+                            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition" href="#">
+<span class="material-symbols-outlined text-[20px] empty">settings</span>
+                                Paramètres
+                            </a>
+</nav>
+</div>
+<div class="rounded-xl bg-gradient-to-br from-primary/20 to-surface-highlight border border-primary/20 p-6 relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[100px] text-primary">redeem</span>
+</div>
+<h3 class="font-bold text-primary mb-2">Carte Cadeau</h3>
+<p class="text-xs text-gray-300 mb-4">Offrez la lecture à vos proches avec nos cartes cadeaux numériques.</p>
+<button class="w-full py-2 rounded-lg bg-surface-dark/50 border border-primary/30 text-primary text-xs font-bold hover:bg-primary hover:text-background-dark transition">Découvrir</button>
+</div>
+</div>
+<div class="lg:col-span-9 flex flex-col gap-6">
+<div class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-surface-highlight border border-[#2E2419]">
+<div class="flex items-center gap-4">
+<label class="flex items-center gap-2 cursor-pointer text-sm text-gray-400 hover:text-white transition">
+<input class="rounded border-gray-600 bg-surface-dark text-primary focus:ring-offset-surface-highlight focus:ring-primary" type="checkbox"/>
+                                En stock uniquement
+                            </label>
+<label class="flex items-center gap-2 cursor-pointer text-sm text-gray-400 hover:text-white transition">
+<input class="rounded border-gray-600 bg-surface-dark text-primary focus:ring-offset-surface-highlight focus:ring-primary" type="checkbox"/>
+                                Promotions
+                            </label>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-gray-500 uppercase font-bold tracking-wider">Trier par:</span>
+<select class="bg-surface-dark border border-[#2E2419] text-gray-300 text-xs rounded-lg py-1.5 px-3 focus:ring-primary focus:border-primary">
+<option>Date d'ajout (Récent)</option>
+<option>Prix (Croissant)</option>
+<option>Prix (Décroissant)</option>
+</select>
+</div>
+</div>
+<div class="space-y-4">
+<div class="group relative flex flex-col sm:flex-row gap-6 p-5 rounded-xl bg-surface-highlight border border-[#2E2419] hover:border-primary/50 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
+<div class="shrink-0 w-full sm:w-32 aspect-[2/3] rounded-lg shadow-lg overflow-hidden relative border border-[#2E2419] group-hover:scale-105 transition-transform duration-300">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrZPkWSt4Jp8DoxCZo_0aHdPGLTI4tf2m71NzHMfBfVMwtpdECkoCGIgrc27gnjHimUnIiLEfspu2o_39xiOyEJeRF0kP78X2Zg6L8PYw-ZQDHS2pHdxnTvo7UKepwgsJWaARyTitKWWwIea-iK74YhL6GgQg3HVasbkwPjEn4LIYvRrPAN0rfawMnJ1OEwzr2bZYQqcTktLnWS7y2G7UQFu-uzDG2Aa28TY7tZwqGBwWvqsvJPYQ2beS41-IZW2dWVNYmoZcWgCA');"></div>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-black/70 backdrop-blur-sm rounded text-[10px] font-bold text-white uppercase tracking-wider">Best-seller</div>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors cursor-pointer">Sapiens : Une brève histoire de l'humanité</h3>
+<a class="text-sm text-gray-400 hover:text-white transition" href="#">Yuval Noah Harari</a>
+</div>
+<button class="text-gray-600 hover:text-red-400 transition p-2 hover:bg-surface-dark rounded-full" title="Retirer de la liste">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="flex flex-wrap items-center gap-3 my-3">
+<div class="flex items-center text-primary text-[14px]">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star_half</span>
+<span class="ml-1 text-gray-400 text-xs font-medium">(4.8/5)</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-gray-600"></span>
+<span class="text-xs text-gray-400 bg-surface-dark px-2 py-0.5 rounded border border-[#2E2419]">Histoire</span>
+<span class="text-xs text-gray-400 bg-surface-dark px-2 py-0.5 rounded border border-[#2E2419]">Format Broché</span>
+</div>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4 max-w-2xl">
+                                        Il y a 100 000 ans, la Terre était habitée par au moins six espèces différentes d'hominidés. Une seule a survécu. Nous, les Homo Sapiens. Comment avons-nous réussi à dominer la planète ?
+                                    </p>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4 border-t border-[#2E2419] pt-4 mt-2">
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-white">24,90 €</span>
+<span class="text-xs text-green-400 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                                En stock
+                                            </span>
+</div>
+<p class="text-[10px] text-gray-500 mt-1">Ajouté le 15 Oct 2023</p>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none py-2 px-4 rounded-lg bg-surface-dark border border-[#2E2419] text-gray-300 text-sm font-medium hover:text-white hover:bg-white/5 transition">
+                                            Aperçu
+                                        </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 py-2 px-6 rounded-lg bg-primary text-background-dark font-bold text-sm hover:bg-white transition shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                                            Ajouter
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+<div class="group relative flex flex-col sm:flex-row gap-6 p-5 rounded-xl bg-surface-highlight border border-[#2E2419] hover:border-primary/50 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
+<div class="shrink-0 w-full sm:w-32 aspect-[2/3] rounded-lg shadow-lg overflow-hidden relative border border-[#2E2419] group-hover:scale-105 transition-transform duration-300">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTGG4qb_3KpOrGAdSxl7IBZjlp8e3jIwFrH4TFqP16ECt6_cXWdhsu3FspRxLDoul0PagphMx0vKlu82wNvH3Xsj36j2xnPZ4t3TUNfB7G1mKXDSruG8nL3Jzdw6hT1VPpuVOHcT1kKS3S9471nvavvXdOTJyr0KCwIWoKgA4jJh4WFVzlrpGKeQIJdVwrtT-FK6ms2vQGAtSJUf6KpWisOsD40DTxRZWQ5auFKhWK1uDxnCZmYu3cYHMWvvTZX4PhNS44yAAYVI8');"></div>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-primary rounded text-[10px] font-bold text-background-dark uppercase tracking-wider">-20%</div>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors cursor-pointer">La Forêt Sombre (Le Problème à trois corps - Tome 2)</h3>
+<a class="text-sm text-gray-400 hover:text-white transition" href="#">Liu Cixin</a>
+</div>
+<button class="text-gray-600 hover:text-red-400 transition p-2 hover:bg-surface-dark rounded-full" title="Retirer de la liste">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="flex flex-wrap items-center gap-3 my-3">
+<div class="flex items-center text-primary text-[14px]">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="ml-1 text-gray-400 text-xs font-medium">(5/5)</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-gray-600"></span>
+<span class="text-xs text-gray-400 bg-surface-dark px-2 py-0.5 rounded border border-[#2E2419]">Science-Fiction</span>
+<span class="text-xs text-gray-400 bg-surface-dark px-2 py-0.5 rounded border border-[#2E2419]">Poche</span>
+</div>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4 max-w-2xl">
+                                        L'humanité a vacillé. Dans quatre siècles, la flotte trisolarienne envahira la Terre. Pour contrer cette menace, les Nations Unies ont lancé le projet Colmateur.
+                                    </p>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4 border-t border-[#2E2419] pt-4 mt-2">
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-primary">8,90 €</span>
+<span class="text-sm text-gray-500 line-through decoration-red-500/50">11,20 €</span>
+<span class="text-xs text-green-400 flex items-center gap-1 ml-2">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                                En stock
+                                            </span>
+</div>
+<p class="text-[10px] text-gray-500 mt-1">Ajouté il y a 2 jours</p>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none py-2 px-4 rounded-lg bg-surface-dark border border-[#2E2419] text-gray-300 text-sm font-medium hover:text-white hover:bg-white/5 transition">
+                                            Aperçu
+                                        </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 py-2 px-6 rounded-lg bg-primary text-background-dark font-bold text-sm hover:bg-white transition shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                                            Ajouter
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+<div class="group relative flex flex-col sm:flex-row gap-6 p-5 rounded-xl bg-surface-highlight border border-[#2E2419] hover:border-primary/50 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
+<div class="shrink-0 w-full sm:w-32 aspect-[2/3] rounded-lg shadow-lg overflow-hidden relative border border-[#2E2419] group-hover:scale-105 transition-transform duration-300">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9FzgYfG1yvTrQaWLfxbmZYPNOThk5ZN3c0FpqU-EDKS4D6E-z_HmKvUrxH_hgtqAG66ldXlIdGgE9GFoWTzsBbNzTMXCl9UeYfx8QUVXkdxzMvR-qhHIqtKVk0j7vENVyE-kAEb3eReNSwLZ0-RvfbA4JcZZ0O2yI_XOiDEKIbXdBSLUZK_toDUe7g494WzcLlruGudLFSB1q6DXYF0E6Nkl3vIHl1uxyp1SdHjnnO3LPw0jYg7z8RId2nO3ukE0l5IfV9CN67_Q');"></div>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors cursor-pointer">L'Art de la Guerre</h3>
+<a class="text-sm text-gray-400 hover:text-white transition" href="#">Sun Tzu</a>
+</div>
+<button class="text-gray-600 hover:text-red-400 transition p-2 hover:bg-surface-dark rounded-full" title="Retirer de la liste">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="flex flex-wrap items-center gap-3 my-3">
+<div class="flex items-center text-primary text-[14px]">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px] text-gray-600">star</span>
+<span class="ml-1 text-gray-400 text-xs font-medium">(4.2/5)</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-gray-600"></span>
+<span class="text-xs text-gray-400 bg-surface-dark px-2 py-0.5 rounded border border-[#2E2419]">Classique</span>
+<span class="text-xs text-gray-400 bg-surface-dark px-2 py-0.5 rounded border border-[#2E2419]">Ebook</span>
+</div>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4 max-w-2xl">
+                                        Le plus ancien traité de stratégie militaire au monde. Ses enseignements dépassent le cadre militaire et s'appliquent à tous les domaines de la vie.
+                                    </p>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4 border-t border-[#2E2419] pt-4 mt-2">
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-white">4,99 €</span>
+<span class="text-xs text-blue-400 flex items-center gap-1 bg-blue-900/20 px-2 py-0.5 rounded border border-blue-900/30">
+<span class="material-symbols-outlined text-[14px]">download</span>
+                                                Téléchargement immédiat
+                                            </span>
+</div>
+<p class="text-[10px] text-gray-500 mt-1">Ajouté la semaine dernière</p>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none py-2 px-4 rounded-lg bg-surface-dark border border-[#2E2419] text-gray-300 text-sm font-medium hover:text-white hover:bg-white/5 transition">
+                                            Extrait gratuit
+                                        </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 py-2 px-6 rounded-lg bg-primary text-background-dark font-bold text-sm hover:bg-white transition shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                                            Ajouter
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+<div class="group relative flex flex-col sm:flex-row gap-6 p-5 rounded-xl bg-surface-highlight border border-[#2E2419] hover:border-gray-600 transition-all duration-300 opacity-70 hover:opacity-100">
+<div class="shrink-0 w-full sm:w-32 aspect-[2/3] rounded-lg shadow-lg overflow-hidden relative border border-[#2E2419] grayscale group-hover:grayscale-0 transition-all">
+<div class="w-full h-full bg-surface-dark flex items-center justify-center text-gray-600">
+<span class="material-symbols-outlined text-4xl">image_not_supported</span>
+</div>
+<div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+<span class="text-xs font-bold text-white border border-white px-2 py-1 rounded">Rupture</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold text-gray-300 mb-1">Dune : Messiah</h3>
+<a class="text-sm text-gray-500 hover:text-white transition" href="#">Frank Herbert</a>
+</div>
+<button class="text-gray-600 hover:text-red-400 transition p-2 hover:bg-surface-dark rounded-full" title="Retirer de la liste">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="flex flex-wrap items-center gap-3 my-3">
+<div class="flex items-center text-gray-500 text-[14px]">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star_border</span>
+<span class="ml-1 text-gray-500 text-xs font-medium">(4.0/5)</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-gray-600"></span>
+<span class="text-xs text-gray-500 bg-surface-dark px-2 py-0.5 rounded border border-[#2E2419]">Science-Fiction</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4 border-t border-[#2E2419] pt-4 mt-2">
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-gray-400">12,50 €</span>
+<span class="text-xs text-orange-400 flex items-center gap-1 border border-orange-900/50 bg-orange-900/20 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]">notifications</span>
+                                                M'alerter
+                                            </span>
+</div>
+<p class="text-[10px] text-gray-600 mt-1">Ajouté le mois dernier</p>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none cursor-not-allowed opacity-50 flex items-center justify-center gap-2 py-2 px-6 rounded-lg bg-surface-dark border border-[#2E2419] text-gray-500 font-medium text-sm">
+                                            Indisponible
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-4">
+<button class="text-sm font-medium text-gray-400 hover:text-primary transition flex items-center gap-2">
+                            Voir plus de produits
+                            <span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-12 border-t border-[#2E2419] bg-background-dark py-12">
+<div class="mx-auto max-w-[1600px] px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-white">
+<span class="text-primary font-bold text-xl">Livresque</span>
+<span class="text-gray-600">|</span>
+<span class="text-xs text-gray-400">Votre librairie en ligne préférée</span>
+</div>
+<div class="flex gap-8 text-sm text-gray-500">
+<a class="hover:text-primary transition" href="#">À propos</a>
+<a class="hover:text-primary transition" href="#">Conditions générales</a>
+<a class="hover:text-primary transition" href="#">Confidentialité</a>
+<a class="hover:text-primary transition" href="#">Aide</a>
+</div>
+<p class="text-xs text-gray-600">© 2023 Livresque. Tous droits réservés.</p>
+</div>
+</footer>
+</div>
+
+</body></html>

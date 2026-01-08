@@ -1,0 +1,157 @@
+<div class="max-w-[1600px] mx-auto">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+    <div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
+        Notifications
+        <span *ngIf="unreadCount > 0" class="px-2.5 py-0.5 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold">
+          {{ unreadCount }} nouvelle{{ unreadCount > 1 ? 's' : '' }}
+        </span>
+      </h1>
+      <p class="text-sm text-gray-400 mt-1">Gérez vos notifications et alertes</p>
+    </div>
+    <button 
+      *ngIf="unreadCount > 0"
+      (click)="markAllAsRead()"
+      class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm font-medium hover:bg-white/5 transition">
+      <span class="material-symbols-outlined text-[18px] empty">done_all</span>
+      Tout marquer comme lu
+    </button>
+  </div>
+
+  <!-- Filters -->
+  <div class="mb-6 flex items-center gap-3">
+    <button 
+      (click)="setFilter('all')"
+      [class.bg-primary]="selectedFilter === 'all'"
+      [class.text-background-dark]="selectedFilter === 'all'"
+      [class.font-bold]="selectedFilter === 'all'"
+      [class.bg-surface-highlight]="selectedFilter !== 'all'"
+      [class.text-gray-400]="selectedFilter !== 'all'"
+      class="px-4 py-2 rounded-lg border border-[#2E2419] text-sm hover:text-white transition">
+      Toutes ({{ notifications.length }})
+    </button>
+    <button 
+      (click)="setFilter('unread')"
+      [class.bg-primary]="selectedFilter === 'unread'"
+      [class.text-background-dark]="selectedFilter === 'unread'"
+      [class.font-bold]="selectedFilter === 'unread'"
+      [class.bg-surface-highlight]="selectedFilter !== 'unread'"
+      [class.text-gray-400]="selectedFilter !== 'unread'"
+      class="px-4 py-2 rounded-lg border border-[#2E2419] text-sm hover:text-white transition">
+      Non lues ({{ unreadCount }})
+    </button>
+    <button 
+      (click)="setFilter('read')"
+      [class.bg-primary]="selectedFilter === 'read'"
+      [class.text-background-dark]="selectedFilter === 'read'"
+      [class.font-bold]="selectedFilter === 'read'"
+      [class.bg-surface-highlight]="selectedFilter !== 'read'"
+      [class.text-gray-400]="selectedFilter !== 'read'"
+      class="px-4 py-2 rounded-lg border border-[#2E2419] text-sm hover:text-white transition">
+      Lues ({{ notifications.length - unreadCount }})
+    </button>
+  </div>
+
+  <!-- Notifications List -->
+  <div class="space-y-3">
+    <div 
+      *ngFor="let notification of filteredNotifications"
+      class="rounded-xl border overflow-hidden transition-all"
+      [class.bg-surface-highlight]="notification.isRead"
+      [class.border-[#2E2419]]="notification.isRead"
+      [class.bg-surface-dark]="!notification.isRead"
+      [class.border-primary/30]="!notification.isRead">
+      <div class="p-5 flex items-start gap-4">
+        <!-- Icon -->
+        <div 
+          class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center"
+          [class.bg-green-900/20]="notification.type === 'order'"
+          [class.bg-primary/20]="notification.type === 'book'"
+          [class.bg-purple-900/20]="notification.type === 'promo'"
+          [class.bg-gray-800]="notification.type === 'system'">
+          <span class="material-symbols-outlined text-[24px] empty" [ngClass]="notification.iconColor">{{ notification.icon }}</span>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-3 mb-1">
+            <h3 class="font-bold text-white text-sm">{{ notification.title }}</h3>
+            <span class="text-xs text-gray-500 whitespace-nowrap">{{ notification.time }}</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">{{ notification.message }}</p>
+          
+          <!-- Actions -->
+          <div class="flex items-center gap-2 mt-3">
+            <button 
+              *ngIf="!notification.isRead"
+              (click)="markAsRead(notification)"
+              class="text-xs text-primary hover:text-white font-medium transition flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">check</span>
+              Marquer comme lu
+            </button>
+            <button 
+              (click)="deleteNotification(notification.id)"
+              class="text-xs text-gray-500 hover:text-red-400 font-medium transition flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">delete</span>
+              Supprimer
+            </button>
+          </div>
+        </div>
+
+        <!-- Unread indicator -->
+        <div *ngIf="!notification.isRead" class="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-2"></div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div 
+      *ngIf="filteredNotifications.length === 0"
+      class="rounded-xl bg-surface-highlight border border-[#2E2419] p-12 text-center">
+      <span class="material-symbols-outlined text-gray-600 text-[64px] empty mb-4 block">notifications_off</span>
+      <h3 class="text-lg font-bold text-white mb-2">Aucune notification</h3>
+      <p class="text-sm text-gray-400">
+        <span *ngIf="selectedFilter === 'unread'">Vous n'avez aucune notification non lue</span>
+        <span *ngIf="selectedFilter === 'read'">Vous n'avez aucune notification lue</span>
+        <span *ngIf="selectedFilter === 'all'">Vous n'avez aucune notification pour le moment</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div 
+    *ngIf="totalPages > 1"
+    class="mt-6 flex items-center justify-between p-4 rounded-xl bg-surface-highlight border border-[#2E2419]">
+    <div class="text-sm text-gray-400">
+      Page {{ currentPage }} sur {{ totalPages }}
+    </div>
+    <div class="flex items-center gap-2">
+      <button
+        (click)="previousPage()"
+        [disabled]="currentPage === 1"
+        [class.opacity-50]="currentPage === 1"
+        [class.cursor-not-allowed]="currentPage === 1"
+        class="flex items-center justify-center w-10 h-10 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 text-sm hover:text-white hover:border-primary/30 transition disabled:hover:text-gray-400 disabled:hover:border-[#2E2419]">
+        <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+      </button>
+      <button
+        *ngFor="let page of pages"
+        (click)="goToPage(page)"
+        [class.bg-primary]="currentPage === page"
+        [class.text-background-dark]="currentPage === page"
+        [class.font-bold]="currentPage === page"
+        [class.bg-surface-highlight]="currentPage !== page"
+        [class.text-gray-400]="currentPage !== page"
+        class="flex items-center justify-center w-10 h-10 rounded-lg border border-[#2E2419] text-sm hover:text-white hover:border-primary/30 transition">
+        {{ page }}
+      </button>
+      <button
+        (click)="nextPage()"
+        [disabled]="currentPage === totalPages"
+        [class.opacity-50]="currentPage === totalPages"
+        [class.cursor-not-allowed]="currentPage === totalPages"
+        class="flex items-center justify-center w-10 h-10 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 text-sm hover:text-white hover:border-primary/30 transition disabled:hover:text-gray-400 disabled:hover:border-[#2E2419]">
+        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+      </button>
+    </div>
+  </div>
+</div>

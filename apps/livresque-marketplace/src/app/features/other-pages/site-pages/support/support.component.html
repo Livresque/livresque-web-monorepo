@@ -1,0 +1,196 @@
+<div class="min-h-screen bg-background-dark">
+  <!-- Hero Section -->
+  <section class="relative py-20 px-4 border-b border-[#2E2419] overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+      <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="support-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle class="text-primary" cx="1" cy="1" r="1" fill="currentColor"></circle>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#support-pattern)"></rect>
+      </svg>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border border-primary/50 mb-6">
+        <span class="material-symbols-outlined text-primary text-[32px] empty">support_agent</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">Centre d'aide</h1>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+        Notre équipe est là pour vous aider. Consultez notre FAQ ou contactez-nous directement.
+      </p>
+    </div>
+  </section>
+
+  <!-- Support Categories -->
+  <section class="py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div 
+          *ngFor="let category of categories"
+          (click)="supportForm.category = category.id"
+          [class.border-primary]="supportForm.category === category.id"
+          [class.bg-primary/10]="supportForm.category === category.id"
+          class="rounded-xl bg-surface-highlight border border-[#2E2419] p-6 cursor-pointer transition hover:border-primary/50 group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 rounded-lg bg-surface-dark flex items-center justify-center group-hover:bg-primary/20 transition">
+              <span class="material-symbols-outlined text-primary text-[24px] empty">{{ category.icon }}</span>
+            </div>
+            <h3 class="font-bold text-white">{{ category.title }}</h3>
+          </div>
+          <p class="text-sm text-gray-400">{{ category.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content: Form + FAQ -->
+  <section class="py-12 px-4">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
+      
+      <!-- Contact Form -->
+      <div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-8">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[24px] empty">mail</span>
+          Contactez-nous
+        </h2>
+
+        <form (ngSubmit)="submitForm()" class="space-y-5">
+          <!-- Name -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Nom complet *</label>
+            <input 
+              type="text" 
+              [(ngModel)]="supportForm.name"
+              name="name"
+              required
+              placeholder="Jean Dupont"
+              class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-[#2E2419] text-white placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition" />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+            <input 
+              type="email" 
+              [(ngModel)]="supportForm.email"
+              name="email"
+              required
+              placeholder="jean.dupont@example.com"
+              class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-[#2E2419] text-white placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition" />
+          </div>
+
+          <!-- Category -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Catégorie *</label>
+            <select 
+              [(ngModel)]="supportForm.category"
+              name="category"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-[#2E2419] text-white focus:border-primary focus:ring-1 focus:ring-primary transition">
+              <option value="" disabled selected>Sélectionnez une catégorie</option>
+              <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.title }}</option>
+            </select>
+          </div>
+
+          <!-- Subject -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Sujet *</label>
+            <input 
+              type="text" 
+              [(ngModel)]="supportForm.subject"
+              name="subject"
+              required
+              placeholder="Résumé de votre demande"
+              class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-[#2E2419] text-white placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition" />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Message *</label>
+            <textarea 
+              [(ngModel)]="supportForm.message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Décrivez votre problème en détail..."
+              class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-[#2E2419] text-white placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition resize-none"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit"
+            [disabled]="!isFormValid()"
+            [class.opacity-50]="!isFormValid()"
+            [class.cursor-not-allowed]="!isFormValid()"
+            class="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-white transition disabled:hover:bg-primary">
+            <span class="material-symbols-outlined text-[20px] empty">send</span>
+            Envoyer la demande
+          </button>
+        </form>
+      </div>
+
+      <!-- FAQ Section -->
+      <div>
+        <div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-8 mb-6">
+          <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[24px] empty">help</span>
+            Questions fréquentes
+          </h2>
+
+          <div class="space-y-3">
+            <div 
+              *ngFor="let faq of faqs"
+              class="rounded-lg border border-[#2E2419] overflow-hidden transition"
+              [class.bg-surface-dark]="faq.isOpen"
+              [class.border-primary/30]="faq.isOpen">
+              <button 
+                (click)="toggleFaq(faq)"
+                class="w-full flex items-center justify-between gap-3 p-4 text-left hover:bg-surface-dark/50 transition">
+                <span class="font-medium text-white text-sm">{{ faq.question }}</span>
+                <span 
+                  class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300"
+                  [class.rotate-180]="faq.isOpen">expand_more</span>
+              </button>
+              <div 
+                *ngIf="faq.isOpen"
+                class="px-4 pb-4 text-sm text-gray-400 leading-relaxed border-t border-[#2E2419] pt-4">
+                {{ faq.answer }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-6">
+          <h3 class="font-bold text-white mb-4">Autres moyens de contact</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-[20px] empty">schedule</span>
+              <div>
+                <p class="text-gray-300 font-medium">Horaires</p>
+                <p class="text-gray-500">Lun-Ven : 9h-18h</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-[20px] empty">phone</span>
+              <div>
+                <p class="text-gray-300 font-medium">Téléphone</p>
+                <p class="text-gray-500">+33 1 23 45 67 89</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-[20px] empty">mail</span>
+              <div>
+                <p class="text-gray-300 font-medium">Email</p>
+                <p class="text-gray-500">support@livresque.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>

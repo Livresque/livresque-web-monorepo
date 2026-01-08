@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mon Profil | Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.empty {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-bold tracking-tight leading-none">Livresque</span>
+</div>
+</a>
+<nav class="hidden md:flex items-center gap-6 border-l border-[#2E2419] pl-6">
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Bibliothèque</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Explorer</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Mes Envies</a>
+<a class="text-sm font-bold text-primary transition" href="#">Mon Profil</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:block">
+<label class="flex h-9 w-64 items-center overflow-hidden rounded-md bg-surface-highlight border border-[#2E2419] focus-within:border-primary/50 transition-colors">
+<div class="pl-3 text-gray-400">
+<span class="material-symbols-outlined text-[18px] empty">search</span>
+</div>
+<input class="h-full w-full border-none bg-transparent px-2 text-sm text-white placeholder:text-gray-500 focus:ring-0" placeholder="Auteurs, titres, genres..."/>
+</label>
+</div>
+<button class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white hover:border-primary/30 transition relative">
+<span class="material-symbols-outlined text-[20px] empty">shopping_cart</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-black">2</span>
+</button>
+<button class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white hover:border-primary/30 transition">
+<span class="material-symbols-outlined text-[20px] empty">notifications</span>
+</button>
+<div class="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-background-dark font-bold text-sm">
+                    SM
+                </div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
+                    Mon Espace
+                    <span class="px-2.5 py-0.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wide">Premium</span>
+</h1>
+<p class="text-gray-400 text-sm mt-1">Gérez vos informations, vos lectures et vos préférences.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm font-medium hover:bg-white/5 transition">
+<span class="material-symbols-outlined text-[18px] empty">support_agent</span>
+                    Aide
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-900/20 text-red-400 border border-red-900/50 text-sm font-bold hover:bg-red-900/40 transition">
+<span class="material-symbols-outlined text-[18px] empty">logout</span>
+                    Déconnexion
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-4 xl:col-span-3 flex flex-col gap-6">
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden group">
+<div class="h-32 bg-gradient-to-br from-surface-dark via-[#2E2419] to-primary/20 relative">
+<div class="absolute inset-0 opacity-10">
+<svg class="w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<pattern height="20" id="dots-profile" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+<rect fill="url(#dots-profile)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<button class="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white rounded-full p-1.5 backdrop-blur-sm transition">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</button>
+</div>
+<div class="px-6 pb-6 relative">
+<div class="-mt-16 mb-4 flex justify-between items-end">
+<div class="relative">
+<div class="h-32 w-32 rounded-xl bg-gray-700 border-4 border-surface-highlight shadow-xl flex items-center justify-center text-3xl font-bold text-white bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCatPHavQC0yAzGjVKAriE297bCwC40Dw2Wnn9e20DAxA2jwog8SnQiZveWBYrU8i2W_F8xiqcDkPwZ_Xlssd6zr5CecEKVGMwWzSSGcV_ZvqCtjLo7YWBcWRe-qvHtwsFc1Ng2XjPFGPKprTxIqOx_KtyOqW0d1b8kOKzru2R5fOQx2cyYJM0WXcB8DUz2Cg6GVR209t6VE3zMh-eA9FwuxYZ3xVvdRkfTISa9spkQi0WClJOOxYs6bpr_D2WFzYWjYlBUSlgScEk');">
+                                    SM
+                                </div>
+<button class="absolute bottom-2 right-2 bg-primary text-black rounded-full p-1.5 shadow-lg hover:bg-white transition" title="Changer l'avatar">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<h2 class="text-xl font-bold text-white">Sophie Martin</h2>
+<p class="text-sm text-gray-400">Membre depuis Janvier 2023</p>
+</div>
+<div class="space-y-3">
+<div class="group/field relative">
+<label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Email</label>
+<div class="flex items-center justify-between text-sm text-gray-300 bg-surface-dark/50 p-2 rounded border border-transparent group-hover/field:border-[#2E2419] transition">
+<span>sophie.martin@example.com</span>
+<button class="text-primary opacity-0 group-hover/field:opacity-100 transition"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+</div>
+</div>
+<div class="group/field relative">
+<label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Téléphone</label>
+<div class="flex items-center justify-between text-sm text-gray-300 bg-surface-dark/50 p-2 rounded border border-transparent group-hover/field:border-[#2E2419] transition">
+<span>+33 6 12 34 56 78</span>
+<button class="text-primary opacity-0 group-hover/field:opacity-100 transition"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+</div>
+</div>
+<div class="group/field relative">
+<label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Adresse de livraison</label>
+<div class="flex items-start justify-between text-sm text-gray-300 bg-surface-dark/50 p-2 rounded border border-transparent group-hover/field:border-[#2E2419] transition">
+<span>15 Rue de la Paix<br/>75002 Paris, France</span>
+<button class="text-primary opacity-0 group-hover/field:opacity-100 transition"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+</div>
+</div>
+</div>
+<div class="border-t border-[#2E2419] pt-4">
+<h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Préférences de lecture</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-2 py-1 rounded bg-surface-dark border border-[#2E2419] hover:border-primary/50 hover:text-primary transition text-xs text-gray-300 flex items-center gap-1">
+                                        Science-Fiction
+                                        <span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-dark border border-[#2E2419] hover:border-primary/50 hover:text-primary transition text-xs text-gray-300 flex items-center gap-1">
+                                        Polar
+                                        <span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-dark border border-[#2E2419] hover:border-primary/50 hover:text-primary transition text-xs text-gray-300 flex items-center gap-1">
+                                        Audiobooks
+                                        <span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+<button class="px-2 py-1 rounded border border-dashed border-gray-600 text-gray-500 hover:border-primary hover:text-primary transition text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">add</span> Ajouter
+                                    </button>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-primary text-surface-dark font-bold text-sm hover:bg-white hover:text-surface-dark transition shadow-lg shadow-primary/10 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                                Sauvegarder
+                            </button>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] empty">credit_card</span>
+                            Paiement
+                        </h3>
+<button class="text-primary text-xs font-bold hover:underline">Gérer</button>
+</div>
+<div class="space-y-3">
+<div class="bg-surface-dark/50 p-3 rounded border border-[#2E2419] flex items-center justify-between group cursor-pointer hover:border-primary/30 transition">
+<div class="flex items-center gap-3">
+<div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+<img alt="Visa" class="h-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcKVVQqI3uMcLFC1YEgWUem4iqzZzMboD-DLmzuie80KdMHZKfKS3HogxMdrflqrqwvX_6NV7y_f6ejQ0QwxU7gEqNqo306m5VdsvdC_-H-FGve1L-ynPu4rbWhW8mbOcM-BMA4Kxr9HytJOB16dAQe0RkpBwzSxRWH3d7ghpoSzEN444x8azbRqIGLv9E8-efxgz4_abWL1TefplzohsMd39UzbNH4kZAYWdNdGtWFcgL0xSIKJAvpnAiYdeGE7nrudCEvWVHrRY"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm text-white font-mono">•••• 4242</span>
+<span class="text-[10px] text-gray-500">Expire 12/24</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary transition text-[18px]">chevron_right</span>
+</div>
+<button class="w-full py-2 border border-dashed border-gray-600 rounded text-gray-400 text-sm hover:text-white hover:border-gray-400 transition flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_card</span>
+                            Ajouter une carte
+                        </button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 xl:col-span-9 flex flex-col gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="rounded-xl bg-gradient-to-br from-surface-highlight to-surface-dark border border-[#2E2419] p-5 relative overflow-hidden">
+<div class="absolute right-0 top-0 p-4 opacity-5 text-primary">
+<span class="material-symbols-outlined text-6xl empty">menu_book</span>
+</div>
+<p class="text-sm text-gray-400 font-medium">Livres lus</p>
+<p class="text-3xl font-black text-white mt-1">12</p>
+<p class="text-xs text-primary mt-2">Cette année</p>
+</div>
+<div class="rounded-xl bg-gradient-to-br from-surface-highlight to-surface-dark border border-[#2E2419] p-5 relative overflow-hidden">
+<div class="absolute right-0 top-0 p-4 opacity-5 text-primary">
+<span class="material-symbols-outlined text-6xl empty">schedule</span>
+</div>
+<p class="text-sm text-gray-400 font-medium">Temps de lecture</p>
+<p class="text-3xl font-black text-white mt-1">48h</p>
+<p class="text-xs text-green-400 mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            +2h cette semaine
+                        </p>
+</div>
+<div class="rounded-xl bg-gradient-to-br from-surface-highlight to-surface-dark border border-[#2E2419] p-5 relative overflow-hidden">
+<div class="absolute right-0 top-0 p-4 opacity-5 text-primary">
+<span class="material-symbols-outlined text-6xl empty">savings</span>
+</div>
+<p class="text-sm text-gray-400 font-medium">Points Fidélité</p>
+<p class="text-3xl font-black text-white mt-1">240</p>
+<p class="text-xs text-gray-500 mt-2">Prochain bon d'achat à 500</p>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden flex-1">
+<div class="px-6 py-4 border-b border-[#2E2419] flex items-center justify-between bg-surface-dark/30">
+<h3 class="font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] empty">receipt_long</span>
+                            Historique des Commandes
+                        </h3>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-white/5 text-gray-400 transition" title="Filtrer"><span class="material-symbols-outlined text-[18px]">filter_list</span></button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="bg-surface-dark text-gray-400 uppercase text-xs">
+<tr>
+<th class="px-6 py-3 font-medium tracking-wider">Référence</th>
+<th class="px-6 py-3 font-medium tracking-wider">Date</th>
+<th class="px-6 py-3 font-medium tracking-wider hidden sm:table-cell">Détails</th>
+<th class="px-6 py-3 font-medium tracking-wider">Total</th>
+<th class="px-6 py-3 font-medium tracking-wider">Statut</th>
+<th class="px-6 py-3 text-right">Facture</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#2E2419] text-gray-300">
+<tr class="hover:bg-surface-dark/50 transition group">
+<td class="px-6 py-4 font-mono text-primary font-medium group-hover:text-white transition">#ORD-7829</td>
+<td class="px-6 py-4">15 Oct 2023</td>
+<td class="px-6 py-4 text-gray-400 hidden sm:table-cell">Sapiens, +1 autre</td>
+<td class="px-6 py-4 font-bold text-white">42,50 €</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-900/30 text-green-400 border border-green-900/50">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                        Livrée
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-500 hover:text-primary transition" title="Télécharger la facture">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-dark/50 transition group">
+<td class="px-6 py-4 font-mono text-primary font-medium group-hover:text-white transition">#ORD-7650</td>
+<td class="px-6 py-4">28 Sept 2023</td>
+<td class="px-6 py-4 text-gray-400 hidden sm:table-cell">L'Art de la Guerre</td>
+<td class="px-6 py-4 font-bold text-white">35,00 €</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-900/30 text-green-400 border border-green-900/50">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                        Livrée
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-500 hover:text-primary transition" title="Télécharger la facture">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-dark/50 transition group">
+<td class="px-6 py-4 font-mono text-primary font-medium group-hover:text-white transition">#ORD-7112</td>
+<td class="px-6 py-4">10 Août 2023</td>
+<td class="px-6 py-4 text-gray-400 hidden sm:table-cell">Pack Science-Fiction</td>
+<td class="px-6 py-4 font-bold text-white">55,90 €</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-700/30 text-gray-400 border border-gray-700">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                                        Terminée
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-500 hover:text-primary transition" title="Télécharger la facture">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-dark/50 transition group">
+<td class="px-6 py-4 font-mono text-primary font-medium group-hover:text-white transition">#ORD-6985</td>
+<td class="px-6 py-4">22 Juil 2023</td>
+<td class="px-6 py-4 text-gray-400 hidden sm:table-cell">Lectures d'été, +3 autres</td>
+<td class="px-6 py-4 font-bold text-white">89,20 €</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-700/30 text-gray-400 border border-gray-700">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                                        Terminée
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-500 hover:text-primary transition" title="Télécharger la facture">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-dark/50 transition group">
+<td class="px-6 py-4 font-mono text-primary font-medium group-hover:text-white transition">#ORD-6540</td>
+<td class="px-6 py-4">05 Juin 2023</td>
+<td class="px-6 py-4 text-gray-400 hidden sm:table-cell">Dune (Livre Audio)</td>
+<td class="px-6 py-4 font-bold text-white">24,95 €</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-900/30 text-red-400 border border-red-900/50">
+<span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                                        Remboursée
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-500 hover:text-primary transition" title="Télécharger la facture">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-dark/50 transition group">
+<td class="px-6 py-4 font-mono text-primary font-medium group-hover:text-white transition">#ORD-6120</td>
+<td class="px-6 py-4">18 Mai 2023</td>
+<td class="px-6 py-4 text-gray-400 hidden sm:table-cell">Best-sellers 2022</td>
+<td class="px-6 py-4 font-bold text-white">45,00 €</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-700/30 text-gray-400 border border-gray-700">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                                        Terminée
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-500 hover:text-primary transition" title="Télécharger la facture">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-3 border-t border-[#2E2419] bg-surface-dark/20 text-center">
+<a class="text-xs font-bold text-primary hover:text-white transition" href="#">Voir toutes mes commandes</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-12 border-t border-[#2E2419] bg-background-dark py-8">
+<div class="mx-auto max-w-[1600px] px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-white font-bold">Livresque</span>
+</div>
+<p class="text-xs text-gray-500">Votre librairie numérique préférée, toujours à portée de main.</p>
+</div>
+<div>
+<h4 class="text-white font-bold text-sm mb-4">Aide</h4>
+<ul class="space-y-2 text-xs text-gray-500">
+<li><a class="hover:text-primary" href="#">FAQ</a></li>
+<li><a class="hover:text-primary" href="#">Contact</a></li>
+<li><a class="hover:text-primary" href="#">Livraison</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-sm mb-4">Légal</h4>
+<ul class="space-y-2 text-xs text-gray-500">
+<li><a class="hover:text-primary" href="#">CGV</a></li>
+<li><a class="hover:text-primary" href="#">Confidentialité</a></li>
+<li><a class="hover:text-primary" href="#">Cookies</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-sm mb-4">Suivez-nous</h4>
+<div class="flex gap-4">
+<a class="text-gray-500 hover:text-white transition" href="#"><span class="material-symbols-outlined text-[20px]">public</span></a>
+<a class="text-gray-500 hover:text-white transition" href="#"><span class="material-symbols-outlined text-[20px]">rss_feed</span></a>
+</div>
+</div>
+</div>
+<div class="border-t border-[#2E2419] pt-8 text-center text-xs text-gray-500">
+<p>© 2023 Livresque. Tous droits réservés.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

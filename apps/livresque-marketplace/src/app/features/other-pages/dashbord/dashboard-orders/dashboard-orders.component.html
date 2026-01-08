@@ -1,0 +1,141 @@
+<div class="max-w-[1600px] mx-auto">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-8">Historique des commandes</h1>
+
+  <!-- Search and Filters -->
+  <div class="mb-6 flex flex-wrap items-center gap-3">
+    <!-- Search Bar -->
+    <div class="relative flex-1 min-w-[280px]">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery"
+        placeholder="Rechercher par référence ou article..."
+        class="w-full h-10 pl-10 pr-4 rounded-lg bg-surface-highlight border border-[#2E2419] text-white text-sm placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition" />
+    </div>
+
+    <!-- Status Filter -->
+    <select 
+      [(ngModel)]="selectedStatus"
+      class="h-10 px-4 rounded-lg bg-surface-highlight border border-[#2E2419] text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary transition">
+      <option value="all">Tous les statuts</option>
+      <option value="Livrée">Livrée</option>
+      <option value="En cours">En cours</option>
+      <option value="Annulée">Annulée</option>
+    </select>
+
+    <!-- Date Filter -->
+    <select 
+      [(ngModel)]="selectedDateFilter"
+      class="h-10 px-4 rounded-lg bg-surface-highlight border border-[#2E2419] text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary transition">
+      <option value="all">Toutes les dates</option>
+      <option value="7days">7 derniers jours</option>
+      <option value="30days">30 derniers jours</option>
+      <option value="90days">90 derniers jours</option>
+    </select>
+  </div>
+
+  <!-- Orders Table -->
+  <div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden">
+    <div class="px-6 py-4 border-b border-[#2E2419] flex items-center justify-between bg-surface-dark/30">
+      <h3 class="font-bold text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px] empty">receipt_long</span>
+        Toutes les Commandes
+      </h3>
+      <div class="flex items-center gap-2">
+        <span class="text-sm text-gray-400">{{ totalFilteredOrders }} commande{{ totalFilteredOrders > 1 ? 's' : '' }}</span>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left">
+        <thead class="bg-surface-dark text-gray-400 uppercase text-xs">
+          <tr>
+            <th class="px-6 py-3 font-medium tracking-wider">Livres</th>
+            <th class="px-6 py-3 font-medium tracking-wider">Référence</th>
+            <th class="px-6 py-3 font-medium tracking-wider">Date</th>
+            <th class="px-6 py-3 font-medium tracking-wider">Articles</th>
+            <th class="px-6 py-3 font-medium tracking-wider">Total</th>
+            <th class="px-6 py-3 font-medium tracking-wider">Statut</th>
+            <th class="px-6 py-3 text-right">Action</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-[#2E2419] text-gray-300">
+          <tr *ngFor="let order of filteredOrders" class="hover:bg-surface-dark/50 transition">
+            <td class="px-6 py-4">
+              <div class="flex items-center">
+                <div 
+                  *ngFor="let cover of order.bookCovers; let i = index" 
+                  class="w-10 h-14 rounded border-2 border-[#1A140E] overflow-hidden shadow-lg"
+                  [style.marginLeft.px]="i > 0 ? -20 : 0"
+                  [style.zIndex]="order.bookCovers.length - i">
+                  <img [src]="cover" [alt]="'Livre ' + (i + 1)" class="w-full h-full object-cover" />
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 font-mono text-primary font-medium">{{ order.id }}</td>
+            <td class="px-6 py-4">{{ order.date }}</td>
+            <td class="px-6 py-4 text-gray-400">{{ order.items }}</td>
+            <td class="px-6 py-4 font-bold text-white">{{ order.total }}</td>
+            <td class="px-6 py-4">
+              <span 
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium"
+                [ngClass]="{
+                  'bg-green-900/30 text-green-400 border border-green-900/50': order.statusColor === 'green',
+                  'bg-blue-900/30 text-blue-400 border border-blue-900/50': order.statusColor === 'blue',
+                  'bg-red-900/30 text-red-400 border border-red-900/50': order.statusColor === 'red',
+                  'bg-gray-700/30 text-gray-400 border border-gray-700': order.statusColor === 'gray'
+                }">
+                <span class="w-1.5 h-1.5 rounded-full" 
+                  [ngClass]="{
+                    'bg-green-400': order.statusColor === 'green',
+                    'bg-blue-400': order.statusColor === 'blue',
+                    'bg-red-400': order.statusColor === 'red',
+                    'bg-gray-400': order.statusColor === 'gray'
+                  }"></span>
+                {{ order.status }}
+              </span>
+            </td>
+            <td class="px-6 py-4 text-right">
+              <button class="text-gray-500 hover:text-white transition"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="px-6 py-4 border-t border-[#2E2419] bg-surface-dark/20 flex items-center justify-between">
+      <div class="text-sm text-gray-400">
+        Page {{ currentPage }} sur {{ totalPages }}
+      </div>
+      <div class="flex items-center gap-2">
+        <button
+          (click)="previousPage()"
+          [disabled]="currentPage === 1"
+          [class.opacity-50]="currentPage === 1"
+          [class.cursor-not-allowed]="currentPage === 1"
+          class="flex items-center justify-center w-10 h-10 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 text-sm hover:text-white hover:border-primary/30 transition disabled:hover:text-gray-400 disabled:hover:border-[#2E2419]">
+          <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+        </button>
+        <button
+          *ngFor="let page of pages"
+          (click)="goToPage(page)"
+          [class.bg-primary]="currentPage === page"
+          [class.text-background-dark]="currentPage === page"
+          [class.font-bold]="currentPage === page"
+          [class.bg-surface-highlight]="currentPage !== page"
+          [class.text-gray-400]="currentPage !== page"
+          class="flex items-center justify-center w-10 h-10 rounded-lg border border-[#2E2419] text-sm hover:text-white hover:border-primary/30 transition">
+          {{ page }}
+        </button>
+        <button
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages"
+          [class.opacity-50]="currentPage === totalPages"
+          [class.cursor-not-allowed]="currentPage === totalPages"
+          class="flex items-center justify-center w-10 h-10 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-400 text-sm hover:text-white hover:border-primary/30 transition disabled:hover:text-gray-400 disabled:hover:border-[#2E2419]">
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

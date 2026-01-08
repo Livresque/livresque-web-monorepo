@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Historique des Commandes | Livresque</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9F1C", // Vibrant Amber Orange
+                        "primary-hover": "#E0890E",
+                        "background-light": "#FFFBF5", // Warm white
+                        "background-dark": "#0F0C08", // Deep warm black (Dark Espresso)
+                        "surface-dark": "#1A140E", // Dark brown surface
+                        "surface-highlight": "#2E2419", // Lighter brown surface
+                        "gold-muted": "#C5A984", // Muted Gold for text
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Inter", "Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.empty {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A140E; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E2419; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF9F1C; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-[#2E2419] bg-background-dark/95 backdrop-blur-sm relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="header-pattern" patternUnits="userSpaceOnUse" width="20">
+<circle class="text-primary" cx="1" cy="1" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#header-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="mx-auto flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-white transition hover:opacity-80" href="#">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-bold tracking-tight leading-none text-white">Livresque</span>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Espace Membre</span>
+</div>
+</a>
+<nav class="hidden md:flex items-center gap-6 border-l border-[#2E2419] pl-6">
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Boutique</a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Ma Bibliothèque</a>
+<a class="text-sm font-bold text-primary transition flex items-center gap-1" href="#">
+                        Mes Commandes
+                    </a>
+<a class="text-sm font-medium text-gray-400 transition hover:text-white" href="#">Profil</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative flex h-9 w-9 items-center justify-center rounded-full bg-surface-highlight border border-[#2E2419] text-gray-400 hover:text-white hover:border-primary/30 transition group">
+<span class="material-symbols-outlined text-[20px] empty group-hover:text-primary transition-colors">shopping_cart</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-background-dark">2</span>
+</button>
+<div class="h-9 w-9 rounded-full bg-gradient-to-br from-primary to-[#E0890E] flex items-center justify-center text-background-dark font-bold text-sm shadow-lg shadow-primary/20 border border-white/10 cursor-pointer">
+                    SM
+                </div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full mx-auto max-w-[1400px] p-4 sm:p-6 lg:p-8">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+<div>
+<nav class="flex text-sm text-gray-500 mb-2">
+<a class="hover:text-primary transition" href="#">Mon Espace</a>
+<span class="mx-2 text-[#2E2419]">/</span>
+<span class="text-gold-muted font-medium">Historique des commandes</span>
+</nav>
+<h1 class="text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                    Historique des commandes
+                </h1>
+<p class="text-gray-400 mt-2 text-sm max-w-2xl">
+                    Retrouvez ici le détail de vos achats, suivez vos livraisons et téléchargez vos factures.
+                </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-highlight border border-[#2E2419] text-gray-300 text-sm font-medium hover:bg-white/5 transition hover:border-primary/30 hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">help</span>
+                    Besoin d'aide ?
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-5 relative overflow-hidden group hover:border-primary/20 transition-all">
+<div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity text-primary">
+<span class="material-symbols-outlined text-6xl empty">package_2</span>
+</div>
+<div class="flex items-start justify-between relative z-10">
+<div>
+<p class="text-xs font-bold text-gold-muted uppercase tracking-wider">Commandes Totales</p>
+<p class="text-3xl font-black text-white mt-1">24</p>
+</div>
+<div class="bg-surface-dark p-2 rounded-lg text-primary border border-[#2E2419]">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#2E2419]/50 flex items-center gap-2">
+<span class="text-xs text-green-400 bg-green-900/20 px-1.5 py-0.5 rounded border border-green-900/30">+2 ce mois</span>
+<span class="text-xs text-gray-500">Dernière le 15 Oct</span>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-5 relative overflow-hidden group hover:border-primary/20 transition-all">
+<div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity text-primary">
+<span class="material-symbols-outlined text-6xl empty">local_shipping</span>
+</div>
+<div class="flex items-start justify-between relative z-10">
+<div>
+<p class="text-xs font-bold text-gold-muted uppercase tracking-wider">En cours</p>
+<p class="text-3xl font-black text-white mt-1">1</p>
+</div>
+<div class="bg-surface-dark p-2 rounded-lg text-primary border border-[#2E2419]">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#2E2419]/50 flex items-center gap-2">
+<span class="text-xs text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                        En transit
+                    </span>
+<span class="text-xs text-gray-500">Arrivée prévue demain</span>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-5 relative overflow-hidden group hover:border-primary/20 transition-all">
+<div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity text-primary">
+<span class="material-symbols-outlined text-6xl empty">savings</span>
+</div>
+<div class="flex items-start justify-between relative z-10">
+<div>
+<p class="text-xs font-bold text-gold-muted uppercase tracking-wider">Points Fidélité</p>
+<p class="text-3xl font-black text-white mt-1">482</p>
+</div>
+<div class="bg-surface-dark p-2 rounded-lg text-primary border border-[#2E2419]">
+<span class="material-symbols-outlined">loyalty</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#2E2419]/50">
+<a class="text-xs font-bold text-primary hover:text-white transition flex items-center gap-1 group/link" href="#">
+                        Voir les récompenses 
+                        <span class="material-symbols-outlined text-[14px] group-hover/link:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<div class="lg:col-span-1 space-y-6">
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] p-5">
+<h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">filter_alt</span>
+                        Filtres
+                    </h3>
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-medium text-gray-400 mb-1.5">Rechercher</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-500 text-[18px]">search</span>
+</span>
+<input class="block w-full rounded-lg bg-surface-dark border-[#2E2419] text-sm text-white placeholder:text-gray-600 focus:border-primary focus:ring-1 focus:ring-primary pl-9" placeholder="N° de commande, Livre..." type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-medium text-gray-400 mb-1.5">Période</label>
+<select class="block w-full rounded-lg bg-surface-dark border-[#2E2419] text-sm text-gray-300 focus:border-primary focus:ring-1 focus:ring-primary">
+<option>30 derniers jours</option>
+<option>6 derniers mois</option>
+<option>Année 2023</option>
+<option>Année 2022</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-medium text-gray-400 mb-1.5">Statut</label>
+<div class="space-y-2">
+<label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer hover:text-primary transition">
+<input checked="" class="rounded bg-surface-dark border-[#2E2419] text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+                                    Tous
+                                </label>
+<label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer hover:text-primary transition">
+<input class="rounded bg-surface-dark border-[#2E2419] text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+                                    En cours
+                                </label>
+<label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer hover:text-primary transition">
+<input class="rounded bg-surface-dark border-[#2E2419] text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+                                    Livrées
+                                </label>
+<label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer hover:text-primary transition">
+<input class="rounded bg-surface-dark border-[#2E2419] text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+                                    Annulées
+                                </label>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-primary hover:bg-primary-hover text-background-dark font-bold text-sm transition mt-2">
+                            Appliquer
+                        </button>
+</div>
+</div>
+<div class="rounded-xl bg-gradient-to-br from-surface-highlight to-surface-dark border border-[#2E2419] p-5 text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+<div class="relative z-10">
+<div class="w-12 h-12 rounded-full bg-surface-dark border border-[#2E2419] flex items-center justify-center mx-auto mb-3 text-primary">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<h4 class="font-bold text-white text-sm mb-1">Un problème avec une commande ?</h4>
+<p class="text-xs text-gray-400 mb-4">Notre équipe est là pour vous aider du lundi au vendredi.</p>
+<a class="text-xs font-bold text-primary hover:underline" href="#">Contacter le support</a>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3 space-y-6">
+<div class="rounded-xl bg-surface-highlight border border-primary/40 overflow-hidden shadow-[0_0_15px_-3px_rgba(255,159,28,0.1)] transition hover:shadow-[0_0_20px_-3px_rgba(255,159,28,0.2)]">
+<div class="px-6 py-4 border-b border-[#2E2419] bg-surface-dark/40 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-2 rounded text-primary">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<p class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-0.5">Commande <span class="text-white">#ORD-7829</span></p>
+<p class="text-xs text-gray-500">Passée le 15 Oct 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<p class="text-xs text-gray-400 mb-0.5">Total</p>
+<p class="font-bold text-white">42,50 €</p>
+</div>
+<div class="h-8 w-px bg-[#2E2419] hidden sm:block"></div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-900/30 text-blue-400 border border-blue-800/50">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                                En transit
+                            </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex flex-col sm:flex-row gap-6">
+<div class="flex -space-x-4 overflow-hidden py-1">
+<img alt="Cover" class="inline-block h-20 w-14 rounded shadow-lg border border-[#2E2419] object-cover hover:-translate-y-1 transition transform bg-surface-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrZPkWSt4Jp8DoxCZo_0aHdPGLTI4tf2m71NzHMfBfVMwtpdECkoCGIgrc27gnjHimUnIiLEfspu2o_39xiOyEJeRF0kP78X2Zg6L8PYw-ZQDHS2pHdxnTvo7UKepwgsJWaARyTitKWWwIea-iK74YhL6GgQg3HVasbkwPjEn4LIYvRrPAN0rfawMnJ1OEwzr2bZYQqcTktLnWS7y2G7UQFu-uzDG2Aa28TY7tZwqGBwWvqsvJPYQ2beS41-IZW2dWVNYmoZcWgCA"/>
+<img alt="Cover" class="inline-block h-20 w-14 rounded shadow-lg border border-[#2E2419] object-cover hover:-translate-y-1 transition transform bg-surface-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTGG4qb_3KpOrGAdSxl7IBZjlp8e3jIwFrH4TFqP16ECt6_cXWdhsu3FspRxLDoul0PagphMx0vKlu82wNvH3Xsj36j2xnPZ4t3TUNfB7G1mKXDSruG8nL3Jzdw6hT1VPpuVOHcT1kKS3S9471nvavvXdOTJyr0KCwIWoKgA4jJh4WFVzlrpGKeQIJdVwrtT-FK6ms2vQGAtSJUf6KpWisOsD40DTxRZWQ5auFKhWK1uDxnCZmYu3cYHMWvvTZX4PhNS44yAAYVI8"/>
+<div class="h-20 w-14 rounded shadow-lg border border-[#2E2419] bg-surface-dark flex items-center justify-center text-xs font-medium text-gray-400 relative z-10">
+                                    +1
+                                </div>
+</div>
+<div class="flex-1 space-y-2">
+<h4 class="text-white font-medium">Pack Science-Fiction: Sapiens + 2 autres articles</h4>
+<p class="text-sm text-gray-400 line-clamp-2">Livraison estimée : <span class="text-primary font-bold">Demain, 18 Oct</span>. Votre colis est actuellement au centre de tri régional.</p>
+<div class="w-full bg-surface-dark rounded-full h-1.5 mt-2 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<div class="flex flex-row sm:flex-col gap-2 shrink-0 justify-end">
+<button class="px-4 py-2 rounded-lg bg-primary hover:bg-white text-background-dark font-bold text-sm transition">
+                                    Suivre le colis
+                                </button>
+<button class="px-4 py-2 rounded-lg bg-surface-dark border border-[#2E2419] hover:bg-surface-highlight text-gray-300 text-sm font-medium transition">
+                                    Détails
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden hover:border-gray-700 transition">
+<div class="px-6 py-4 border-b border-[#2E2419] bg-surface-dark/20 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-gray-800 p-2 rounded text-gray-400">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-0.5">Commande <span class="text-white">#ORD-7650</span></p>
+<p class="text-xs text-gray-500">Passée le 28 Sept 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<p class="text-xs text-gray-400 mb-0.5">Total</p>
+<p class="font-bold text-white">35,00 €</p>
+</div>
+<div class="h-8 w-px bg-[#2E2419] hidden sm:block"></div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-green-900/30 text-green-400 border border-green-800/50">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                Livrée
+                            </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex flex-col sm:flex-row gap-6">
+<div class="flex overflow-hidden py-1">
+<img alt="Cover" class="inline-block h-20 w-14 rounded shadow-lg border border-[#2E2419] object-cover bg-surface-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9FzgYfG1yvTrQaWLfxbmZYPNOThk5ZN3c0FpqU-EDKS4D6E-z_HmKvUrxH_hgtqAG66ldXlIdGgE9GFoWTzsBbNzTMXCl9UeYfx8QUVXkdxzMvR-qhHIqtKVk0j7vENVyE-kAEb3eReNSwLZ0-RvfbA4JcZZ0O2yI_XOiDEKIbXdBSLUZK_toDUe7g494WzcLlruGudLFSB1q6DXYF0E6Nkl3vIHl1uxyp1SdHjnnO3LPw0jYg7z8RId2nO3ukE0l5IfV9CN67_Q"/>
+</div>
+<div class="flex-1 space-y-1">
+<h4 class="text-white font-medium">L'Art de la Guerre (Édition Deluxe)</h4>
+<p class="text-sm text-gray-400">Livré le 30 Sept 2023 à votre domicile.</p>
+<a class="text-xs text-primary hover:underline inline-block mt-1" href="#">Laisser un avis sur ce livre</a>
+</div>
+<div class="flex flex-row sm:flex-col gap-2 shrink-0 justify-end">
+<button class="px-4 py-2 rounded-lg bg-surface-dark border border-[#2E2419] hover:bg-surface-highlight text-gray-300 text-sm font-medium transition flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+                                    Facture
+                                </button>
+<button class="px-4 py-2 rounded-lg bg-transparent border border-transparent hover:text-primary text-gray-400 text-sm font-medium transition">
+                                    Détails
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-highlight border border-[#2E2419] overflow-hidden hover:border-gray-700 transition">
+<div class="px-6 py-4 border-b border-[#2E2419] bg-surface-dark/20 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-gray-800 p-2 rounded text-gray-400">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-0.5">Commande <span class="text-white">#ORD-7112</span></p>
+<p class="text-xs text-gray-500">Passée le 10 Août 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<p class="text-xs text-gray-400 mb-0.5">Total</p>
+<p class="font-bold text-white">55,90 €</p>
+</div>
+<div class="h-8 w-px bg-[#2E2419] hidden sm:block"></div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-green-900/30 text-green-400 border border-green-800/50">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                Livrée
+                            </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex flex-col sm:flex-row gap-6">
+<div class="flex -space-x-4 overflow-hidden py-1">
+<div class="h-20 w-14 rounded shadow-lg border border-[#2E2419] bg-surface-dark flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-gray-600">book</span>
+</div>
+<div class="h-20 w-14 rounded shadow-lg border border-[#2E2419] bg-surface-dark flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-gray-600">book</span>
+</div>
+<div class="h-20 w-14 rounded shadow-lg border border-[#2E2419] bg-surface-dark flex items-center justify-center text-xs font-medium text-gray-400 relative z-10">
+                                    +1
+                                </div>
+</div>
+<div class="flex-1 space-y-1">
+<h4 class="text-white font-medium">Collection Stephen King (3 livres)</h4>
+<p class="text-sm text-gray-400">Livré le 14 Août 2023 en Point Relais.</p>
+</div>
+<div class="flex flex-row sm:flex-col gap-2 shrink-0 justify-end">
+<button class="px-4 py-2 rounded-lg bg-surface-dark border border-[#2E2419] hover:bg-surface-highlight text-gray-300 text-sm font-medium transition flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+                                    Facture
+                                </button>
+<button class="px-4 py-2 rounded-lg bg-transparent border border-transparent hover:text-primary text-gray-400 text-sm font-medium transition">
+                                    Détails
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center py-6">
+<button class="px-6 py-2 rounded-full border border-[#2E2419] bg-surface-highlight text-gray-400 text-sm hover:text-white hover:border-gray-600 transition">
+                        Charger plus de commandes
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-[#2E2419] bg-background-dark py-12">
+<div class="mx-auto max-w-[1400px] px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm text-gray-500">© 2023 Livresque. Tous droits réservés.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-sm text-gray-500 hover:text-white transition" href="#">Mentions légales</a>
+<a class="text-sm text-gray-500 hover:text-white transition" href="#">Confidentialité</a>
+<a class="text-sm text-gray-500 hover:text-white transition" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+
+</body></html>
